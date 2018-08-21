@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_21_024547) do
+ActiveRecord::Schema.define(version: 2018_08_21_043953) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2018_08_21_024547) do
     t.bigint "user_id"
     t.string "pickup_location"
     t.string "dropoff_location"
-    t.date "datetime"
+    t.datetime "datetime"
     t.string "notes"
     t.integer "status"
     t.integer "distance"
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 2018_08_21_024547) do
     t.string "website"
     t.string "name"
     t.string "location"
+    t.string "phone"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
