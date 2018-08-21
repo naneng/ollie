@@ -249,7 +249,7 @@ addresses << "3590 Sanborn Dr, Oakland, CA 94602"
 
 
 i = 0
-
+early_reqs = []
 15.times do
   shelter = shelters.sample
   pickup = shelter.location
@@ -258,6 +258,7 @@ i = 0
   if i < 8
     i += 1
     req = Request.create!(user_id: shelter.id, pickup_location: pickup, dropoff_location: dropoff, datetime: DateTime.new(2018,8,31,(12..20).to_a.sample,(1..59).to_a.sample), status: "Requested")
+    early_reqs << req
   else
     i += 1
     req = Request.create!(user_id: shelter.id, pickup_location: pickup, dropoff_location: dropoff, datetime: DateTime.new(2018,(9..12).to_a.sample,(1..30).to_a.sample,(8..20).to_a.sample,(1..59).to_a.sample), status: "Requested" )
@@ -293,6 +294,7 @@ i = 0
   if i < 8
     i += 1
     req = Request.create!(user_id: shelter.id, pickup_location: pickup, dropoff_location: dropoff, datetime: DateTime.new(2018,8,31,(12..20).to_a.sample,(1..59).to_a.sample), status: "Requested")
+    early_reqs << req
   else
     i += 1
     req = Request.create!(user_id: shelter.id, pickup_location: pickup, dropoff_location: dropoff, datetime: DateTime.new(2018,(9..12).to_a.sample,(1..30).to_a.sample,(8..20).to_a.sample,(1..59).to_a.sample), status: "Requested" )
@@ -316,3 +318,11 @@ end
 puts "Created #{Request.count - a} Requests!"
 puts "Created #{DogRequest.count - b} Dog Requests!"
 
+early_req_array = (0...early_reqs.count).to_a
+8.times do
+  num = early_req_array.sample
+  early_req_array.delete(num)
+  Booking.create!(user_id: drivers.sample.id, request_id: early_reqs[num].id)
+end
+
+puts "Created #{Booking.count} bookings!"
