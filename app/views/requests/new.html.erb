@@ -1,2 +1,16 @@
-<h1>Requests#new</h1>
-<p>Find me in app/views/requests/new.html.erb</p>
+<div>
+  <div class="card_container">
+
+    <div class="card_form">
+      <h2 class = "blue">Transportation Request</h2>
+        <%= simple_form_for [@request] do |f| %>
+          <p>Shelter: <%= @user.name %></p>
+          <%= f.input :pickup_location, as: :text, autofocus: true, :input_html => {:style => 'width: 100%', :rows => 3} %>
+          <%= f.input :dropoff_location %>
+          <%= f.input :datetime, :label => "What time is the service needed?", :as => :string, required: true, :input_html => {:class => "datepicker"} %>
+          <%= f.submit "Submit" %>
+        <% end %>
+        </div>
+  </div>
+  <div class="trapezium-bottom-right"></div>
+</div>
