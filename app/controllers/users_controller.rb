@@ -2,7 +2,12 @@ class UsersController < ApplicationController
   # before_action :set_user, only: [ :show, :edit, :update, :destroy ]
 
   def index
-    @users = User.all
+
+    if params[:query].present?
+      @users = User.global_search(params[:query])
+    else
+      @users = User.all
+    end
   end
 
 
