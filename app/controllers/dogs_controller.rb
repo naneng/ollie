@@ -1,4 +1,7 @@
 class DogsController < ApplicationController
+
+  authorize @dog
+
   before_action :set_dog, only: [ :show, :edit, :update, :destroy ]
 
   def show
