@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-NAME = %w(Caleb Jan Douglas Tsuzumi George Tania Matt Larry Kat Ableen Takuma Nozomi David Maria Hiroki)
+NAME = %w(George Matt Larry Kat Ableen Takuma Nozomi David Douglas Hiroki)
 loc = ["2096 Mountain Blvd, Oakland, CA 94611, USA"]
 loc << "3250 Lakeshore Ave, Oakland, CA 94610, USA"
 loc << "555 Willie Stargell Ave, Alameda, CA 94501, USA"
@@ -19,6 +19,8 @@ loc << "49 Sky Oaks Rd, Fairfax, CA 94930, USA"
 loc << "35201 Newark Blvd V, Newark, CA 94560, USA"
 drivers = []
 i = 0
+
+
 10.times do
   user_name = NAME.sample
   NAME.delete(user_name)
@@ -165,7 +167,7 @@ phs = {
   nonprofit_status: 0}
 
 jp = {
-  email: "jp@gmail.com",
+  email: "shelter@gmail.com",
   name: "Jelly's Place",
   location: "2905 San Pablo Dam Rd, San Pablo, CA 94803",
   phone: "5106213493",

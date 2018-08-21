@@ -20,6 +20,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'devise'
 gem 'better_errors'
+gem 'pundit'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
