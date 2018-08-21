@@ -1,4 +1,6 @@
 class RequestsController < ApplicationController
+  authorize @request
+
   def index
   end
 

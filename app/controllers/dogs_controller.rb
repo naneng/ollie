@@ -1,4 +1,6 @@
 class DogsController < ApplicationController
+  authorize @dog
+
   def show
     @dogs = Dog.all
   end
