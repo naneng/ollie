@@ -1,5 +1,4 @@
 class Request < ApplicationRecord
-  belongs_to :dog through: :dog_requests
   belongs_to :user
   has_many :dog_requests
 

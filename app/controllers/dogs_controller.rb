@@ -1,4 +1,7 @@
 class DogsController < ApplicationController
+
+  authorize @dog
+
   before_action :set_dog, only: [ :show, :edit, :update, :destroy ]
 
   def show
@@ -35,7 +38,6 @@ class DogsController < ApplicationController
   end
 
   def set_dog
-    # @user = User.find(params[:user_id])
     @dog = Dog.find(params[:id])
 
   end
