@@ -20,8 +20,7 @@ loc << "35201 Newark Blvd V, Newark, CA 94560, USA"
 drivers = []
 i = 0
 
-User.create!(
-  )
+
 10.times do
   user_name = NAME.sample
   NAME.delete(user_name)
@@ -168,7 +167,7 @@ phs = {
   nonprofit_status: 0}
 
 jp = {
-  email: "jp@gmail.com",
+  email: "shelter@gmail.com",
   name: "Jelly's Place",
   location: "2905 San Pablo Dam Rd, San Pablo, CA 94803",
   phone: "5106213493",
