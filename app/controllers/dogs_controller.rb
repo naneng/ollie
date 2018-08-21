@@ -1,4 +1,6 @@
 class DogsController < ApplicationController
+  before_action :set_dog, only: [ :show, :edit, :update, :destroy ]
+
   def show
     @dogs = Dog.all
   end
@@ -8,6 +10,13 @@ class DogsController < ApplicationController
   end
 
   def create
+    @dog = Dog.new(dog_params)
+    if @dog.save
+      redirect_to user_path(current_user)
+      flash[:create] = "#{dog.name} has been created!"
+    else
+      render :new
+    end
   end
 
   def edit
@@ -26,7 +35,6 @@ class DogsController < ApplicationController
   end
 
   def set_dog
-    @user = User.find(params[:user_id])
     @dog = Dog.find(params[:id])
 
   end
