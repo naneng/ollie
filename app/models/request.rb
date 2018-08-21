@@ -1,3 +1,3 @@
 class Request < ApplicationRecord
-  belongs_to :booking
+  has_many :dog_requests
 end
