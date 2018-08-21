@@ -35,7 +35,6 @@ class DogsController < ApplicationController
   end
 
   def set_dog
-    # @user = User.find(params[:user_id])
     @dog = Dog.find(params[:id])
 
   end
