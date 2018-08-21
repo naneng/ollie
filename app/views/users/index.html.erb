@@ -1,4 +1,7 @@
 
 <h1>List of Not-for-Profits, Drivers and Dog Owners</h1>
-h4> <%= @user.name %> </h4>
-<p><%= @user.nonprofit_status %></p>
+<% @users.each do |user| %>
+  <h4> <%= user.name %> </h4>
+
+  <p><%= user.nonprofit_status %></p>
+<% end %>
