@@ -12,4 +12,15 @@
     <button type="button" class="btn btn-success btn">Become a volunteer</button>
     <button type="button" class="btn btn-success btn">Become a partner</button>
   </div>
+  <div class="corgi-button">
+    <%= link_to users_path do %>
+      <button type="button" class="btn btn-warning btn">List of Partners</button>
+    <% end %>
+    <%= link_to dogs_path do %>
+      <button type="button" class="btn btn-warning btn">List of Dogs</button>
+    <% end %>
+    <%= link_to requests_path do %>
+      <button type="button" class="btn btn-warning btn">List of Requests</button>
+    <% end %>
+  </div>
 </div>

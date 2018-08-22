@@ -11,6 +11,10 @@ class RequestPolicy < ApplicationPolicy
   end
 
   def new?
+    rrecord.user == user
+  end
+
+  def show?
     return true
   end
 
