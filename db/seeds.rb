@@ -20,6 +20,7 @@ loc << "35201 Newark Blvd V, Newark, CA 94560, USA"
 drivers = []
 i = 0
 
+
 10.times do
   user_name = NAME.sample
   NAME.delete(user_name)
