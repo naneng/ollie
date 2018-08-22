@@ -1,15 +1,20 @@
 class DogsController < ApplicationController
 
-  authorize @dog
-
   before_action :set_dog, only: [ :show, :edit, :update, :destroy ]
 
+  def index
+    @dogs = policy_scope(Dog)
+  end
+
   def show
-    @dogs = Dog.all
+    authorize @dog
+
   end
 
   def new
     @dog = Dog.new
+    authorize @dog
+
   end
 
   def create
@@ -23,12 +28,15 @@ class DogsController < ApplicationController
   end
 
   def edit
+    authorize @dog
   end
 
   def update
+    authorize @dog
   end
 
   def destroy
+    authorize @dog
   end
 
   private

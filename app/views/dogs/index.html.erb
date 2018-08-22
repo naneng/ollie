@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <h1>List of Dogs</h1>
+      <% @dogs.each do |dog| %>
+        <%= link_to dog_path(dog) do %>
+          <ol>
+            <li>
+              <p> <%= dog.name %> </p>
+              <p><%= dog.breed %></p>
+              <p><%= dog.personality %></p>
+            </li>
+          </ol>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <%= link_to "Home", root_path %>
+  <%= link_to "List of Orgs", users_path %>
+</div>

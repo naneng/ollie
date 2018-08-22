@@ -1,7 +1,9 @@
 class RequestPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      # scope.all
+      scope.includes(:dog_requests).where(dog_requests: {id: nil})
+
     end
   end
 
@@ -11,6 +13,10 @@ class RequestPolicy < ApplicationPolicy
   end
 
   def new?
+    rrecord.user == user
+  end
+
+  def show?
     return true
   end
 
