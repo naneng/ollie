@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  # before_action :set_user, only: [ :show, :edit, :update, :destroy ]
+   before_action :set_user, only: [ :show, :edit, :update, :destroy ]
 
   def index
     if params[:query].present?
@@ -13,6 +13,16 @@ class UsersController < ApplicationController
   def show
     @user = User.includes(:dogs).find(params[:id])
     authorize @user
+  end
+
+   def edit
+    authorize @user
+  end
+
+  private
+
+  def set_user
+    @user = current_user
   end
 
 end

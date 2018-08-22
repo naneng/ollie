@@ -1,4 +1,8 @@
 <div class="container">
+
+  <% if policy(@user).edit? %>
+     <%= link_to "Edit", edit_user_path(@user.id) %>
+  <% end %>
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
       <h1>List of Not-for-Profits, Drivers and Dog Owners</h1>
