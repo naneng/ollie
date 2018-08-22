@@ -21,6 +21,7 @@ gem 'webpacker'
 gem 'better_errors'
 gem 'pundit'
 gem 'binding_of_caller'
+gem 'geocoder'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
