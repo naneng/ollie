@@ -13,7 +13,6 @@ class RequestPolicy < ApplicationPolicy
 
   def new?
     true
-
   end
 
   def create?
@@ -21,6 +20,9 @@ class RequestPolicy < ApplicationPolicy
   end
 
   def update?
+    current_user?
+  end
+  def edit?
     current_user?
   end
 
