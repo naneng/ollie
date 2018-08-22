@@ -19,8 +19,10 @@
 
             <p class="card-title">
             <%= dog.name %>
+
             <em> <%= dog.size %></em>
             <%= dog.age %>
+             <%= link_to "dogs edit", edit_dog_path(dog)  %>
             </p>
 
             <p class="card-text">

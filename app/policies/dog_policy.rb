@@ -19,6 +19,10 @@ class DogPolicy < ApplicationPolicy
     return true
   end
 
+  def edit?
+    current_user?
+  end
+
   def update?
     current_user?
   end
