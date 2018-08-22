@@ -7,9 +7,13 @@ class RequestPolicy < ApplicationPolicy
     end
   end
 
+
+  def show?
+    return true
+  end
+
   def new?
     true
-
   end
 
   def create?
@@ -17,10 +21,16 @@ class RequestPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == user
+    current_user?
   end
 
   def destroy?
+    current_user?
+  end
+
+  private
+
+  def current_user?
     record.user == user
   end
 end

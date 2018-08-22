@@ -34,7 +34,7 @@ function formatDate() {
   var minutes = date.getMinutes();
   var hour = date.getHours();
   var year = date.getFullYear();
-  var month = date.getMonth()+1; // beware: January = 0; February = 1, etc.
+  var month = ('0'+(date.getMonth()+1)).slice(-2); // beware: January = 0; February = 1, etc.
   var day = date.getDate();
   var str = `${year}-${month}-${day} ${hour}:${minutes}`
   return str
