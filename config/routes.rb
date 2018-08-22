@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :users, only:[ :index, :show ]
-  resources :requests, only: [ :show, :edit, :new, :create, :update, :destroy ] do
+  resources :requests, only: [ :index, :show, :edit, :new, :create, :update, :destroy ] do
     resources :bookings, only: :create
   end
   resources :dogs, only: [ :index, :show, :new, :create, :edit, :destroy ]

@@ -14,9 +14,11 @@
       %>
     <% end %>
 
-    <%= link_to "Become a partner", 'about.html' %>
-    <%= link_to "Join Ollieboard",  'about.html'%>
-    <%= link_to "Log In",  'about.html'%>
+
+    <%= link_to "Requested Transport", requests_path %>
+    <%= link_to "Become a Partner", new_user_registration_path %>
+    <%= link_to "Join Ollieboard", new_user_registration_path %>
+    <%= link_to "Log In", new_user_session_path %>
     <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
 
 
