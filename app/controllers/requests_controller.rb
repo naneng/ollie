@@ -1,9 +1,11 @@
 class RequestsController < ApplicationController
+
   before_action :set_user, only: [ :new, :create, :edit, :destroy ]
   before_action :set_request
 
   def index
     @requests = policy_scope(Request)
+
   end
 
   def new
