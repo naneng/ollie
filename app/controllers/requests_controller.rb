@@ -24,10 +24,6 @@ class RequestsController < ApplicationController
       flash[:nocreate] = "Transportation request has not been created!"
       render :new
     end
-
-
-
-
     authorize @request
   end
 
