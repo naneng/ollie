@@ -3,15 +3,16 @@ class UsersController < ApplicationController
 
   def index
     if params[:query].present?
-      @users = User.global_search(params[:query])
+      @users = policy_scope(User).global_search(params[:query])
     else
-      @users = User.all
+      @users = policy_scope(User)
     end
   end
 
 
   def show
     @user = User.includes(:dogs).find(params[:id])
+    authorize @user
   end
 
 end

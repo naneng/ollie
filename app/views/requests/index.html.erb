@@ -1,5 +1,21 @@
-<h1>Transportation Requests</h1>
 
-<% @requests.each do |request| %>
-  <p><%= request %></p>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <h1>Requests List</h1>
+      <%= @requests.each do |request| %>
+        <%= link_to request_path(request) do %>
+          <ol>
+            <li>
+              <p><%= request.datetime %></p>
+              <p><%= request.notes %></p>
+              <p><%= request.distance %></p>
+              <p><%= request.time %></p>
+            </li>
+          <% end %>
+        </ol>
+      <% end %>
+    </div>
+  </div>
+</div>
+
