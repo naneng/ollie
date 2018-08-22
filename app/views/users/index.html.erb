@@ -8,9 +8,9 @@
           <%= link_to user_path(user) do %>
             <div class="user-picture">
               <% if user.photo? %>
-                <%= cl_image_tag user.photo(), width: 364, height: 220, :crop=>"fill" %>
+                <%= image_tag user.photo, width: 364, height: 220, :crop=>"fill" %>
               <% else %>
-                <img src="" alt="">
+                <%= image_tag "small-dog-icondog.jpg" %>
               <% end %>
             </div>
             <div>
