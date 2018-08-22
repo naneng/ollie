@@ -14,11 +14,12 @@ class DogsController < ApplicationController
   def new
     @dog = Dog.new
     authorize @dog
-
   end
 
   def create
     @dog = Dog.new(dog_params)
+    authorize @dog
+    @dog.user = current_user
     if @dog.save
       redirect_to user_path(current_user)
       flash[:create] = "#{dog.name} has been created!"
