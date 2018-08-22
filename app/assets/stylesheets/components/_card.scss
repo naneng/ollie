@@ -1,21 +1,39 @@
+
+
 .card-container-user {
-  display: flex;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 25px;
+  // display: flex;
+  // grid-template-columns: 1fr 1fr 1fr;
+  // grid-gap: 25px;
+  // position: absolute
 
 }
 
 
 .card {
-  background-color: transparent;
+  background-color: red;
   height: 220px;
   width: 100%;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
-  background-position: center;
+  // background-position: center;
   color: white;
   position: relative;
   opacity: .7;
   border-radius: 4px;
-  overflow: hidden;
+  // overflow: hidden;
+}
+
+.card-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 2;
+  background: black;
+  opacity: 0;
+}
+
+.card-link:hover {
+  opacity: 0.1;
 }

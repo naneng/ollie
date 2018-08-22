@@ -8,8 +8,9 @@
     </div>
   </div>
   <%= link_to "back", :back %>
-  <%= link_to "Shelter", user_path(@user) %>
-  <% if policy(User).edit? %>
-    <%= link_to "Edit", edit_user_registration_path(User) %>
+  <% if policy(@user).edit? %>
+    <%= link_to "Edit", edit_user_registration_path %>
+  <% else %>
+    <%= link_to "Home", root_path %>
   <% end %>
 </div>
