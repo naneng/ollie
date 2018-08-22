@@ -7,7 +7,6 @@ class RequestPolicy < ApplicationPolicy
     end
   end
 
-
   def show?
     return true
   end
