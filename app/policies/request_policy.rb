@@ -22,6 +22,9 @@ class RequestPolicy < ApplicationPolicy
   def update?
     current_user?
   end
+  def edit?
+    current_user?
+  end
 
   def destroy?
     current_user?
