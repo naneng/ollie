@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   # before_action :set_user, only: [ :show, :edit, :update, :destroy ]
 
   def index
-
     if params[:query].present?
       @users = policy_scope(User).global_search(params[:query])
     else
