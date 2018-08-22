@@ -1,25 +1,26 @@
 <div class="container">
-   <div class="row">
-<div class="big-banner">
-  <h2>Ollie is a mobile app that will make it easier for animal shelters and rescues to connect with their volunteers.</h2>
-
-</h3>There are over 13,000 animal shelters nationwide, Ollie hopes to streamline the process of transporting animals to and from adoptions events, directly to rescue partners, and to their forever homes! </h3>
-
-  </div>
-  </div>
-
-
-
-
+  <div class="row">
+    <div class="big-banner">
+      <h2>Ollie is a mobile app that will make it easier for animal shelters and rescues to connect with their volunteers.</h2>
+    </h3>
+    There are over 13,000 animal shelters nationwide, Ollie hopes to streamline the process of transporting animals to and from adoptions events, directly to rescue partners, and to their forever homes! </h3>
+</div>
+</div>
 <div class="row">
   <%= image_tag "Shiba-logo.png", id: "shiba" %>
   <div class="corgi-button">
-  <button type="button" class="btn btn-success btn">Become a volunteer</button>
-  <button type="button" class="btn btn-success btn">Become a partner</button>
-
+    <button type="button" class="btn btn-success btn">Become a volunteer</button>
+    <button type="button" class="btn btn-success btn">Become a partner</button>
+  </div>
+  <div class="corgi-button">
+    <%= link_to users_path do %>
+      <button type="button" class="btn btn-warning btn">List of Partners</button>
+    <% end %>
+    <%= link_to dogs_path do %>
+      <button type="button" class="btn btn-warning btn">List of Dogs</button>
+    <% end %>
+    <%= link_to requests_path do %>
+      <button type="button" class="btn btn-warning btn">List of Requests</button>
+    <% end %>
+  </div>
 </div>
- </div>
-
-
-
-
