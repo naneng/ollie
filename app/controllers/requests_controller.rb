@@ -11,6 +11,16 @@ class RequestsController < ApplicationController
   end
 
   def create
+    @request = Request.new(request_params)
+    @request.user = @user
+    if @request.save
+      redirect_to root_path
+      flash[:create] = "Transportation request has been created!"
+    else
+      flash[:nocreate] = "Transportation request has not been created!"
+      render :new
+    end
+    authorize @request
   end
 
   def edit
@@ -26,5 +36,9 @@ class RequestsController < ApplicationController
 
   def set_user
     @user = current_user
+  end
+
+  def request_params
+    params.require(:request).permit(:pickup_location, :dropoff_location, :datetime, dog_ids: [])
   end
 end

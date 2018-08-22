@@ -271,23 +271,25 @@ early_reqs = []
   i = 0
   dog_array = (0...dog_count).to_a
   request_count = (1..3).to_a.sample
+  arr = []
   while i < dog_count && i < request_count
     ind = dog_array.sample
     dog_array.delete_at(ind)
-    DogRequest.create!(request_id: req.id, dog_id: shelter.dogs[ind].id)
+    arr << shelter.dogs[ind]
     i += 1
   end
-  if req.dog_requests.count == 0
+
+  req.dogs = arr
+  req.save
+
+  if req.dogs.count == 0
     req.destroy
   end
-
 end
 
 a = Request.count
-b = DogRequest.count
 
 puts "Created #{Request.count} Requests!"
-puts "Created #{DogRequest.count} Dog Requests!"
 i = 0
 15.times do
   shelter = shelters.sample
@@ -306,19 +308,24 @@ i = 0
   i = 0
   dog_array = (0...dog_count).to_a
   request_count = (1..3).to_a.sample
+  arr = []
   while i < dog_count && i < request_count
     ind = dog_array.sample
     dog_array.delete_at(ind)
-    DogRequest.create!(request_id: req.id, dog_id: shelter.dogs[ind].id)
+    arr << shelter.dogs[ind]
     i += 1
   end
-  if req.dog_requests.count == 0
+
+  req.dogs = arr
+  req.save
+
+  if req.dogs.count == 0
     req.destroy
   end
+
 end
 
 puts "Created #{Request.count - a} Requests!"
-puts "Created #{DogRequest.count - b} Dog Requests!"
 
 early_req_array = (0...early_reqs.count).to_a
 8.times do

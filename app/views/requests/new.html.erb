@@ -15,10 +15,14 @@
 
           <%= f.input :datetime, :label => "What time is the service needed?", :as => :string, required: true, :input_html => {:class => "datepicker"} %>
 
+          First Try
+          <%= f.association :dogs, as: :check_boxes, collection: @user.dogs%>
+
+
+          </div>
           <%= f.submit "Submit" %>
 
         <% end %>
         </div>
   </div>
-  <div class="trapezium-bottom-right"></div>
 </div>
