@@ -5,8 +5,14 @@ class DogPolicy < ApplicationPolicy
     end
   end
 
+  def new?
+    # current_user?
+    return true
+  end
+
   def create?
-    current_user?
+    # current_user?
+    return true
   end
 
   def show?

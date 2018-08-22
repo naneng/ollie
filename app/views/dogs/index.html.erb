@@ -3,7 +3,7 @@
   <%= link_to "List of Dogs", users_path %>
 
     <div class="center">
-      <h2>Dogs</h2>
+      <h2>Ollie Dog</h2>
       </div>
     <div class="container">
 
@@ -12,29 +12,29 @@
         <% @dogs.each do |dog| %>
         <div class="col col-xs-12 col-sm-4">
            <div class="dog-avatar">
-            <%= image_tag "Groupcorgi.jpg", id: "corgi" %>
+
             </div>
+
           <div class="card-dog">
 
-            <h2 class="card-title">
+            <p class="card-title">
             <%= dog.name %>
-            </h2>
+            <em> <%= dog.size %></em>
+            <%= dog.age %>
+            </p>
 
             <p class="card-text">
-            <%= dog.personality %> </p>
-            <p><%= dog.gender %></p>
-            <p><%= dog.breed %></p>
-            <p><%= dog.size %></p>
-            <p><%= dog.age %></p>
-            <h2 class="card-title">
+              <%= image_tag "Groupcorgi.jpg", id: "corgi" %>
+
+
             <%= link_to dog_path(dog) do %>
-             </h2>
+
           </div>
         </div>
          <% end %>
          <% end %>
        </div>
     </div>
-
+<%= link_to "new dog", new_dog_path(@user)  %>
 
 
