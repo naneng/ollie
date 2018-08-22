@@ -14,18 +14,15 @@ class RequestsController < ApplicationController
   end
 
   def create
-    @dog = Dog.find(params[:dog_id])
-    @user = current_user
-    @request = Request.new(request)
-    @request.dog = @dog
-    if @request.valid?
-      @request.save
-      redirect_to dog_path(@dog)
-      flash[:confirm] = "Transport Request has been confirmed for #{@dog}"
+    @request = Request.new(request_params)
+    @request.user = @user
+    if @request.save
+      redirect_to root_path
+      flash[:create] = "Transportation request has been created!"
     else
-      flash[:nonconfirm] = "Transport Request has not been booked"
-      @request = Request.new
-      redirect_to new_request_path(@request)
+      flash[:nocreate] = "Transportation request has not been created!"
+      render :new
+
     end
     authorize @request
   end
@@ -50,5 +47,9 @@ class RequestsController < ApplicationController
 
   def set_user
     @user = current_user
+  end
+
+  def request_params
+    params.require(:request).permit(:pickup_location, :dropoff_location, :datetime, dog_ids: [])
   end
 end

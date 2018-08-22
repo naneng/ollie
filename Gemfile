@@ -18,9 +18,9 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
-gem 'devise'
 gem 'better_errors'
 gem 'pundit'
+gem 'binding_of_caller'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

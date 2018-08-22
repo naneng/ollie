@@ -7,21 +7,13 @@ class RequestPolicy < ApplicationPolicy
     end
   end
 
-
-  def index?
-    return true
-  end
-
   def new?
-    rrecord.user == user
-  end
+    true
 
-  def show?
-    return true
   end
 
   def create?
-    record.user == user
+    true
   end
 
   def update?
