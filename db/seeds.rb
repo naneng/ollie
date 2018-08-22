@@ -25,12 +25,12 @@ i = 0
   user_name = NAME.sample
   NAME.delete(user_name)
   drivers << User.create!(email: "#{user_name}@gmail.com",
-  name: user_name,
-  location: "#{loc[i]}",
-  password: "123456",
-  organization: false,
-  nonprofit_status: 1
-   )
+                          name: user_name,
+                          location: "#{loc[i]}",
+                          password: "123456",
+                          organization: false,
+                          nonprofit_status: 1
+                          )
   i+=1
 end
 a = User.count
@@ -44,7 +44,7 @@ oas = {
   photo: "https://s3-media1.fl.yelpcdn.com/bphoto/sQN-rGrXxL8SS6yMvV51EQ/90s.jpg",
   password: "123456",
   organization: true,
-  nonprofit_status: 0}
+nonprofit_status: 0}
 
 har = {
   email: "har@gmail.com",
@@ -54,7 +54,7 @@ har = {
   photo: "https://s3-media2.fl.yelpcdn.com/bphoto/rAe2jFywhnhgLpvuoUf-cA/90s.jpg",
   password: "123456",
   organization: true,
-  nonprofit_status: 0}
+nonprofit_status: 0}
 
 faas = {
   email: "faas@gmail.com",
@@ -64,7 +64,7 @@ faas = {
   photo: "https://s3-media3.fl.yelpcdn.com/bphoto/oAOEyjZ2fdl_gyj9zxgNoA/90s.jpg",
   password: "123456",
   organization: true,
-  nonprofit_status: 0}
+nonprofit_status: 0}
 
 bacs = {
   email: "bacs@gmail.com",
@@ -74,7 +74,7 @@ bacs = {
   photo: "https://s3-media2.fl.yelpcdn.com/bphoto/44ul_bjPgyZKUxEoppd_yg/90s.jpg",
   password: "123456",
   organization: true,
-  nonprofit_status: 0}
+nonprofit_status: 0}
 
 ebspca = {
   email: "ebspca@gmail.com",
@@ -84,7 +84,7 @@ ebspca = {
   photo: "https://s3-media2.fl.yelpcdn.com/bphoto/cNaNsvKUrRaoYMSgKtdXPA/90s.jpg",
   password: "123456",
   organization: true,
-  nonprofit_status: 0}
+nonprofit_status: 0}
 
 has = {
   email: "has@gmail.com",
@@ -94,7 +94,7 @@ has = {
   photo: "https://s3-media1.fl.yelpcdn.com/bphoto/Ks45GWgbaQx8xx5tTouuEQ/90s.jpg",
   password: "123456",
   organization: true,
-  nonprofit_status: 0}
+nonprofit_status: 0}
 
 arf = {
   email: "arf@gmail.com",
@@ -104,7 +104,7 @@ arf = {
   photo: "https://s3-media2.fl.yelpcdn.com/bphoto/K42hzDxxlUsZPAXdmhRMzA/90s.jpg",
   password: "123456",
   organization: true,
-  nonprofit_status: 0}
+nonprofit_status: 0}
 
 sfspca = {
   email: "sfspca@gmail.com",
@@ -114,7 +114,7 @@ sfspca = {
   photo: "https://s3-media2.fl.yelpcdn.com/bphoto/AZ8rxs1DQU25cigbNV9UkA/90s.jpg",
   password: "123456",
   organization: true,
-  nonprofit_status: 0}
+nonprofit_status: 0}
 
 accsf = {
   email: "accsf@gmail.com",
@@ -124,7 +124,7 @@ accsf = {
   photo: "https://s3-media1.fl.yelpcdn.com/bphoto/nRZ4eUbAgasGFpYynA_qiw/90s.jpg",
   password: "123456",
   organization: true,
-  nonprofit_status: 0}
+nonprofit_status: 0}
 
 mas = {
   email: "mas@gmail.com",
@@ -134,7 +134,7 @@ mas = {
   photo: "https://s3-media4.fl.yelpcdn.com/bphoto/KZFZroeX7FvR8HuTmkwyeA/90s.jpg",
   password: "123456",
   organization: true,
-  nonprofit_status: 0}
+nonprofit_status: 0}
 
 hssv = {
   email: "hssv@gmail.com",
@@ -144,7 +144,7 @@ hssv = {
   photo: "https://s3-media2.fl.yelpcdn.com/bphoto/GgeFpraxBSlUiSaToADgXg/90s.jpg",
   password: "123456",
   organization: true,
-  nonprofit_status: 0}
+nonprofit_status: 0}
 
 vhs = {
   email: "vhs@gmail.com",
@@ -154,7 +154,7 @@ vhs = {
   photo: "https://s3-media3.fl.yelpcdn.com/bphoto/C1IieJzDKNG7NlRZhqaJmQ/90s.jpg",
   password: "123456",
   organization: true,
-  nonprofit_status: 0}
+nonprofit_status: 0}
 
 phs = {
   email: "phs@gmail.com",
@@ -164,7 +164,7 @@ phs = {
   photo: "https://s3-media2.fl.yelpcdn.com/bphoto/fGjdeot5NRwDPpdnfNEOaw/90s.jpg",
   password: "123456",
   organization: true,
-  nonprofit_status: 0}
+nonprofit_status: 0}
 
 jp = {
   email: "shelter@gmail.com",
@@ -174,7 +174,7 @@ jp = {
   photo: "https://s3-media2.fl.yelpcdn.com/bphoto/-jkJfIlWcqiNhb7SJuAR9Q/90s.jpg",
   password: "123456",
   organization: true,
-  nonprofit_status: 0}
+nonprofit_status: 0}
 
 s1 = User.create!(oas)
 s2 = User.create!(har)

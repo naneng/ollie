@@ -1,8 +1,19 @@
-
-<h1>List of Not-for-Profits, Drivers and Dog Owners</h1>
-
-<% @users.each do |user| %>
-  <h4> <%= user.name %> </h4>
-
-  <p><%= user.nonprofit_status %></p>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <h1>List of Not-for-Profits, Drivers and Dog Owners</h1>
+      <% @users.each do |user| %>
+        <%= link_to user_path(user) do %>
+          <ol>
+            <li>
+              <h4> <%= user.name %> </h4>
+              <p><%= user.location %></p>
+              <p><%= user.email %></p>
+            </li>
+          </ol>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <%= link_to "Home", root_path %>
+</div>

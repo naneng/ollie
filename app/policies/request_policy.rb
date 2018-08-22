@@ -9,6 +9,7 @@ class RequestPolicy < ApplicationPolicy
 
   def new?
     true
+
   end
 
   def create?

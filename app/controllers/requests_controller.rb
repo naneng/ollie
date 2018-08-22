@@ -1,6 +1,7 @@
 class RequestsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index]
-  before_action :set_user
+
+  before_action :set_user, only: [ :new, :create, :edit, :destroy ]
+  before_action :set_request
 
   def index
     @requests = policy_scope(Request)
@@ -21,20 +22,28 @@ class RequestsController < ApplicationController
     else
       flash[:nocreate] = "Transportation request has not been created!"
       render :new
+
     end
     authorize @request
   end
 
   def edit
+    authorize @request
   end
 
   def show
+    authorize @request
   end
 
   def destroy
+    authorize @request
   end
 
   private
+
+  def set_request
+    @request = Request.find(params[:id])
+  end
 
   def set_user
     @user = current_user
