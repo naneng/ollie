@@ -1,11 +1,19 @@
 <div class="user-container">
   <div class="container">
-    <div class="row">
-      <h1>List of Not-for-Profits, Drivers and Dog Owners</h1>
-      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-        <div class="card-container">
-          <% @users.each do |user| %>
-            <%= link_to user_path(user) do %>
+    <!-- <div class="row"> -->
+    <h1>List of Not-for-Profits, Drivers and Dog Owners</h1>
+    <div class="card-container-user">
+      <% @users.each do |user| %>
+        <div class="card">
+          <%= link_to user_path(user) do %>
+            <div class="user-picture">
+              <% if user.photo? %>
+                <%= cl_image_tag user.photo(), width: 364, height: 220, :crop=>"fill" %>
+              <% else %>
+                <img src="" alt="">
+              <% end %>
+            </div>
+            <div>
               <ul>
                 <li>
                   <p><%= user.name %></p>
@@ -13,11 +21,12 @@
                   <p><%= user.email %></p>
                 </li>
               </ul>
-            <% end %>
+            </div>
           <% end %>
-        </div>
+        <% end %>
       </div>
+      <!-- </div> -->
+      <!-- </div> -->
     </div>
     <%= link_to "Home", root_path %>
   </div>
-</div>

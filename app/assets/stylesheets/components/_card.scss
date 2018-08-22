@@ -1,0 +1,21 @@
+.card-container-user {
+  display: flex;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 25px;
+
+}
+
+
+.card {
+  background-color: transparent;
+  height: 220px;
+  width: 100%;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  background-position: center;
+  color: white;
+  position: relative;
+  opacity: .7;
+  border-radius: 4px;
+  overflow: hidden;
+}
