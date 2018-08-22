@@ -1,6 +1,5 @@
 class DogsController < ApplicationController
 
-  authorize @dog
 
   before_action :set_dog, only: [ :show, :edit, :update, :destroy ]
 
@@ -10,6 +9,8 @@ class DogsController < ApplicationController
 
   def new
     @dog = Dog.new
+    authorize @dog
+
   end
 
   def create
