@@ -40,6 +40,7 @@ class RequestsController < ApplicationController
   private
 
   def set_request
+
     @request = Request.find(params[:id])
   end
 
