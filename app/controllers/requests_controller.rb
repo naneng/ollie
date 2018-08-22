@@ -40,7 +40,7 @@ class RequestsController < ApplicationController
   private
 
   def set_request
-    @dog = Dog.find(params[:dog_id])
+    # @dog = Dog.find(params[:dog_id])
     @request = Request.find(params[:id])
   end
 
