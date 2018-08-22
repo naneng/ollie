@@ -2,6 +2,7 @@ class RequestsController < ApplicationController
   before_action :set_user, only: [ :new, :create, :edit, :destroy ]
   before_action :set_request, only: [ :show, :edit, :update, :destroy ]
 
+
   def index
     @requests = policy_scope(Request)
 
@@ -10,19 +11,23 @@ class RequestsController < ApplicationController
   def new
     @request = Request.new
     authorize @request
+
   end
 
   def create
     @request = Request.new(request_params)
     @request.user = @user
     if @request.save
-      redirect_to root_path
       flash[:create] = "Transportation request has been created!"
+      redirect_to root_path
     else
       flash[:nocreate] = "Transportation request has not been created!"
       render :new
-
     end
+
+
+
+
     authorize @request
   end
 
