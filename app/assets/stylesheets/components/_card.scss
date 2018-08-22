@@ -1,4 +1,6 @@
-
+.user-container {
+  background: #CBDDAC;
+}
 
 .card-container-user {
   // display: flex;
@@ -10,17 +12,39 @@
 
 
 .card {
-  background-color: red;
-  height: 220px;
-  width: 100%;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  height: 175px;
+  text-shadow: 0 1px 5px rgba(0,0,0,0.6);
   background-size: cover !important;
-  // background-position: center;
+  background-position: center;
   color: white;
   position: relative;
-  opacity: .7;
-  border-radius: 4px;
-  // overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border: 1px black solid;
+}
+
+.card-description {
+  position: absolute;
+  bottom: 0px;
+  // color: white;
+  left: 0px;
+  padding: 0px 3px 0px;
+  background: rgb(171, 87, 219);
+  opacity: 0.5;
+}
+
+.card p {
+  // position: absolute;
+  color: white;
+  margin: 0px;
+}
+
+.card:hover {
+  opacity: 0.8;
+}
+
+.cards {
+  display: flex;
 }
 
 .card-link {

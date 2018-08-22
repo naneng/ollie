@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     else
       @users = policy_scope(User)
     end
-    raise
+
   end
 
 
