@@ -1,49 +1,39 @@
-.card {
-  height: 175px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-  background-size: cover !important;
-  background-position: center;
+
+.card-dog {
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  background-color: #f9fafc;
+  color:pink;
+}
+
+.card-text {
+  margin: 2rem;
+  padding-bottom: 1.5rem;
+}
+
+.card-headline {
+  margin: 2rem;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #525456;
+}
+
+.card-title {
+  padding: 1.25rem;
+  padding-left: 2rem;
+  text-align: left;
+  background-color: #67ceac;
   color: white;
-  position: relative;
-  width: 20%;
+  font-size: 2.25rem;
 }
-.card-user {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  width: 40px;
+
+#corgi {
   border-radius: 50%;
+  width: 20%;
+
 }
-.card-category {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 15px;
-  text-transform: uppercase;
+.dog-avatar {
+  text-align: center;
 }
-.card-description {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-}
-.card-description h2 {
-  font-size: 24px;
-}
-.card-description p {
-  font-size: 14px;
-  opacity: 0.7;
-  font-weight: lighter;
-}
-.card-link {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  z-index: 2;
-  background: black;
-  opacity: 0;
-}
-.card-link:hover {
-  opacity: 0.1;
+.card-dog {
+  text-align: center;
 }
