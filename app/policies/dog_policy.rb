@@ -6,18 +6,24 @@ class DogPolicy < ApplicationPolicy
   end
 
   def create?
-    record.user == user
+    current_user?
   end
 
   def show?
-    true
+    return true
   end
 
   def update?
-    record.user == user
+    current_user?
   end
 
   def destroy?
+    current_user?
+  end
+
+  private
+
+  def current_user?
     record.user == user
   end
 end
