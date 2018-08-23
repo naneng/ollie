@@ -1,4 +1,8 @@
+console.log($('.temp_information').data('temp');
+
+
 function checked1(address) {
+  console.log(test);
   var checkBox = document.getElementById("myCheck1");
   var pickup = document.getElementById("pickup_loc");
   if (checkBox.checked == true){
@@ -51,4 +55,5 @@ function checked4() {
     date.value = "";
   }
 };
+
 
