@@ -1,29 +1,29 @@
 <div class="user-container">
   <div class="container">
-    <h1>List of Not-for-Profits, Drivers and Dog Owners</h1>
-    <div class="row">
-      <div class="cards">
-        <div class="col-xs-12 col-sm-6 col-md-4">
-          <% @users.each do |user| %>
-            <div class="card">
-              <%= link_to user_path(user) do %>
-                <div class="user-picture">
-                  <% if user.photo? %>
-                    <%= image_tag user.photo %>
-                  <% else %>
-                    <%= image_tag "small-dog-icondog.jpg" %>
-                  <% end %>
-                  <div class="card-description">
-                    <p><%= user.name %></p>
-                    <p><%= user.phone%></p>
-                  </div>
-                <% end %>
+    <h1 class="center">List of Not-for-Profits, Drivers and Dog Owners</h1>
+    <!-- <div class="row">
+      <div class=""> -->
+    <div class="cards">
+      <% @users.each do |user| %>
+        <div class="card">
+          <%= link_to user_path(user) do %>
+            <div class="user-picture">
+              <% if user.photo? %>
+                <%= image_tag user.photo %>
+              <% else %>
+                <%= image_tag "small-dog-icondog.jpg" %>
+              <% end %>
+              <div class="card-description">
+                <p><%= user.name %></p>
+                <p><%= user.phone%></p>
               </div>
-            </div>
-          <% end %>
+            <% end %>
+          </div>
         </div>
-      </div>
+      <% end %>
     </div>
+    <!--   </div>
+    </div> -->
   </div>
-  <%= link_to "Home", root_path %>
+  <p class="center"><%= link_to "Home", root_path %></p>
 </div>

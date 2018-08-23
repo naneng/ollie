@@ -7,6 +7,10 @@ class RequestsController < ApplicationController
     @requests = Request.all
   end
 
+  def show
+    authorize @request
+  end
+
   def new
     @request = Request.new
     authorize @request
@@ -15,7 +19,7 @@ class RequestsController < ApplicationController
         lat: current_user.latitude,
         lng: current_user.longitude#,
         # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
-      }]
+    }]
   end
 
   def show
@@ -30,7 +34,7 @@ class RequestsController < ApplicationController
       redirect_to request_path(@request)
     else
       flash[:nocreate] = "Transportation request has not been created!"
-     render :new
+      render :new
     end
     authorize @request
   end
