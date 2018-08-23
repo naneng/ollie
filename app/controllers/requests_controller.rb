@@ -2,9 +2,9 @@ class RequestsController < ApplicationController
   before_action :set_user, only: [ :new, :create, :edit, :destroy ]
   before_action :set_request, only: [ :show, :edit, :update, :destroy ]
 
-
   def index
     @requests = policy_scope(Request)
+
   end
 
   def new
@@ -29,9 +29,6 @@ class RequestsController < ApplicationController
     authorize @request
   end
 
-  def show
-    authorize @request
-  end
 
   def destroy
     authorize @request
@@ -40,7 +37,6 @@ class RequestsController < ApplicationController
   private
 
   def set_request
-
     @request = Request.find(params[:id])
   end
 

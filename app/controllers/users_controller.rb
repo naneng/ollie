@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
    before_action :set_user, only: [ :show, :edit, :update, :destroy ]
+  # before_action :set_user, only: [ :show, :edit, :update, :destroy ]
+  skip_before_action :authenticate_user!
+
 
   def index
     if params[:query].present?
@@ -7,6 +10,7 @@ class UsersController < ApplicationController
     else
       @users = policy_scope(User)
     end
+
   end
 
 
