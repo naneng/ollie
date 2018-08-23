@@ -8,13 +8,22 @@ class UsersController < ApplicationController
     else
       @users = policy_scope(User)
     end
-
   end
 
 
   def show
     @user = User.includes(:dogs).find(params[:id])
     authorize @user
+  end
+
+   def edit
+    authorize @user
+  end
+
+  private
+
+  def set_user
+    @user = current_user
   end
 
 end

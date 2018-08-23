@@ -1,3 +1,4 @@
+
 <div class="user-container">
   <div class="container">
     <div class="row">
@@ -7,6 +8,7 @@
         <p><%= @user.location %></p>
         <p><%= @user.email %></p>
       </div>
+
     </div>
     <%= link_to "back", :back %>
     <% if policy(@user).edit? %>
