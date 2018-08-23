@@ -1,9 +1,5 @@
 // Specific CSS for your home-page
 
-.corgi-button {
-  flex-direction: row;
-}
-
 .logo-tag {
   position: relative
 }
@@ -23,10 +19,17 @@
 }
 
 #dogexcursions{
-  width: 80%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .green-wrapper {
   background-color: #C6DEA6;
   padding: 2%;
+}
+
+.dog-background {
+  background-size: cover !important;
+  background-position: center;
 }
