@@ -8,8 +8,15 @@
           <h1>OllieMember</h1>
         <% end %>
         <h4> <%= @user.name %> </h4>
-        <p><%= @user.location %></p>
-        <p><%= @user.email %></p>
+        <p>Phone Number:<% @user.phone %></p>
+        <p>Address:<%= @user.location %></p>
+        <p>Email:<%= @user.email %></p>
+        <p>Website:<%= @user.website %></p>
+        <p>501(c)(3) Status:
+          <% if @user.nonprofit_status == 1 %>
+            <% puts "Qualified" %>
+            <%= @user.nonprofit_status %></p>
+        <% end %>
       </div>
     </div>
   </div>

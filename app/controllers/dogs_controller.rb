@@ -38,7 +38,14 @@ class DogsController < ApplicationController
   end
 
   def destroy
+    @dog.user = current_user
     authorize @dog
+    if @dog.destroy
+      redirect_to user_path(current_user)
+      flash[:create] = "#{@dog.name} has been removed!"
+    else
+      render :index
+    end
   end
 
   private
