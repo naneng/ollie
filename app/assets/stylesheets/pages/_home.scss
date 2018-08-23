@@ -3,3 +3,30 @@
 .corgi-button {
   flex-direction: row;
 }
+
+.logo-tag {
+  position: relative
+}
+
+.logo-text {
+  position: absolute;
+  top: 0;
+  left: 30%;
+  color: white;
+}
+.logo-content {
+  position: absolute;
+  top: 85%;
+  left: 44%;
+  color: white;
+  font-size: 97%;
+}
+
+#dogexcursions{
+  width: 80%;
+}
+
+.green-wrapper {
+  background-color: #C6DEA6;
+  padding: 2%;
+}
