@@ -1,5 +1,5 @@
 class RequestsController < ApplicationController
-  before_action :set_user, only: [ :new, :create, :edit, :destroy ]
+  before_action :set_user, only: [ :new, :create, :edit, :update, :destroy ]
   before_action :set_request, only: [ :show, :edit, :update, :destroy ]
 
   def index
@@ -20,10 +20,6 @@ class RequestsController < ApplicationController
         lng: current_user.longitude#,
         # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
     }]
-  end
-
-  def show
-    authorize @request
   end
 
   def create
@@ -50,6 +46,13 @@ class RequestsController < ApplicationController
     authorize @request
   end
 
+  def update
+    # @request
+    # authorize @request
+    @request.update(request_params)
+    authorize @request
+    redirect_to request_path(@user)
+  end
 
   def destroy
     authorize @request
