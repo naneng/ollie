@@ -1,12 +1,14 @@
 
 .card-dog {
-  border: 1px solid rgba(218, 217, 217, 0.125);
   margin: 3%;
+  border: 1px solid rgba(227, 228, 225, 0.68);
+  box-shadow: 1px 1px 1px #acc58b96;
 }
 
 .card-text {
   margin: 2rem;
   padding-bottom: 1.5rem;
+  color: #adc58c;
 }
 
 .card-headline {
@@ -23,7 +25,7 @@
     color: white;
     font-size: 2.25rem;
     background-color: #adc58c;
-background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23c6dea6' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23c6dea6' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
 }
 
 #corgi {

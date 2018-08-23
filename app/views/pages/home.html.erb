@@ -1,14 +1,14 @@
 <div class="green-wrapper">
-<div class="container">
-  <div class="row">
-    <div class="row logo-tag">
-  <div class="logo-text">
-    <h1>Ollieboard</h1>
-    <div class="logo-content">
-      <h3>Express</h3>
-    </div>
-  </div>
-  <%= image_tag "shibadark.png", id: "shiba" %>
+  <div class="container">
+    <div class="row">
+      <div class="row logo-tag">
+        <div class="logo-text">
+        <h1>Ollieboard</h1>
+        <div class="logo-content">
+        <h3>Express</h3>
+        </div>
+      </div>
+      <%= image_tag "shibadark.png", id: "shiba" %>
   </div>
 </div>
  <div class="row">
@@ -56,7 +56,8 @@
             </p>
 
               <div class="dog-info">
-             <%= link_to "dogs edit", edit_dog_path(dog)  %>
+             <%= link_to "See more details!", dog_path(dog)  %>
+
               </div>
             <%= link_to dog_path(dog) do %>
 
