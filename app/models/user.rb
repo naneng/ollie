@@ -4,13 +4,17 @@ class User < ApplicationRecord
   include PgSearch
   pg_search_scope :global_search,
     against: [ :name, :location ],
-    using: {
-      tsearch: { prefix: true}
-    }
+  using: {
+    tsearch: { prefix: true}
+  }
 
   has_many :dogs
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+    :recoverable, :rememberable, :trackable, :validatable
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
+
+  scope :organizations, -> {where(organization: true)}
+  scope :individuals, -> {where(organization: false)}
+
 end

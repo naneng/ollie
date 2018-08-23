@@ -1,10 +1,8 @@
 <div class="user-container">
-  <div class="container">
-    <h1 class="center">List of Not-for-Profits, Drivers and Dog Owners</h1>
-    <!-- <div class="row">
-      <div class=""> -->
+  <div class="container user-title">
+    <h1 class="center">OlliePartners</h1>
     <div class="cards">
-      <% @users.each do |user| %>
+      <% @users.organizations.each do |user| %>
         <div class="card">
           <%= link_to user_path(user) do %>
             <div class="user-picture">
@@ -22,8 +20,28 @@
         </div>
       <% end %>
     </div>
-    <!--   </div>
-    </div> -->
   </div>
-  <p class="center"><%= link_to "Home", root_path %></p>
+  <div class="container user-title">
+    <h1 class="center">OllieMembers</h1>
+    <div class="cards">
+      <% @users.individuals.each do |user| %>
+        <div class="card">
+          <%= link_to user_path(user) do %>
+            <div class="user-picture">
+              <% if user.photo? %>
+                <%= image_tag user.photo %>
+              <% else %>
+                <%= image_tag "small-dog-icondog.jpg" %>
+              <% end %>
+              <div class="card-description">
+                <p><%= user.name %></p>
+                <p><%= user.phone%></p>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <p class="center"><%= link_to "Home", root_path, class: 'user-text-links' %></p>
 </div>

@@ -4,3 +4,18 @@
   // height: 220;
   // position: relative;
 }
+
+.user-text-links {
+  color: #36bc88;
+  text-align: center;
+  padding: 3px 8px;
+  border: 2px #36bc88 solid;
+  border-radius: 5px;
+}
+
+.user-text-links:hover {
+  text-decoration: none;
+  // color: rgb(93, 137, 17);
+  color: white;
+  background: #36bc88;
+}

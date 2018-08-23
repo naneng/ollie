@@ -2,17 +2,23 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-        <h1>List of Not-for-Profits, Drivers and Dog Owners</h1>
+        <% if @user.organization == true %>
+          <h1>OlliePartner</h1>
+        <% else %>
+          <h1>OllieMember</h1>
+        <% end %>
         <h4> <%= @user.name %> </h4>
         <p><%= @user.location %></p>
         <p><%= @user.email %></p>
       </div>
     </div>
-    <%= link_to "Back", :back %>
+  </div>
+  <div class="center">
+    <%= link_to "Back", :back, class: 'user-text-links' %>
     <% if policy(@user).edit? %>
-      <%= link_to "Edit", edit_user_registration_path(@user_id) %>
+      <%= link_to "Edit", edit_user_registration_path(@user_id), class: 'user-text-links' %>
     <% else %>
-      <%= link_to "Home", root_path %>
+      <%= link_to "Home", root_path, class: 'user-text-links' %>
     <% end %>
   </div>
 </div>
