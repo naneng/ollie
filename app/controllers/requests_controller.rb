@@ -1,14 +1,10 @@
 class RequestsController < ApplicationController
-
   before_action :set_user, only: [ :new, :create, :edit, :destroy ]
-  before_action :set_request, only: [ :edit, :show, :destroy ]
+  before_action :set_request, only: [ :show, :edit, :update, :destroy ]
 
   def index
     @requests = policy_scope(Request)
-  end
 
-  def show
-    authorize @request
   end
 
   def new
@@ -20,12 +16,11 @@ class RequestsController < ApplicationController
     @request = Request.new(request_params)
     @request.user = @user
     if @request.save
-      redirect_to root_path
       flash[:create] = "Transportation request has been created!"
+      redirect_to request_path(@request)
     else
       flash[:nocreate] = "Transportation request has not been created!"
-      render :new
-
+     render :new
     end
     authorize @request
   end
@@ -42,7 +37,6 @@ class RequestsController < ApplicationController
   private
 
   def set_request
-    @dog = Dog.find(params[:dog_id])
     @request = Request.find(params[:id])
   end
 

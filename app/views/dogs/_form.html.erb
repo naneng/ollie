@@ -1,0 +1,16 @@
+
+
+<%= simple_form_for [@user, @dog ] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :breed %>
+  <%= f.input :size %>
+  <%= f.input :personality %>
+  <%= f.input :age %>
+  <%= f.input :gender %>
+<div class="center signupbtn">
+
+  <%= f.submit "Submit" %>
+<% end %>
+</div>
+
+

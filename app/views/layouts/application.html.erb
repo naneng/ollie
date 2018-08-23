@@ -9,6 +9,7 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= stylesheet_pack_tag 'application' %> <!-- NEW! -->
     <link href="https://fonts.googleapis.com/css?family=BioRhyme|Cabin" rel="stylesheet">
+    <%= javascript_pack_tag 'request' %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
@@ -16,6 +17,8 @@
     <%= render 'shared/flashes' %>
     <%= yield %>
     <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js" %>
     <%= javascript_pack_tag 'application' %>
+    <%= javascript_pack_tag "map" %>
   </body>
 </html>

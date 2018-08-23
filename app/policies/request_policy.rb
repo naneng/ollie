@@ -7,7 +7,6 @@ class RequestPolicy < ApplicationPolicy
     end
   end
 
-
   def show?
     return true
   end
@@ -21,6 +20,10 @@ class RequestPolicy < ApplicationPolicy
   end
 
   def update?
+    current_user?
+  end
+  
+  def edit?
     current_user?
   end
 

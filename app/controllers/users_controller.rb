@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   skip_before_action :authenticate_user!
 
   def index
-
     if params[:query].present?
       @users = policy_scope(User).global_search(params[:query])
     else

@@ -1,20 +1,42 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <h1>List of Dogs</h1>
-      <% @dogs.each do |dog| %>
-        <%= link_to dog_path(dog) do %>
-          <ol>
-            <li>
-              <p> <%= dog.name %> </p>
-              <p><%= dog.breed %></p>
-              <p><%= dog.personality %></p>
-            </li>
-          </ol>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
+
   <%= link_to "Home", root_path %>
-  <%= link_to "List of Orgs", users_path %>
-</div>
+  <%= link_to "List of Dogs", users_path %>
+
+    <div class="center">
+      <h2>Ollie Dog</h2>
+      </div>
+    <div class="container">
+
+
+      <div class="row">
+        <% @dogs.each do |dog| %>
+        <div class="col col-xs-12 col-sm-4">
+           <div class="dog-avatar">
+
+            </div>
+
+          <div class="card-dog">
+
+            <p class="card-title">
+            <%= dog.name %>
+
+            <em> <%= dog.size %></em>
+            <%= dog.age %>
+             <%= link_to "dogs edit", edit_dog_path(dog)  %>
+            </p>
+
+            <p class="card-text">
+              <%= image_tag "Groupcorgi.jpg", id: "corgi" %>
+
+
+            <%= link_to dog_path(dog) do %>
+
+          </div>
+        </div>
+         <% end %>
+         <% end %>
+       </div>
+    </div>
+<%= link_to "new dog", new_dog_path(@user)  %>
+
+

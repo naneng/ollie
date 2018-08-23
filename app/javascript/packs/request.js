@@ -1,6 +1,3 @@
-import "bootstrap";
-import "../plugins/flatpickr";
-
 function checked1(address) {
   var checkBox = document.getElementById("myCheck1");
   var pickup = document.getElementById("pickup_loc");
