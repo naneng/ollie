@@ -4,11 +4,11 @@
       <h2>Transportation Request</h2>
         <%= simple_form_for [@request] do |f| %>
           <p>Shelter: <%= @user.name %></p>
-          <%= f.input :pickup_location, as: :text, autofocus: true, :input_html => {:style => 'width: 100%', :rows => 3, :id => "pickup_loc"} %>
+          <%= f.input :pickup_location, as: :text, autofocus: true, :input_html => {:style => 'width: 100%', :rows => 3, :id => "pickup_loc"}, :autocomplete => :on %>
 
           <div class="left"><input type="checkbox" id="myCheck1" onclick="checked1(`<%= @user.location %>`)"> Use shelter address</div>
 
-          <%= f.input :dropoff_location, as: :text, autofocus: true, :input_html => {:style => 'width: 100%', :rows => 3, :id => "dropoff_loc"} %>
+          <%= f.input :dropoff_location, as: :text, autofocus: true, :input_html => {:style => 'width: 100%', :rows => 3, :id => "dropoff_loc"}, :autocomplete => :on %>
 
           <div class="left check2"><input type="checkbox" id="myCheck2" onclick="checked2(`<%= @user.location %>`)"> Use shelter address</div>
 

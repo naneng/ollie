@@ -20,7 +20,6 @@ loc << "35201 Newark Blvd V, Newark, CA 94560, USA"
 drivers = []
 i = 0
 
-
 10.times do
   user_name = NAME.sample
   NAME.delete(user_name)
@@ -196,13 +195,19 @@ shelters = [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13, s14]
 puts "Created #{User.count - a} Shelters"
 
 DOG_NAME = %w(Coco Lucky Archie Ace Herman Rex Wolf Stein Stephen Toby Lucy Lola Zoe Molly Sophie Cooper Dexter Buddy Stella Bailey Otto
-Gucci Iris Jinx Holly April Luna Cadence Cajun Daisy Faith Ruby Eureka Gypsy Alpine Ayrianna Nori Leila Polly Shyla Xena Uma Bits Athena Abby Velvet Vamp Willow Gemini Emma Jag Mack Orion Sterling Phantom Darth Balboa Ajax Wrigley Titan Yoyo Zulu Jake Champion Loki Punch Hiro Attila Storm)
-BREEDS = ["German Shepherd", "Labrador Retriever", "Bulldog", "Beagle", "Poodle", "Golden Retriever", "Corgi", "Shiba Inu", "Akita", "Chow Chow", "Rottwelier", "Boxer", "Siberian Husky", "Dobermann", "Great Dane"]
+Gucci Iris Jinx Holly April Luna Cadence Cajun Daisy Faith Ruby Eureka Gypsy Alpine Ayrianna Nori Leila Polly Shyla Xena Uma Bits Athena Abby Velvet Vamp Willow Gemini Emma Jag Mack Orion Sterling
+Phantom Darth Balboa Ajax Wrigley Titan Yoyo Zulu Jake Champion Loki Punch Hiro Attila Storm
+Bailey Max Charlie Buddy Rocky Jake Jack Toby Cody Buster Bella Lucy Molly Daisy Maggie Sophie Sadie Chloe)
+BREEDS = ["German Shepherd", "Labrador Retriever", "Bulldog", "Beagle", "Poodle", "Golden Retriever", "Corgi", "Shiba Inu", "Akita", "Chow Chow", "Rottwelier", "Boxer", "Siberian Husky", "Dobermann", "Great Dane", "Pug", "Border Collie", "Terrier", "Cocker Spaniel"]
+BREED_PHOTOS = ["germanshepherd.jpeg", "labradorretriever.jpeg", "bulldog.jpg", "beagle.jpg", "poodle.jpg", "goldenretriever.jpg", "corgi.jpg", "shibainu.jpg", "akita.jpg", "chowchow.jpg", "rottweiler.jpg", "boxer.jpg", "husky.jpg", "dobermann.jpg", "greatdane.PNG", "pug.jpeg", "bordercollie.jpg", "terrier.jpg", "cockerspaniel.jpg"]
 60.times do
+  breed = BREEDS.sample
   dog_name = DOG_NAME.sample
   DOG_NAME.delete(dog_name)
-  Dog.create!(name: dog_name, breed: BREEDS.sample, user_id: shelters.sample.id, size: ["S", "M", "L"].sample, age: (1..144).to_a.sample, gender: ["Male", "Female"].sample)
+  Dog.create!(photo: "#{BREED_PHOTOS[BREEDS.index(breed)]}", name: dog_name, breed: breed, user_id: shelters.sample.id, size: ["S", "M", "L"].sample, age: (1..144).to_a.sample, gender: ["Male", "Female"].sample)
 end
+
+puts "Created #{Dog.count} Dogs!"
 
 
 addresses = []
@@ -256,27 +261,24 @@ early_reqs = []
   shelter = shelters.sample
   pickup = shelter.location
   dropoff = addresses.sample
-
   if i < 8
-    i += 1
     req = Request.create!(user_id: shelter.id, pickup_location: pickup, dropoff_location: dropoff, datetime: DateTime.new(2018,8,31,(12..20).to_a.sample,(1..59).to_a.sample), status: "Requested")
     early_reqs << req
   else
-    i += 1
     req = Request.create!(user_id: shelter.id, pickup_location: pickup, dropoff_location: dropoff, datetime: DateTime.new(2018,(9..12).to_a.sample,(1..30).to_a.sample,(8..20).to_a.sample,(1..59).to_a.sample), status: "Requested" )
   end
-
+  i += 1
 
   dog_count = shelter.dogs.count
-  i = 0
+  num_counter = 0
   dog_array = (0...dog_count).to_a
   request_count = (1..3).to_a.sample
   arr = []
-  while i < dog_count && i < request_count
+  while num_counter < dog_count && num_counter < request_count
     ind = dog_array.sample
-    dog_array.delete_at(ind)
+    dog_array.delete(ind)
     arr << shelter.dogs[ind]
-    i += 1
+    num_counter += 1
   end
 
   req.dogs = arr
@@ -296,24 +298,23 @@ i = 0
   dropoff = shelter.location
   pickup = addresses.sample
   if i < 8
-    i += 1
     req = Request.create!(user_id: shelter.id, pickup_location: pickup, dropoff_location: dropoff, datetime: DateTime.new(2018,8,31,(12..20).to_a.sample,(1..59).to_a.sample), status: "Requested")
     early_reqs << req
   else
-    i += 1
     req = Request.create!(user_id: shelter.id, pickup_location: pickup, dropoff_location: dropoff, datetime: DateTime.new(2018,(9..12).to_a.sample,(1..30).to_a.sample,(8..20).to_a.sample,(1..59).to_a.sample), status: "Requested" )
   end
+  i += 1
 
   dog_count = shelter.dogs.count
-  i = 0
+  num_counter = 0
   dog_array = (0...dog_count).to_a
   request_count = (1..3).to_a.sample
   arr = []
-  while i < dog_count && i < request_count
+  while num_counter < dog_count && num_counter < request_count
     ind = dog_array.sample
-    dog_array.delete_at(ind)
+    dog_array.delete(ind)
     arr << shelter.dogs[ind]
-    i += 1
+    num_counter += 1
   end
 
   req.dogs = arr
