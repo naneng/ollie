@@ -12,9 +12,10 @@
 
       </div>
       </div>
+
     <div class="container">
 
-
+ <%= image_tag "doghouse.png", id: "doghouse" %>
       <div class="row">
         <% @dogs.each do |dog| %>
         <%= link_to dog_path(dog) do %>
@@ -35,7 +36,10 @@
          <% end %>
          <% end %>
        </div>
+
     </div>
+
+
 
 
 
