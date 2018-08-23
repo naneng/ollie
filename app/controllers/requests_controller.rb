@@ -3,13 +3,19 @@ class RequestsController < ApplicationController
   before_action :set_request, only: [ :show, :edit, :update, :destroy ]
 
   def index
-    @requests = policy_scope(Request)
-
+    policy_scope(Request)
+    @requests = Request.all
   end
 
   def new
     @request = Request.new
     authorize @request
+    @markers = [
+      {
+        lat: current_user.latitude,
+        lng: current_user.longitude#,
+        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+      }]
   end
 
   def create
