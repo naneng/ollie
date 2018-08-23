@@ -8,6 +8,15 @@
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
         <% end %>
+        <%= f.input :name,
+                required: true,
+                autofocus: true ,
+                input_html: { autocomplete: "name" }%>
+        <%= f.input :email,
+                :placeholder => "ex. hello@spca.org",
+                required: true,
+                autofocus: true ,
+                input_html: { autocomplete: "email" }%>
         <%= f.input :password,
                 hint: "leave it blank if you don't want to change it",
                 required: false,
@@ -19,6 +28,28 @@
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
+        <%= f.input :phone,
+                required: true,
+                autofocus: true ,
+                input_html: { autocomplete: "phone" }%>
+        <%= f.input :website,
+                required: true,
+                autofocus: true ,
+                input_html: { autocomplete: "website" }%>
+        <%= f.input :location, :label => "Address",
+                required: true,
+                autofocus: true ,
+                input_html: { autocomplete: "address" }%>
+        <%= f.input :nonprofit_status, :label => "501(c)(3) / Tax-Exempt Status",
+                required: true,
+                autofocus: true ,
+                input_html: { autocomplete: "tax-exempt status" },
+                :collection => { 'Qualified' => 1,'Pending' => 2, 'Not Applicable' => 3 } %>
+        <%= f.input :organization, :label => "Organization/Individual",
+                required: true,
+                autofocus: true ,
+                input_html: { autocomplete: "organization" },
+                :collection => { 'Organization' => true,'Individual' => false } %>
       </div>
       <div class="form-actions">
         <%= f.button :submit, "Update", class: 'btn-primary' %>

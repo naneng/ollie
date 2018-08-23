@@ -8,7 +8,7 @@
         <p><%= @user.email %></p>
       </div>
     </div>
-    <%= link_to "back", :back %>
+    <%= link_to "Back", :back %>
     <% if policy(@user).edit? %>
       <%= link_to "Edit", edit_user_registration_path(@user_id) %>
     <% else %>
