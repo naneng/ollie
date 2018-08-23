@@ -11,6 +11,8 @@ class ApplicationController < ActionController::Base
     # For additional fields in app/views/devise/registrations/new.html.erb
 
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :location, :email, :photo, :photo_cache, :website, :nonprofit_status, :organization, :phone])
+    update_attrs = [:password, :password_confirmation, :current_password, :name, :location, :email, :photo, :photo_cache, :website, :nonprofit_status, :organization, :phone]
+    devise_parameter_sanitizer.permit :account_update, keys: update_attrs
 
     # For additional in app/views/devise/registrations/edit.html.erb
     # devise_parameter_sanitizer.permit(:account_update, keys: [:username])
@@ -40,5 +42,11 @@ class ApplicationController < ActionController::Base
 
   def skip_pundit?
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
+  end
+
+  # protected
+
+  def after_update_path_for(resource)
+    user_path(resource)
   end
 end

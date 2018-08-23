@@ -26,20 +26,15 @@ geocoder.geocode( { 'address': current}, function(results, status) {
   latitude = results[0].geometry.location.lat();
   longitude = results[0].geometry.location.lng();
   pickup.forEach(function(element) {
-    console.log(latitude);
     geocoder.geocode( { 'address': element.innerText}, function(results, status) {
     var new_latitude = results[0].geometry.location.lat();
     var new_longitude = results[0].geometry.location.lng();
     var dist = distance(latitude, longitude, new_latitude, new_longitude);
     distances[i].insertAdjacentText("afterbegin",`${parseFloat(dist).toFixed(1)} Miles`);
     i = i + 1;
-    console.log(i);
     });
   });
 });
-
-
-
 
 function distance(lat1, lon1, lat2, lon2) {
   var radlat1 = Math.PI * lat1/180

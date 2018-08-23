@@ -1,5 +1,5 @@
 
-    <div class="container">
+ <div class="container">
 
 <%= link_to "edit dog", edit_dog_path  %>
 
@@ -14,8 +14,6 @@
           <div class="dog-avatar">
           <img class ="dog dog-request-card" src="<%= @dog.user.photo %>" alt="">
 
-
-
             <div class="card-title">
             <h1><%= @dog.name %> </h1>
             <h2><%= @dog.breed %> </h2>
@@ -28,14 +26,10 @@
         </div>
         <%= image_tag "greenshiba.png", id: "greenshiba" %>
 
-
       </div>
     </div>
   </div>
   <div>
     <%# link_to "Edit", edit_dog_path(@user) %>
   </div>
-
-
-
 
