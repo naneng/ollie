@@ -2,10 +2,15 @@
   <div class="dog-index">
   <%= link_to "Home", root_path %>
   <%= link_to "View Ollie Friends", users_path %>
+
   </div>
 
-    <div class="center">
-      <h2>Ollie Dog</h2>
+    <div class="center add-dog">
+      <h2>Ollie Dog  </h2>
+      <div class="dog-link">
+      <p><%= link_to "+ Add Dog", new_dog_path(@user)  %> </p>
+
+      </div>
       </div>
     <div class="container">
 
@@ -40,6 +45,6 @@
        </div>
     </div>
 
-<%= link_to "new dog", new_dog_path(@user)  %>
+
 
 
