@@ -1,22 +1,35 @@
-  
-<div class="white-wrapper">
-  <div class="container">
-    <div class="row">
-      <div class="col col-xs-12 col-sm-4">
-        <div class="center">
-          <h1><%= @dog.name %></h1>
-        </div>
-        <p>picturs of pick/dropoff</p>
-        <p>name breed size personality age gender photo </p>
-        <h2><%= @dog.breed %> </h2>
-        <h1><%= @dog.size %></h1>
+
+ <div class="container">
+
+<%= link_to "edit dog", edit_dog_path  %>
+
+<% if policy(@dog.user).edit? %>
+      <%= link_to "Edit", edit_dog_path(@dog.user) %>
+    <% else %>
+      <%= link_to "OlliePage", user_path(@dog.user) %>
+    <% end %>
+     <div class="row">
+      <div class="col col-sm">
+
+          <div class="dog-avatar">
+          <img class ="dog dog-request-card" src="<%= @dog.user.photo %>" alt="">
+
+            <div class="card-title">
+            <h1><%= @dog.name %> </h1>
+            <h2><%= @dog.breed %> </h2>
+            <h1><%= @dog.size %></h1>
         <h2><%= @dog.age %> </h2>
         <h1><%= @dog.gender %></h1>
-        <h2><%= @dog.photo %> </h2>
+          </div>
+
+
+        </div>
+        <%= image_tag "greenshiba.png", id: "greenshiba" %>
+
       </div>
     </div>
   </div>
   <div>
     <%# link_to "Edit", edit_dog_path(@user) %>
   </div>
-</div>
+
