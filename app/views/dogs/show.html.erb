@@ -1,7 +1,15 @@
 
     <div class="container">
+
+<%= link_to "edit dog", edit_dog_path  %>
+
+<% if policy(@dog.user).edit? %>
+      <%= link_to "Edit", edit_dog_path(@dog.user) %>
+    <% else %>
+      <%= link_to "OlliePage", user_path(@dog.user) %>
+    <% end %>
      <div class="row">
-      <div class="col col-xs-12 col-md-8">
+      <div class="col col-sm">
 
           <div class="dog-avatar">
           <img class ="dog dog-request-card" src="<%= @dog.user.photo %>" alt="">
@@ -18,6 +26,7 @@
 
 
         </div>
+        <%= image_tag "greenshiba.png", id: "greenshiba" %>
 
 
       </div>
@@ -28,10 +37,5 @@
   </div>
 
 
-<%= link_to "edit dog", edit_dog_path  %>
 
-<% if policy(@dog.user).edit? %>
-      <%= link_to "Edit", edit_dog_path(@dog.user) %>
-    <% else %>
-      <%= link_to "OlliePage", user_path(@dog.user) %>
-    <% end %>
+

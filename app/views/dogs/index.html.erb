@@ -18,7 +18,7 @@
       <div class="row">
         <% @dogs.each do |dog| %>
         <%= link_to dog_path(dog) do %>
-        <div class="col col-xs-12 col-sm-4">
+        <div class="col col-md-6">
            <div class="dog-avatar">
           <img class ="dog dog-request-card" src="<%= dog.user.photo %>" alt="">
             </div>
