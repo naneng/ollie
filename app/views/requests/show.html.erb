@@ -1,9 +1,49 @@
 <h1>Transport request</h1>
-    <ol>
-      <li>
-        <p><%= @request.datetime %></p>
-        <p><%= @request.notes %></p>
-        <p><%= @request.distance %></p>
-        <p><%= @request.time %></p>
-      </li>
-  </ol>
+<div class="center"></div>
+
+  <div id="search_javascript">
+    <div class="movie_card" id="bright">
+      <div class="info_section">
+        <div class="movie_header">
+          <img class="locandina" src="<%= @request.user.photo %>"/>
+          <h4><strong><%= @request.user.name %></strong></h4>
+          <h6><%= @request.user.location %></h6>
+          <h6>Telephone: <%= @request.user.phone %></h6>
+        </div>
+
+        <div class="movie_desc">
+          <div class = "pickup_header">
+            <p class = "indent">Pick Up Location:</p> <p><%= @request.pickup_location %></p>
+          </div>
+          <div>
+            <p class = "indent">Drop Off Location:</p> <p><%= @request.dropoff_location %></p>
+          </div>
+          <div class="bottom-left">
+            <p>
+             <strong>Request Time:</strong> <%= @request.datetime < DateTime.now ? "Immediately" : @request.datetime %>
+            </p>
+          </div>
+        </div>
+
+        <div class="dog_grid">
+
+          <% @request.dogs.each do |dog| %>
+            <%= link_to dog_path(dog) do %>
+              <div class="dog_card">
+                <% if dog.photo %>
+                  <%= image_tag dog.photo, width: 100, height: 100, :crop=>"fill"%>
+                <% end %>
+              <div class = "middle"><%= dog.name %></div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<% if policy(@request).edit? %>
+  <%= link_to edit_request_path(@request.id) do %>
+  <div class="center"><button type="button">Edit Request</button></div>
+  <% end %>
+<% end %>

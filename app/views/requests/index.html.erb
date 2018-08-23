@@ -6,9 +6,9 @@
       </form>
     </section>
 
-  </div>
+</div>
 
-<div id="search_javascript">
+  <div id="search_javascript">
   <% @requests.sort_by{|req| req.datetime}.each do |r| %>
     <div class="movie_card" id="bright">
       <%= link_to request_path(r), class: "no-decoration" do %>

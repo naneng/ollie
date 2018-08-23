@@ -18,6 +18,10 @@ class RequestsController < ApplicationController
       }]
   end
 
+  def show
+    authorize @request
+  end
+
   def create
     @request = Request.new(request_params)
     @request.user = @user
