@@ -29,3 +29,9 @@
 
 
 <%= link_to "edit dog", edit_dog_path  %>
+
+<% if policy(@dog.user).edit? %>
+      <%= link_to "Edit", edit_dog_path(@dog.user) %>
+    <% else %>
+      <%= link_to "OlliePage", user_path(@dog.user) %>
+    <% end %>
