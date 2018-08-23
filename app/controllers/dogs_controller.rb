@@ -22,13 +22,14 @@ class DogsController < ApplicationController
     @dog.user = current_user
     if @dog.save
       redirect_to user_path(current_user)
-      flash[:create] = "#{dog.name} has been created!"
+      flash[:create] = "#{@dog.name} has been created!"
     else
       render :new
     end
   end
 
   def edit
+    @dog.user = current_user
     authorize @dog
   end
 
