@@ -1,2 +1,23 @@
-<h1>Requests#edit</h1>
-<p>Find me in app/views/requests/edit.html.erb</p>
+<div>
+  <div class="flex">
+    <div class="card_form">
+      <h2>Edit Transportation Request</h2>
+        <%= simple_form_for [@request] do |f| %>
+          <p>Shelter: <%= @user.name %></p>
+          <%= f.input :pickup_location, as: :text, autofocus: true, :input_html => {:style => 'width: 100%', :rows => 3, :id => "pickup_loc"}, :autocomplete => :on %>
+
+          <div class="left"><input type="checkbox" id="myCheck1" onclick="checked1(`<%= @user.location %>`)"> Use shelter address</div>
+
+          <%= f.input :dropoff_location, as: :text, autofocus: true, :input_html => {:style => 'width: 100%', :rows => 3, :id => "dropoff_loc"}, :autocomplete => :on %>
+
+          <div class="left check2"><input type="checkbox" id="myCheck2" onclick="checked2(`<%= @user.location %>`)"> Use shelter address</div>
+
+          <%= f.input :datetime, :label => "What time is the service needed?", :as => :string, required: true, :input_html => {:class => "datepicker", :id => 'date'}, :value => Time.now %>
+
+          <div class="left check3"><input type="checkbox" id="myCheck3" onclick="checked3()"> Immediately</div>
+          <div class="dog_list"> <fieldset class="form-group check_boxes optional request_dogs"><legend class="col-form-label pt-0">Rescues</legend><input type="hidden" name="request[dog_ids][]" value="" /><div class = "grid"><div class="form-check"><input class="form-check-input check_boxes optional" type="checkbox" value="16" name="request[dog_ids][]" id="request_dog_ids_16" /><label class="collection_check_boxes" for="request_dog_ids_16">Bailey</label></div><div class="form-check"><input class="form-check-input check_boxes optional" type="checkbox" value="17" name="request[dog_ids][]" id="request_dog_ids_17" /><label class="collection_check_boxes" for="request_dog_ids_17">Stella</label></div><div class="form-check"><input class="form-check-input check_boxes optional" type="checkbox" value="29" name="request[dog_ids][]" id="request_dog_ids_29" /><label class="collection_check_boxes" for="request_dog_ids_29">Otto</label></div><div class="form-check"><input class="form-check-input check_boxes optional" type="checkbox" value="35" name="request[dog_ids][]" id="request_dog_ids_35" /><label class="collection_check_boxes" for="request_dog_ids_35">Stein</label></div><div class="form-check"><input class="form-check-input check_boxes optional" type="checkbox" value="36" name="request[dog_ids][]" id="request_dog_ids_36" /><label class="collection_check_boxes" for="request_dog_ids_36">Lucky</label></div><div class="form-check"><input class="form-check-input check_boxes optional" type="checkbox" value="54" name="request[dog_ids][]" id="request_dog_ids_54" /><label class="collection_check_boxes" for="request_dog_ids_54">Lucy</label></div></div></fieldset></div>
+
+
+          <%= f.submit "Submit" %>
+        <% end %>
+      </div>
