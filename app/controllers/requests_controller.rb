@@ -29,6 +29,13 @@ class RequestsController < ApplicationController
   def create
     @request = Request.new(request_params)
     @request.user = @user
+    pickup_results = Geocoder.search(@request.pickup_location)
+    pickup_lat = pickup_results.first.geometry["location"]["lat"]
+    pickup_long = pickup_results.first.geometry["location"]["lng"]
+    dropoff_results = Geocoder.search(@request.dropoff_location)
+    dropoff_lat = dropoff_results.first.geometry["location"]["lat"]
+    dropoff_long = dropoff_results.first.geometry["location"]["lng"]
+    @request.distance = (distance [pickup_lat, pickup_long], [dropoff_lat, dropoff_long])*0.000621371
     if @request.save
       flash[:create] = "Transportation request has been created!"
       redirect_to request_path(@request)
@@ -61,4 +68,22 @@ class RequestsController < ApplicationController
   def request_params
     params.require(:request).permit(:pickup_location, :dropoff_location, :datetime, dog_ids: [])
   end
+
+  def distance loc1, loc2
+    rad_per_deg = Math::PI/180  # PI / 180
+    rkm = 6371                  # Earth radius in kilometers
+    rm = rkm * 1000             # Radius in meters
+
+    dlat_rad = (loc2[0]-loc1[0]) * rad_per_deg  # Delta, converted to rad
+    dlon_rad = (loc2[1]-loc1[1]) * rad_per_deg
+
+    lat1_rad, lon1_rad = loc1.map {|i| i * rad_per_deg }
+    lat2_rad, lon2_rad = loc2.map {|i| i * rad_per_deg }
+
+    a = Math.sin(dlat_rad/2)**2 + Math.cos(lat1_rad) * Math.cos(lat2_rad) * Math.sin(dlon_rad/2)**2
+    c = 2 * Math::atan2(Math::sqrt(a), Math::sqrt(1-a))
+
+    rm * c # Delta in meters
+  end
+
 end

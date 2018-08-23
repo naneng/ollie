@@ -1,3 +1,5 @@
+
+
 <div class="search middle">
     <section class="webdesigntuts-workshop">
       <form accept-charset="UTF-8"><input name="utf8" type="hidden" value="&#x2713;" onsubmit="return false;" />
@@ -5,57 +7,60 @@
         <button type="button" onclick = "searchFunction()">Search</button>
       </form>
     </section>
-
 </div>
 
-  <div id="search_javascript">
   <% @requests.sort_by{|req| req.datetime}.each do |r| %>
     <div class="movie_card" id="bright">
-      <%= link_to request_path(r), class: "no-decoration" do %>
-      <div class="info_section">
-        <div class="movie_header">
-          <img class="locandina" src="<%= r.user.photo %>"/>
-          <h4><strong><%= r.user.name %></strong></h4>
-          <h6><%= r.user.location %></h6>
-          <h6>Telephone: <%= r.user.phone %></h6>
+      <div class = "distances">
+        <div>
+          <p class = "indent">To Pickup:</p><p class="distance_from_me"></p>
         </div>
-
-        <div class="movie_desc">
-          <div class = "pickup_header">
-          <p class = "indent">Pick Up Location:</p> <p><%= r.pickup_location %></p>
-          </div>
+        <% if r.distance %>
           <div>
-          <p class = "indent">Drop Off Location:</p> <p><%= r.dropoff_location %></p>
-        </div>
-        <div class="bottom-left">
-         <p>
-             <strong>Request Time:</strong> <%= r.datetime < DateTime.now ? "Immediately" : r.datetime %>
-             </p>
-         </div>
-        </div>
-
-        <div class="dog_grid">
-          <% r.dogs.each do |dog| %>
-            <%= link_to dog_path(dog) do %>
-              <div class="dog_card">
-                <% if dog.photo %>
-                  <%= image_tag dog.photo, width: 100, height: 100, :crop=>"fill"%>
-                <% end %>
-              <div class = "middle"><%= dog.name %></div>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
-        <!-- <div class="movie_social">
-          <ul>
-            <li><i class="material-icons">share</i></li>
-            <li><i class="material-icons"></i></li>
-            <li><i class="material-icons">chat_bubble</i></li>
-          </ul>
-        </div> -->
+            <p class = "indent">Trip:</p><p> <%= r.distance %> Miles</p>
+          </div>
         <% end %>
       </div>
-      <div class="blur_back bright_back"></div>
+      <%= link_to request_path(r), class: "no-decoration" do %>
+        <div class="info_section">
+          <div class="movie_header">
+            <img class="locandina" src="<%= r.user.photo %>"/>
+            <h4><strong><%= r.user.name %></strong></h4>
+            <h6><%= r.user.location %></h6>
+            <h6>Telephone: <%= r.user.phone %></h6>
+          </div>
+
+          <div class="movie_desc">
+            <div class = "pickup_header">
+            <p class = "indent">Pick Up Location:</p> <p class="pickup_loc"><%= r.pickup_location %></p>
+            </div>
+            <div>
+            <p class = "indent">Drop Off Location:</p> <p><%= r.dropoff_location %></p>
+            </div>
+            <div class="bottom-left">
+            <p>
+              <strong>Request Time:</strong> <%= r.datetime < DateTime.now ? "Immediately" : r.datetime %>
+            </p>
+            </div>
+          </div>
+
+          <div class="dog_grid">
+            <% r.dogs.each do |dog| %>
+              <%= link_to dog_path(dog) do %>
+                <div class="dog_card">
+                  <% if dog.photo %>
+                    <%= image_tag dog.photo, width: 100, height: 100, :crop=>"fill"%>
+                  <% end %>
+                  <div class = "middle"><%= dog.name %></div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="blur_back bright_back"></div>
+        </div>
+      <% end %>
     </div>
-  </div>
-<% end %>
+
+  <% end %>
+
+<div id="current_location" class="middle"> <strong><p>Current location</p></strong> <p> <%= current_user.location %></p></div>
