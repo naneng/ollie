@@ -38,9 +38,6 @@ geocoder.geocode( { 'address': current}, function(results, status) {
   });
 });
 
-
-
-
 function distance(lat1, lon1, lat2, lon2) {
   var radlat1 = Math.PI * lat1/180
   var radlat2 = Math.PI * lat2/180
