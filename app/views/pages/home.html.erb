@@ -41,53 +41,34 @@
 <div class="white-wrapper">
   <div class="container">
     <div class="row">
-      <div class="col col-xs-12">
+      <div class="col col-xs-12 ">
         <%= image_tag "dogexcursions.png", id: "dogexcursions" %>
 
-
-      <div class="row">
         <% @dogs.each do |dog| %>
         <div class="col col-xs-12 col-sm-4">
            <div class="dog-avatar">
-
             </div>
+           <img class ="dog dog-request-card" src="<%= dog.user.photo %>" alt="">
 
           <div class="card-dog">
+            <p class="card-title dog-request-card">
+            <%= dog.name %> the <%= dog.breed %> needs a ride!
+            </p>
 
-            <p class="card-title">
-            <%= dog.name %>
-
-            <em> <%= dog.size %></em>
-            <%= dog.age %>
+              <div class="dog-info">
              <%= link_to "dogs edit", edit_dog_path(dog)  %>
-            </p>
-
-            <p class="card-text">
-              <%= image_tag "Groupcorgi.jpg", id: "corgi" %>
-            </p>
-
-
+              </div>
             <%= link_to dog_path(dog) do %>
 
           </div>
-        </div>
+          </div>
          <% end %>
          <% end %>
        </div>
-
-
       </div>
-
     </div>
-
   </div>
 </div>
-
-
-
-
-
-
 
 
 
