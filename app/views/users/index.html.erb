@@ -1,19 +1,29 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <h1>List of Not-for-Profits, Drivers and Dog Owners</h1>
-      <% @users.each do |user| %>
-        <%= link_to user_path(user) do %>
-          <ol>
-            <li>
-              <h4> <%= user.name %> </h4>
-              <p><%= user.location %></p>
-              <p><%= user.email %></p>
-            </li>
-          </ol>
-        <% end %>
+<div class="user-container">
+  <div class="container">
+    <h1>List of Not-for-Profits, Drivers and Dog Owners</h1>
+    <div class="row">
+      <div class="cards">
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <% @users.each do |user| %>
+            <div class="card">
+              <%= link_to user_path(user) do %>
+                <div class="user-picture">
+                  <% if user.photo? %>
+                    <%= image_tag user.photo %>
+                  <% else %>
+                    <%= image_tag "small-dog-icondog.jpg" %>
+                  <% end %>
+                  <div class="card-description">
+                    <p><%= user.name %></p>
+                    <p><%= user.phone%></p>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
       </div>
-    <% end %>
+    </div>
   </div>
   <%= link_to "Home", root_path %>
 </div>
