@@ -36,6 +36,7 @@ if (currentElem) {
       distances[i].insertAdjacentText("afterbegin",`${parseFloat(dist).toFixed(1)} Miles`);
       i = i + 1;
       });
+
     });
   });
 };

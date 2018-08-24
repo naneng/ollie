@@ -6,6 +6,7 @@ class Request < ApplicationRecord
 
   validates :pickup_location, presence: true
   validates :dropoff_location, presence: true
+  validates :datetime, presence: true
   geocoded_by :pickup_location
   after_validation :geocode, if: :will_save_change_to_pickup_location?
 end
