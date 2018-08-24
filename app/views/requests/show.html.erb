@@ -1,36 +1,31 @@
-<div class="center">
+<div class="center green-header">
   <h1><strong><%= @request.user.name %> Transportation Request</strong>
   <h3><%= @request.user.location %> Telephone: <%= @request.user.phone %></h3>
 </div>
 
 <div id="search_javascript">
-  <div class="request_card-title" id="bright">
-    <div class="request_info_section info_section flex">
-
-    <div>
-    <img class="locandina" src="<%= @request.user.photo %>"/>
-      <div>
-        <% @request.dogs.each do |dog| %>
-          <%= link_to dog_path(dog) do %>
-            <div >
-              <% if dog.photo %>
-                <%= image_tag dog.photo, width: 100, height: 100, :crop=>"fill"%>
-              <% end %>
-            </div>
+  <div class="request-card-title-show" id="bright">
+    <%= image_tag @request.user.photo, class: "locandinatwo flex-requests" %>
+    <div class="dog-row">
+      <% @request.dogs.each do |dog| %>
+        <%= link_to dog_path(dog) do %>
+          <% if dog.photo %>
+            <%= image_tag dog.photo, class: "dog-mini", width: 100, height: 100, :crop=>"fill"%>
           <% end %>
-        <div><%= dog.name %></div>
+          <div class="dog-name-link">
+            <%= dog.name %>
+          </div>
         <% end %>
-      </div>
+      <% end %>
     </div>
-
-    <div class="">
-      <p>Pick Up Location:</p> <p><%= @request.pickup_location %></p>
-      <p>Drop Off Location:</p> <p><%= @request.dropoff_location %></p>
+    <div class="request-info">
+      <strong><p>Pick Up Location:</p></strong>
+      <p><%= @request.pickup_location %></p>
+      <strong><p>Drop Off Location:</p></strong>
+      <p><%= @request.dropoff_location %></p>
       <p>
-       <strong>Request Time:</strong> <%= @request.datetime < DateTime.now ? "Immediately" : @request.datetime %>
+        <strong>Request Time:</strong> <%= @request.datetime < DateTime.now ? "Immediately" : @request.datetime %>
       </p>
-    </div>
-
     </div>
   </div>
 </div>
