@@ -30,12 +30,34 @@ position: relative;
   flex-direction: row;
   display: flex;
   justify-content: center;
-  text-decoration: none;
+  padding-bottom: 4%;
+
+  a {
+     color: white;
+  }
+
+
+
 }
 .dog-row:hover a {
+  text-decoration: none;
+
+
+}
+
+.dog-name-link {
   color: white;
   text-decoration: none;
+  .dog-name-link:hover{
+     text-decoration: none;
+     color: white;
+      opacity: .7;
+
+  }
 }
+
+
+
 
 .request-card-title-show {
   box-shadow: 0px 0px 120px -25px rgba(0, 0, 0, 0.5);
@@ -47,4 +69,8 @@ position: relative;
     background-color: #adc58c;
     background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23c6dea6' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
 
+}
+
+.green-header {
+  color: #adc58c ;
 }
