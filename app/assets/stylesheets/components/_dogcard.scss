@@ -1,7 +1,7 @@
 
 .card-dog {
   margin: 3%;
-  border: 1px solid rgba(227, 228, 225, 0.68);
+  border: 0px solid rgba(227, 228, 225, 0.68);
   box-shadow: 1px 1px 1px #acc58b96;
 }
 
@@ -19,7 +19,16 @@
 }
 
 .card-title {
-  padding: 2.25rem;
+  padding: 4.25rem;
+  padding-left: 2rem;
+  text-align: center;
+  color: white;
+  font-size: 2.25rem;
+  background-color: #adc58c;
+  box-shadow: 1px 1px 1px #96a087cf;
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23c6dea6' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+}
+.card-title-show {
   padding-left: 2rem;
   text-align: center;
   color: white;

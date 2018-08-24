@@ -1,9 +1,8 @@
-const search = document.getElementById("search_function");
-if (search) {
-  search.addEventListener('click', () => {
-        searchFunction();
-  });
-}
+
+var search = document.getElementById("search_function");
+search && search.addEventListener('click', () => {
+      searchFunction();
+    });
 
 function searchFunction() {
     // Declare variables
@@ -19,5 +18,4 @@ function searchFunction() {
         movies[i].style.display = "none";
       }
     }
-
 }
