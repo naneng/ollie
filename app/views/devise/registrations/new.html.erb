@@ -22,17 +22,17 @@
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
       <%= f.input :phone,
-                placeholder: => "ex. 415-555-1234",
+                :placeholder => "ex. 415-555-1234",
                 required: true,
                 autofocus: true ,
                 input_html: { autocomplete: "phone" }%>
       <%= f.input :website,
-                placeholder: => "http://www.laanimalservices.com/shelters",
+                :placeholder => "http://www.laanimalservices.com/shelters",
                 required: true,
                 autofocus: true ,
                 input_html: { autocomplete: "website" }%>
       <%= f.input :location, :label => "Address",
-                placeholder: => "street, city, state",
+                :placeholder => "street, city, state",
                 required: true,
                 autofocus: true ,
                 input_html: { autocomplete: "address" }%>
@@ -40,12 +40,12 @@
                 required: true,
                 autofocus: true ,
                 input_html: { autocomplete: "tax-exempt status" },
-                collection: => { 'Qualified' => 1,'Pending' => 2, 'Not Applicable' => 3 } %>
+                :collection => { 'Qualified' => 1,'Pending' => 2, 'Not Applicable' => 3 } %>
       <%= f.input :organization, :label => "Organization/Individual",
                 required: true,
                 autofocus: true ,
                 input_html: { autocomplete: "organization" },
-                collection: => { 'Organization' => true,'Individual' => false } %>
+                :collection => { 'Organization' => true,'Individual' => false } %>
     </div>
   </div>
   <div class="center signupbtn">
