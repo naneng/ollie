@@ -1,5 +1,5 @@
 var search = document.getElementById("search_function");
-search.addEventListener('click', () => {
+search && search.addEventListener('click', () => {
       searchFunction();
     });
 
@@ -17,5 +17,4 @@ function searchFunction() {
         movies[i].style.display = "none";
       }
     }
-
 }
