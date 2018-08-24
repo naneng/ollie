@@ -28,19 +28,16 @@ class DogsController < ApplicationController
   end
 
   def edit
-    # @dog.user = current_user
     authorize @dog
   end
 
   def update
-    # @dog.user = current_user
     @dog.update(dog_params)
     authorize @dog
     redirect_to dog_path(@dog)
   end
 
   def destroy
-    puts "<<<<<<<<<<<<<<destroy>>>>>>>>>>>"
     authorize @dog
     if @dog.destroy
       redirect_to user_path(current_user)
