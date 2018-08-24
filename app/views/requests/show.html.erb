@@ -42,7 +42,7 @@
 <% end %>
 
 <% if policy(@request).destroy? %>
-  <%= link_to request_path(@request), method: :delete do %>
+  <%= link_to request_path(@request), method: :delete, data: { confirm: "Are you sure?" }, method: :delete do %>
     <div class="center link"><button>Delete Request</button></div>
   <% end %>
 <% end %>
