@@ -52,7 +52,8 @@
 
   <li>
     <%= link_to dog_path(dog) do %>
-    <img class="dog dog-user-card"src="<%= dog.user.photo %>" alt="">
+    <img class="dog dog-user-card" src="<%= dog.photo %>" alt="">
+
 
     <h2><%= dog.name %> <%= dog.breed %></h2>
     <% end %>
