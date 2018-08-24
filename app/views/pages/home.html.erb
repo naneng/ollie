@@ -44,7 +44,9 @@
           <div class="col col-xs-12 col-sm-4">
             <div class="dog-avatar">
             </div>
-            <img class ="dog dog-request-card" src="<%= dog.user.photo %>" alt="">
+            <% if dog.photo %>
+              <%= image_tag dog.photo, :class=>"dog dog-user-card", width: 70, height: 120, :crop=>"fill"%>
+            <% end %>
             <div class="card-dog">
               <p class="card-title dog-request-card">
                 <%= dog.name %> the <%= dog.breed %> needs a ride!

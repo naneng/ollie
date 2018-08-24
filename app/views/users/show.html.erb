@@ -53,7 +53,7 @@
         <li>
           <%= link_to dog_path(dog) do %>
           <% if dog.photo %>
-            <%= image_tag dog.photo, :class=>"dog dog-user-card", width: 70, height: 120, :crop=>"fill"%>
+            <%= image_tag dog.photo, :class=>"dog dog-user-card", width: 70, height: 160, :crop=>"fill"%>
           <% end %>
           <h2><%= dog.name %></h2> <h4><%= dog.breed %></h4>
           <% end %>
