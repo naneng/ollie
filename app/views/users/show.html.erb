@@ -1,17 +1,9 @@
- <div class="center">
-    <%= link_to "Back", :back, class: 'user-text-links' %>
-    <% if policy(@user).edit? %>
-      <%= link_to "Edit", edit_user_registration_path(@user_id), class: 'user-text-links' %>
-    <% else %>
-      <%= link_to "Home", root_path, class: 'user-text-links' %>
-    <% end %>
-    <%= link_to "Add an OllieBuddy", new_dog_path(@user_id), class: 'user-text-links' %>
-  </div>
+
 
 <div class="user-container">
   <div class="container">
 
-    <div class="center">
+    <div class="center user-show-title">
       <% if @user.organization == true %>
         <h1>OlliePartner</h1>
       <% else %>
@@ -56,8 +48,14 @@
 <div class="wrapper">
 <ul class="flex cards">
   <% @user.dogs.each do |dog| %>
-   <img src="<%= dog.user.photo %>" alt="">
-  <li><h2><%= dog.name %> <%= dog.breed %></h2>
+
+
+  <li>
+    <%= link_to dog_path(dog) do %>
+    <img class="dog dog-user-card"src="<%= dog.user.photo %>" alt="">
+
+    <h2><%= dog.name %> <%= dog.breed %></h2>
+    <% end %>
     <p>Posuere varius ullamcorper ipsum adipiscing dignissim ipsum adipiscing a a quisque malesuada quam purus venenatis sagittis fermentum parturient curabitur montes a metus.
     </p></li>
     <% end %>
@@ -66,3 +64,12 @@
 </ul>
 </div>
 
+ <div class="center">
+    <%= link_to "Back", :back, class: 'user-text-links' %>
+    <% if policy(@user).edit? %>
+      <%= link_to "Edit", edit_user_registration_path(@user_id), class: 'user-text-links' %>
+    <% else %>
+      <%= link_to "Home", root_path, class: 'user-text-links' %>
+    <% end %>
+    <%= link_to "Add an OllieBuddy", new_dog_path(@user_id), class: 'user-text-links' %>
+  </div>

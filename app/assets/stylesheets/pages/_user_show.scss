@@ -23,8 +23,19 @@
 
 .cards h2 {
   background-color: #C6DEA6;
-  margin: 0;
+  margin: 2%;
   padding: 2%;
+  text-decoration: none;
+  color: white;
+  opacity: .4;
+
+}
+
+.cards:hover h2 {
+  text-decoration: none;
+  color: white;
+  opacity: .7;
+
 }
 
 .cards p {
@@ -40,6 +51,9 @@
 .flex li {
   flex: 1 1 200px;
   margin: 10px;
+  a {
+    text-decoration: none;
+  }
 }
 
 .grid-show {
@@ -62,4 +76,8 @@
 }
 .dog-request-card-show:hover {
   opacity: .9;
+}
+
+.user-show-title {
+  color:#C6DEA6;
 }
