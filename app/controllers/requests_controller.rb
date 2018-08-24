@@ -47,17 +47,24 @@ class RequestsController < ApplicationController
   end
 
   def update
-    # @request
-    # authorize @request
-    @request.update(request_params)
     authorize @request
-    redirect_to request_path(@user)
+    if @request.update(request_params)
+      redirect_to request_path(@user)
+      flash[:create] = "#{@user.name} request has been updated!"
+    else
+      render :show
+    end
   end
 
   def destroy
-    authorize @request
     @request.destroy
-    redirect_to requests_path
+    authorize @request
+    if @request.destroy
+      redirect_to requests_path
+      flash[:create] = "Request has been removed!"
+    else
+      render :show
+    end
   end
 
   private
