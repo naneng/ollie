@@ -1,31 +1,55 @@
 <div class="user-container">
   <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-        <% if @user.organization == true %>
-          <h1>OlliePartner</h1>
+    <div class="center">
+      <% if @user.organization == true %>
+        <h1>OlliePartner</h1>
+      <% else %>
+        <h1>OllieMember</h1>
+      <% end %>
+    </div>
+    <div class="card-split">
+      <div>
+        <h4 class='center'> <%= @user.name %> </h4>
+        <% if @user.photo? %>
+          <%= image_tag @user.photo %>
         <% else %>
-          <h1>OllieMember</h1>
-        <% end %>
-        <h4> <%= @user.name %> </h4>
-        <p>Phone Number:<% @user.phone %></p>
-        <p>Address:<%= @user.location %></p>
-        <p>Email:<%= @user.email %></p>
-        <p>Website:<%= @user.website %></p>
-        <p>501(c)(3) Status:
-          <% if @user.nonprofit_status == 1 %>
-            <% puts "Qualified" %>
-            <%= @user.nonprofit_status %></p>
+          <%= image_tag "small-dog-icondog.jpg" %>
         <% end %>
       </div>
+      <div>
+        <p>Phone Number:</p>
+        <p>Address: </p>
+        <p>Email:</p>
+        <p>Website: </p>
+        <p>501(c)(3) Status:
+        </div>
+        <div>
+          <p><%= @user.phone %></p>
+          <p><%= @user.location %></p>
+          <p><%= @user.email %></p>
+          <p><%= @user.website %></p>
+          <p>
+            <% if @user.nonprofit_status == 1 %>
+              <%= puts "Qualified" %>
+            <% elsif  %>
+              <% @user.nonprofit_status == 2 %>
+              <%= puts "Pending" %>
+            <% else %>
+              <% @user.nonprofit_status == 3 %>
+              <%= puts "Not Applicable" %>
+            <% end %> </p>
+        </div>
+      </div>
+    </div>
+    <div>
+    </div>
+    <div class="center">
+      <%= link_to "Back", :back, class: 'user-text-links' %>
+      <% if policy(@user).edit? %>
+        <%= link_to "Edit", edit_user_registration_path(@user_id), class: 'user-text-links' %>
+      <% else %>
+        <%= link_to "Home", root_path, class: 'user-text-links' %>
+      <% end %>
+      <%= link_to "Add an OllieBuddy", new_dog_path(@user_id), class: 'user-text-links' %>
     </div>
   </div>
-  <div class="center">
-    <%= link_to "Back", :back, class: 'user-text-links' %>
-    <% if policy(@user).edit? %>
-      <%= link_to "Edit", edit_user_registration_path(@user_id), class: 'user-text-links' %>
-    <% else %>
-      <%= link_to "Home", root_path, class: 'user-text-links' %>
-    <% end %>
-  </div>
-</div>
