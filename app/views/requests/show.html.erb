@@ -41,3 +41,9 @@
   <% end %>
 <% end %>
 
+
+<% if policy(@request).destroy? %>
+  <%= link_to request_path(@request), method: :delete do %>
+    <div class="center link"><button>Delete Request</button></div>
+  <% end %>
+<% end %>
