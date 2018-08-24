@@ -1,7 +1,9 @@
-var search = document.getElementById("search_function");
-search.addEventListener('click', () => {
-      searchFunction();
-    });
+const search = document.getElementById("search_function");
+if (search) {
+  search.addEventListener('click', () => {
+        searchFunction();
+  });
+}
 
 function searchFunction() {
     // Declare variables

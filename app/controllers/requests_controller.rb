@@ -56,6 +56,8 @@ class RequestsController < ApplicationController
 
   def destroy
     authorize @request
+    @request.destroy
+    redirect_to requests_path
   end
 
   private

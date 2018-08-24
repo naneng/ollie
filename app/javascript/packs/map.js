@@ -17,7 +17,10 @@ if (mapElement) { // don't try to build a map if there's no div#map to inject in
 
 var distances = document.querySelectorAll('.distance_from_me');
 var pickup = document.querySelectorAll('.pickup_loc');
-var current = document.getElementById('current_location').innerText;
+var currentLocation = document.getElementById('current_location');
+if (currentLocation) {
+  var current = currentLocation.innerText;
+}
 var geocoder = new google.maps.Geocoder();
 var latitude = 0;
 var longitude = 0;
