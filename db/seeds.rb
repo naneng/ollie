@@ -6,6 +6,23 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+def distance loc1, loc2
+  rad_per_deg = Math::PI/180  # PI / 180
+  rkm = 6371                  # Earth radius in kilometers
+  rm = rkm * 1000             # Radius in meters
+
+  dlat_rad = (loc2[0]-loc1[0]) * rad_per_deg  # Delta, converted to rad
+  dlon_rad = (loc2[1]-loc1[1]) * rad_per_deg
+
+  lat1_rad, lon1_rad = loc1.map {|i| i * rad_per_deg }
+  lat2_rad, lon2_rad = loc2.map {|i| i * rad_per_deg }
+
+  a = Math.sin(dlat_rad/2)**2 + Math.cos(lat1_rad) * Math.cos(lat2_rad) * Math.sin(dlon_rad/2)**2
+  c = 2 * Math::atan2(Math::sqrt(a), Math::sqrt(1-a))
+
+  rm * c # Delta in meters
+end
+
 NAME = %w(George Matt Larry Kat Ableen Takuma Nozomi David Douglas Hiroki)
 loc = ["2096 Mountain Blvd, Oakland, CA 94611, USA"]
 loc << "3250 Lakeshore Ave, Oakland, CA 94610, USA"
@@ -263,9 +280,23 @@ early_reqs = []
   dropoff = addresses.sample
   if i < 8
     req = Request.create!(user_id: shelter.id, pickup_location: pickup, dropoff_location: dropoff, datetime: DateTime.new(2018,8,31,(12..20).to_a.sample,(1..59).to_a.sample), status: "Requested")
+    pickup_results = Geocoder.search(req.pickup_location)
+    pickup_lat = pickup_results.first.geometry["location"]["lat"]
+    pickup_long = pickup_results.first.geometry["location"]["lng"]
+    dropoff_results = Geocoder.search(req.dropoff_location)
+    dropoff_lat = dropoff_results.first.geometry["location"]["lat"]
+    dropoff_long = dropoff_results.first.geometry["location"]["lng"]
+    req.distance = (distance [pickup_lat, pickup_long], [dropoff_lat, dropoff_long])*0.000621371
     early_reqs << req
   else
     req = Request.create!(user_id: shelter.id, pickup_location: pickup, dropoff_location: dropoff, datetime: DateTime.new(2018,(9..12).to_a.sample,(1..30).to_a.sample,(8..20).to_a.sample,(1..59).to_a.sample), status: "Requested" )
+    pickup_results = Geocoder.search(req.pickup_location)
+    pickup_lat = pickup_results.first.geometry["location"]["lat"]
+    pickup_long = pickup_results.first.geometry["location"]["lng"]
+    dropoff_results = Geocoder.search(req.dropoff_location)
+    dropoff_lat = dropoff_results.first.geometry["location"]["lat"]
+    dropoff_long = dropoff_results.first.geometry["location"]["lng"]
+    req.distance = (distance [pickup_lat, pickup_long], [dropoff_lat, dropoff_long])*0.000621371
   end
   i += 1
 
@@ -299,9 +330,23 @@ i = 0
   pickup = addresses.sample
   if i < 8
     req = Request.create!(user_id: shelter.id, pickup_location: pickup, dropoff_location: dropoff, datetime: DateTime.new(2018,8,31,(12..20).to_a.sample,(1..59).to_a.sample), status: "Requested")
+    pickup_results = Geocoder.search(req.pickup_location)
+    pickup_lat = pickup_results.first.geometry["location"]["lat"]
+    pickup_long = pickup_results.first.geometry["location"]["lng"]
+    dropoff_results = Geocoder.search(req.dropoff_location)
+    dropoff_lat = dropoff_results.first.geometry["location"]["lat"]
+    dropoff_long = dropoff_results.first.geometry["location"]["lng"]
+    req.distance = (distance [pickup_lat, pickup_long], [dropoff_lat, dropoff_long])*0.000621371
     early_reqs << req
   else
     req = Request.create!(user_id: shelter.id, pickup_location: pickup, dropoff_location: dropoff, datetime: DateTime.new(2018,(9..12).to_a.sample,(1..30).to_a.sample,(8..20).to_a.sample,(1..59).to_a.sample), status: "Requested" )
+    pickup_results = Geocoder.search(req.pickup_location)
+    pickup_lat = pickup_results.first.geometry["location"]["lat"]
+    pickup_long = pickup_results.first.geometry["location"]["lng"]
+    dropoff_results = Geocoder.search(req.dropoff_location)
+    dropoff_lat = dropoff_results.first.geometry["location"]["lat"]
+    dropoff_long = dropoff_results.first.geometry["location"]["lng"]
+    req.distance = (distance [pickup_lat, pickup_long], [dropoff_lat, dropoff_long])*0.000621371
   end
   i += 1
 
