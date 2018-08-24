@@ -7,29 +7,26 @@
         <h1>OllieMember</h1>
       <% end %>
     </div>
+
+
+
     <div class="card-split">
       <div>
-        <h4 class='center'> <%= @user.name %> </h4>
-        <% if @user.photo? %>
-          <%= image_tag @user.photo %>
+        <ul class="grid-show cards">
+          <li>
+            <h2>
+              <div class="dog-request-card-show">
+              <% if @user.photo? %>
+          <%= image_tag @user.photo, class: "dog-request-card-show" %>
         <% else %>
-          <%= image_tag "small-dog-icondog.jpg" %>
+          <%= image_tag "small-dog-icondog.jpg", class: "dog-request-card-show" %>
         <% end %>
-      </div>
-      <div>
-        <p>Phone Number:</p>
-        <p>Address: </p>
-        <p>Email:</p>
-        <p>Website: </p>
-        <p>501(c)(3) Status:
         </div>
-        <div>
-          <p><%= @user.phone %></p>
-          <p><%= @user.location %></p>
-          <p><%= @user.email %></p>
-          <p><%= @user.website %></p>
-          <p>
-            <% if @user.nonprofit_status == 1 %>
+        <%= @user.name %>
+        <p><%= @user.location %></p>
+        <p><%= @user.phone %> <%= @user.email %></p>
+        <p><%= @user.website %></p>
+         <p> 501(c)(3) Status: <% if @user.nonprofit_status == 1 %>
               <%= puts "Qualified" %>
             <% elsif  %>
               <% @user.nonprofit_status == 2 %>
@@ -37,7 +34,13 @@
             <% else %>
               <% @user.nonprofit_status == 3 %>
               <%= puts "Not Applicable" %>
-            <% end %> </p>
+            <% end %> </p></p>
+
+
+            </h2>
+
+          </li>
+
         </div>
       </div>
     </div>
@@ -60,4 +63,48 @@
     <% end %>
     <%= link_to "Add an OllieBuddy", new_dog_path(@user_id), class: 'user-text-links' %>
   </div>
+</div>
+
+
+
+<div class="wrapper">
+  <h1>Flexbox</h1>
+<ul class="flex cards">
+  <li><h2>Card 1</h2>
+    <p>Posuere varius ullamcorper ipsum adipiscing dignissim ipsum adipiscing a a quisque malesuada quam purus venenatis sagittis fermentum parturient curabitur montes a metus.
+    </p></li>
+  <li><h2>Card 2</h2>
+    <p>Posuere varius ullamcorper ipsum adipiscing dignissim ipsum adipiscing a a quisque malesuada quam purus venenatis sagittis fermentum parturient curabitur montes a metus.
+    </p></li>
+  <li><h2>Card 3</h2>
+    <p>Posuere varius ullamcorper ipsum adipiscing dignissim ipsum adipiscing a a quisque malesuada quam purus venenatis sagittis fermentum parturient curabitur montes a metus.
+    </p></li>
+  <li><h2>Card 4</h2>
+    <p>Posuere varius ullamcorper ipsum adipiscing dignissim ipsum adipiscing a a quisque malesuada quam purus venenatis sagittis fermentum parturient curabitur montes a metus.
+    </p></li>
+  <li><h2>Card 5</h2>
+    <p>Posuere varius ullamcorper ipsum adipiscing dignissim ipsum adipiscing a a quisque malesuada quam purus venenatis sagittis fermentum parturient curabitur montes a metus.
+    </p></li>
+
+</ul>
+
+  <h1>CSS Grid Layout</h1>
+<ul class="grid cards">
+  <li><h2>Card 1</h2>
+    <p>Posuere varius ullamcorper ipsum adipiscing dignissim ipsum adipiscing a a quisque malesuada quam purus venenatis sagittis fermentum parturient curabitur montes a metus.
+    </p></li>
+  <li><h2>Card 2</h2>
+    <p>Posuere varius ullamcorper ipsum adipiscing dignissim ipsum adipiscing a a quisque malesuada quam purus venenatis sagittis fermentum parturient curabitur montes a metus.
+    </p></li>
+  <li><h2>Card 3</h2>
+    <p>Posuere varius ullamcorper ipsum adipiscing dignissim ipsum adipiscing a a quisque malesuada quam purus venenatis sagittis fermentum parturient curabitur montes a metus.
+    </p></li>
+  <li><h2>Card 4</h2>
+    <p>Posuere varius ullamcorper ipsum adipiscing dignissim ipsum adipiscing a a quisque malesuada quam purus venenatis sagittis fermentum parturient curabitur montes a metus.
+    </p></li>
+  <li><h2>Card 5</h2>
+    <p>Posuere varius ullamcorper ipsum adipiscing dignissim ipsum adipiscing a a quisque malesuada quam purus venenatis sagittis fermentum parturient curabitur montes a metus.
+    </p></li>
+
+</ul>
 </div>
