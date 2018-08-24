@@ -10,18 +10,19 @@
 </div>
 
   <% @requests.sort_by{|req| req.datetime}.each do |r| %>
+    <%= link_to request_path(r), class: "no-decoration" do %>
     <div class="movie_card" id="bright">
       <div class = "distances">
         <div>
-          <p class = "indent">To Pickup:</p><p class="distance_from_me"></p>
+          <p class = "indent"><strong>To Pickup:</strong></p><p class="distance_from_me"></p>
+          <% if r.distance %>
+            <div class = "margin-top">
+              <p class = "indent"><strong>Trip:</strong></p><p> <%= r.distance %> Miles</p>
+            </div>
+          <% end %>
         </div>
-        <% if r.distance %>
-          <div>
-            <p class = "indent">Trip:</p><p> <%= r.distance %> Miles</p>
-          </div>
-        <% end %>
       </div>
-      <%= link_to request_path(r), class: "no-decoration" do %>
+
         <div class="info_section">
           <div class="movie_header">
             <img class="locandina" src="<%= r.user.photo %>"/>
@@ -56,11 +57,10 @@
               <% end %>
             <% end %>
           </div>
-          <div class="blur_back bright_back"></div>
         </div>
-      <% end %>
-    </div>
 
+    </div>
   <% end %>
+<% end %>
 
 <div id="current_location" class="middle"> <strong><p>Current location</p></strong> <p> <%= current_user.location %></p></div>
