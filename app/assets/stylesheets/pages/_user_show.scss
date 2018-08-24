@@ -4,6 +4,15 @@
 .wrapper {
   margin: 0 auto;
   width: 90%;
+  h1 {
+    text-align: center;
+    color: black;
+    margin-bottom: 10px;
+  }
+  .center {
+    margin: 30px auto 50px auto;
+
+  }
 }
 
 .cards {
@@ -18,16 +27,15 @@
   border-radius: 2%;
   background-color: transparent;
   color: white;
-  flex: 1 1 200px;
+
 }
 
 .cards h2 {
+  margin-top: 0;
   background-color: #C6DEA6;
-  margin: 2%;
   padding: 2%;
   text-decoration: none;
-  color: white;
-  opacity: .4;
+  color: black;
 
 }
 
@@ -46,6 +54,8 @@
   display: flex;
   flex-wrap: wrap;
   margin: 0 -10px;
+  text-align: center;
+  color: black;
 }
 
 .flex li {
@@ -58,13 +68,17 @@
 
 .grid-show {
   display: grid;
-  grid-template-columns: repeat(3,1fr);
-  /*grid-template-columns: repeat(auto-fill, minmax(200px 1fr));*/
-  grid-gap: 20px;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   text-align: center;
-  color: white;
-  box-shadow: 0px 0px 120px -25px rgba(0, 0, 0, 0.5);
+  color: black;
+  background-color: #FDFFF9;
+  list-style: none;
+  h2 {
+    color: #C6DEA6;
+  }
+  h4 {
+    color: #C6DEA6;
+  }
 }
 
 
@@ -78,6 +92,3 @@
   opacity: .9;
 }
 
-.user-show-title {
-  color:#C6DEA6;
-}

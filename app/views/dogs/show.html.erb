@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col col-sm">
       <div class="dog-avatar">
-        <img class ="dog dog-request-card" src="<%= @dog.user.photo %>" alt="">
+        <%= image_tag @dog.photo, :class=>"dog dog-user-card", width: 170, height: 300, :crop=>"fill"%>
         <div class="card-title-show col">
           <h1><%= @dog.name %> the <%= @dog.breed %> </h1>
           <p> is <%= @dog.age %> years old and a <%= @dog.size %> <%= @dog.gender %>.</p>
