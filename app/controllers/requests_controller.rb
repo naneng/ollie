@@ -49,7 +49,7 @@ class RequestsController < ApplicationController
   def update
     authorize @request
     if @request.update(request_params)
-      redirect_to request_path(@user)
+      redirect_to request_path(@request)
       flash[:create] = "#{@user.name} request has been updated!"
     else
       render :show
