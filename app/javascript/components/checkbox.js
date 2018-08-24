@@ -30,8 +30,10 @@ function checked3() {
 
   if (checkBox.checked == true){
     date.value = formatDate();
+    date.setAttribute("readonly","readonly");
   } else {
     date.value = "";
+    date.removeAttribute("readonly");
   }
 }
 

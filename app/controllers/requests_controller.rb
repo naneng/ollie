@@ -32,6 +32,7 @@ class RequestsController < ApplicationController
     dropoff_lat = dropoff_results.first.geometry["location"]["lat"]
     dropoff_long = dropoff_results.first.geometry["location"]["lng"]
     @request.distance = (distance [pickup_lat, pickup_long], [dropoff_lat, dropoff_long])*0.000621371
+    @request.status = "Requested"
     if @request.save
       flash[:create] = "Transportation request has been created!"
       redirect_to request_path(@request)
