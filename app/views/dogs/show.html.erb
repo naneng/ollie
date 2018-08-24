@@ -14,12 +14,13 @@
           <div class="dog-avatar">
           <img class ="dog dog-request-card" src="<%= @dog.user.photo %>" alt="">
 
-            <div class="card-title">
-            <h1><%= @dog.name %> </h1>
-            <h2><%= @dog.breed %> </h2>
-            <h1><%= @dog.size %></h1>
-        <h2><%= @dog.age %> </h2>
-        <h1><%= @dog.gender %></h1>
+            <div class="card-title-show col">
+
+            <h1><%= @dog.name %> the <%= @dog.breed %> </h1>
+
+            <p> is <%= @dog.age %> years old and a <%= @dog.size %> <%= @dog.gender %>.</p>
+             <%= image_tag "show-bone.png", id: "show-bone" %>
+
           </div>
 
 
