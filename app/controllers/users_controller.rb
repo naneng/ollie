@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 
 
   def show
-    @user = User.includes(:dogs).find(params[:id])
+    @user = User.find(params[:id])
     authorize @user
   end
 
