@@ -41,15 +41,23 @@
         </div>
       </div>
     </div>
-    <div>
-    </div>
-    <div class="center">
-      <%= link_to "Back", :back, class: 'user-text-links' %>
-      <% if policy(@user).edit? %>
-        <%= link_to "Edit", edit_user_registration_path(@user_id), class: 'user-text-links' %>
-      <% else %>
-        <%= link_to "Home", root_path, class: 'user-text-links' %>
-      <% end %>
-      <%= link_to "Add an OllieBuddy", new_dog_path(@user_id), class: 'user-text-links' %>
+    <div class="container">
+      <div class="card">
+        <h2>OllieBuddies</h2>
+        <% @user.dogs.each do |dog| %>
+          <h3><%= dog.name %></h3>
+          <p><%= dog.breed %></p>
+        <% end %>
+      </div>
     </div>
   </div>
+  <div class="center">
+    <%= link_to "Back", :back, class: 'user-text-links' %>
+    <% if policy(@user).edit? %>
+      <%= link_to "Edit", edit_user_registration_path(@user_id), class: 'user-text-links' %>
+    <% else %>
+      <%= link_to "Home", root_path, class: 'user-text-links' %>
+    <% end %>
+    <%= link_to "Add an OllieBuddy", new_dog_path(@user_id), class: 'user-text-links' %>
+  </div>
+</div>
