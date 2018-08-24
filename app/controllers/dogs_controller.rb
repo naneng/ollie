@@ -8,7 +8,6 @@ class DogsController < ApplicationController
 
   def show
     authorize @dog
-
   end
 
   def new
@@ -29,16 +28,19 @@ class DogsController < ApplicationController
   end
 
   def edit
-    @dog.user = current_user
+    # @dog.user = current_user
     authorize @dog
   end
 
   def update
+    # @dog.user = current_user
+    @dog.update(dog_params)
     authorize @dog
+    redirect_to dog_path(@dog)
   end
 
   def destroy
-    @dog.user = current_user
+    puts "<<<<<<<<<<<<<<destroy>>>>>>>>>>>"
     authorize @dog
     if @dog.destroy
       redirect_to user_path(current_user)
