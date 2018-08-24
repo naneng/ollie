@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :requests, only: [ :index, :show, :edit, :new, :create, :update, :destroy ] do
     resources :bookings, only: :create
   end
-  resources :dogs, only: [ :index, :show, :new, :create, :edit, :destroy ]
+  resources :dogs, only: [ :index, :show, :new, :create, :edit, :update, :destroy ]
   resources :dog_requests, only: [ :index, :show, :new, :create, :edit, :destroy ]
 
 end

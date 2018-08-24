@@ -1,16 +1,18 @@
-
-
-<%= simple_form_for [@user, @dog ] do |f| %>
-  <%= f.input :name %>
-  <%= f.input :breed %>
-  <%= f.input :size %>
-  <%= f.input :personality %>
-  <%= f.input :age %>
-  <%= f.input :gender %>
-<div class="center signupbtn">
-
-  <%= f.submit "Submit" %>
-<% end %>
-</div>
-
-
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <div>
+        <%= simple_form_for [@user, @dog ] do |f| %>
+          <%= f.input :name %>
+          <%= f.input :breed %>
+          <%= f.input :size %>
+          <%= f.input :age %>
+          <%= f.input :gender %>
+          <%= f.input :personality, as: :text, autofocus: true, :input_html => {:style => 'width: 100%', :rows => 3} %>
+          <div class="center ">
+            <%= f.submit "Submit", :class => 'user-text-links' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
