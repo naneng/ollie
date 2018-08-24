@@ -6,12 +6,16 @@
       </div>
       <div>
         <%= simple_form_for [@user, @dog], method: :patch do |f| %>
-          <%= f.input :name %>
-          <%= f.input :personality, as: :text, autofocus: true, :input_html => {:style => 'width: 100%', :rows => 3} %>
-          <%= f.input :breed %>
-          <%= f.input :size %>
+          <%= f.input :name,
+                      placeholder: "ex. Ollie" %>
+          <%= f.input :breed,
+                      placeholder: "ex. German Sheppard" %>
+          <%= f.input :size,
+                      collection: [ "Small","Medium", "Large" ] %>
           <%= f.input :age %>
-          <%= f.input :gender %>
+          <%= f.input :gender,
+                      collection: [ "Male", "Female" ] %>
+          <%= f.input :personality, as: :text, autofocus: true, :input_html => {:style => 'width: 100%', :rows => 3} %>
           <!-- <%#= f.input :photo %>
               <%#= f.input :photo_cache, as: :hidden %> -->
           <div class="center">
