@@ -9,6 +9,8 @@ class User < ApplicationRecord
   }
 
   has_many :dogs
+  has_many :requests
+  has_many :bookings
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable
   geocoded_by :location
