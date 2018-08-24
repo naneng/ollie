@@ -6,7 +6,7 @@ class CreateRequests < ActiveRecord::Migration[5.2]
       t.string :dropoff_location
       t.date :datetime
       t.string :notes
-      t.integer :status
+      t.string :status
       t.integer :distance
       t.integer :time
 

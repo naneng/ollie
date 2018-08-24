@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2018_08_23_074541) do
     t.string "dropoff_location"
     t.datetime "datetime"
     t.string "notes"
-    t.integer "status"
+    t.string "status"
     t.integer "distance"
     t.integer "time"
     t.datetime "created_at", null: false

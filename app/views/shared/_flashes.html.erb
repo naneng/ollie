@@ -24,3 +24,17 @@
     <%= flash[:nocreate] %>
   </div>
 <% end %>
+
+<% if flash[:booking_create] %>
+  <div class="alert alert-info alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <%= flash[:booking_create] %>
+  </div>
+<% end %>
+
+<% if flash[:booking_no_create] %>
+  <div class="alert alert-warning alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <%= flash[:booking_no_create] %>
+  </div>
+<% end %>
