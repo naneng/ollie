@@ -6,26 +6,29 @@
   </div>
 
   <div class="container">
-    <div class="row ">
-      <div class="col lineone">
+    <div class="row">
+      <div class="col col-xs-16 center">
 
         <div><%= image_tag "ollieinfo.png", id: "ollieinfo" %></div>
 
       </div>
     </div>
     </div>
-
-    <div class="button lineone">
+  <div class="container">
+    <div class="row">
+    <div class="center lineone col col-xs-16 ">
       <%= link_to users_path do %>
-      <div>
+      <div class="flex">
       <h2>Become a Partner</h2>
     <%= image_tag "partner-icon.png", id: "partner-icon" %>
     </div>
-    <div>
+    <div class="flex">
     <h2>Become a Volunteer</h2>
     <%= image_tag "volunteer-icon.png", id: "volunteer-icon" %>
-    </div>
     <% end  %>
+  </div>
+   </div>
+   </div>
    </div>
 
 
