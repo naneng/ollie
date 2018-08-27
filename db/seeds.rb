@@ -228,7 +228,7 @@ PERSONALITY = ["Quite energetic and playful. Does well with strangers and young 
                "Although a nice friendly dog, very standoffish and hates loud noises. Can travel moderately well, but if a vehicle is too noisy it can lead to a messy cage",
                "A little hyperactive, this dog is difficult to get into a cage and take on walks, but when traveling they quickly settle down and sleep like a baby",
                "This dog is a complete and total people person and loves company whether it be people or other dogs. Not a big fan of car rides, though, and non-aggressivly resists being put in a cage or vehicle"]
-
+BREED_PHOTOS = ["germanshepherd.jpg", "labradorretriever.jpg", "bulldog.jpg", "beagle.jpg", "poodle.jpg", "goldenretriever.jpg", "corgi.jpg", "shibainu.jpg", "akita.jpg", "chowchow.jpg", "rottweiler.jpg", "boxer.jpg", "husky.jpg", "dobermann.jpg", "greatdane.PNG", "pug.jpg", "bordercollie.jpg", "terrier.jpg", "cockerspaniel.jpg"]
 60.times do
   personality = PERSONALITY.sample
   breed = BREEDS.sample
