@@ -43,8 +43,6 @@
       </div>
     </div>
 
-
-
 <div class="wrapper">
   <% if @user.dogs.count > 0 %>
   <h1>OllieBuddies</h1>
@@ -53,7 +51,7 @@
         <li>
           <%= link_to dog_path(dog) do %>
           <% if dog.photo %>
-            <%= image_tag dog.photo, :class=>"dog dog-user-card", width: 70, height: 120, :crop=>"fill"%>
+            <%= image_tag dog.photo, :class=>"dog dog-user-card", width: 70, height: 160, :crop=>"fill"%>
           <% end %>
           <h2><%= dog.name %></h2> <h4><%= dog.breed %></h4>
           <% end %>
@@ -134,9 +132,65 @@
 <% end %>
 
 <% if @user.bookings.count > 0 %>
-  <% @user.bookings.each do |r| %>
+  <div class = "requests">
+    <h1 class="middle">Bookings</h1>
+    <% @user.bookings.each do |booking| %>
+          <%= link_to request_path(booking.request), class: "no-decoration" do %>
+    <div class="movie_card" id="bright">
+      <div class = "distances">
+        <div>
+          <p class = "indent"><strong>To Pickup:</strong></p><p class="distance_from_me"></p>
+          <% if booking.request.distance %>
+            <div class = "margin-top">
+              <p class = "indent"><strong>Trip:</strong></p><p> <%= booking.request.distance %> Miles</p>
+            </div>
+          <% end %>
+          <div class = "margin-top">
+              <p class = "indent"><strong>Status:</strong></p><p> <%= booking.request.status %></p>
+            </div>
+        </div>
+      </div>
 
-  <% end %>
+        <div class="info_section">
+          <div class="movie_header">
+            <img class="locandina" src="<%= booking.request.user.photo %>"/>
+            <h4><strong><%= booking.request.user.name %></strong></h4>
+            <h6><%= booking.request.user.location %></h6>
+            <h6>Telephone: <%= booking.request.user.phone %></h6>
+          </div>
+
+
+          <div class="movie_desc">
+            <div class = "pickup_header">
+            <p class = "indent">Pick Up Location:</p> <p class="pickup_loc"><%= booking.request.pickup_location %></p>
+            </div>
+            <div>
+            <p class = "indent">Drop Off Location:</p> <p><%= booking.request.dropoff_location %></p>
+            </div>
+            <div class="bottom-left">
+            <p>
+              <strong>Request Time:</strong> <%= booking.request.datetime < DateTime.now ? "Immediately" : booking.request.datetime %>
+            </p>
+            </div>
+          </div>
+
+          <div class="dog_grid">
+            <% booking.request.dogs.each do |dog| %>
+              <%= link_to dog_path(dog) do %>
+                <div class="dog_card">
+                  <% if dog.photo %>
+                    <%= image_tag dog.photo, width: 100, height: 100, :crop=>"fill"%>
+                  <% end %>
+                  <div class = "middle"><%= dog.name %></div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 <% end %>
 </div>
 

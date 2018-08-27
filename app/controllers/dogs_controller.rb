@@ -17,6 +17,9 @@ class DogsController < ApplicationController
 
   def create
     @dog = Dog.new(dog_params)
+    if !@dog.photo
+      @dog.photo = "Vectorshiba-logo-1.jpg"
+    end
     authorize @dog
     @dog.user = current_user
     if @dog.save
