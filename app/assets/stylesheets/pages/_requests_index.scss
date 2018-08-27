@@ -3,10 +3,6 @@
   margin: 0;
 }
 
-.middle {
-  margin: 0 auto;
-}
-
 .link{
   display: block;
   text-align: center;
@@ -202,6 +198,7 @@
 }
 
 .middle {
+  margin: 0 auto 20px auto;
   text-align: center;
   color: green;
 }
@@ -229,5 +226,10 @@
     color: black;
     font-size: 24px;
   }
+}
 
+.favorites {
+  position: absolute;
+  bottom: 5px;
+  left: 30%;
 }
