@@ -4,28 +4,32 @@
     <p>Ollie is transport service that will make it easier for animal shelters and Ollie buddies to connect with their volunteers.</p>
   </div>
 </div>
-
-  <div class="container">
-    <div class="col col-xs-12 ollieinfo">
-
-      <div class="first-content">
-        <div class="first-info purple">
-        <%= image_tag "dogicons.png" %>
-        </div>
-      <div class="second-info white ollietext">
-      <h3>Ollie hopes to streamline the process of transporting animals to and from adoptions events, directly to rescue partners, and to their forever homes! </h3>
+<div class="col col-xs-12 ollieinfo">
+  <div class="col olliecontent">
+    <div class="first-content">
+      <div class=" purple">
+        <%= image_tag "dogicons.png", class: 'dogicon' %>
       </div>
-
+      <div class="white ollietext">
+        <h3>Ollie hopes to streamline the process of transporting animals to and from adoptions events, directly to rescue partners, and to their forever homes! </h3>
+      </div>
     </div>
     <div class="second-content">
-      <div class="purple ollietext">
-      <h3>By bringing new technology to shelters and rescues, Ollie can save time, lives, and provide relief to shelters and rescues with limited resources.</h3>
+      <div class="white ollietext">
+        <h3>By bringing new technology to shelters and rescues, Ollie can save time, lives, and provide relief to shelters and rescues with limited resources.</h3>
       </div>
-      <div class="white">
-        <%= image_tag "dogicons.png" %>
-
+      <div class="purple">
+        <%= image_tag "dogcar.png", class: 'dogicon' %>
       </div>
     </div>
   </div>
 </div>
-
+</div>
+<div class="larbtn">
+  <%= link_to users_path do %>
+    <h2>Become a Partner</h2>
+    <%= image_tag "partner-icon.png" %>
+    <h2>Become a Volunteer</h2>
+    <%= image_tag "volunteer-icon.png"%>
+  <% end %>
+</div>
