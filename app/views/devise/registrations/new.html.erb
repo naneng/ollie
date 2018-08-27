@@ -2,6 +2,14 @@
   <div class="center">
     <h2>Sign up</h2>
   </div>
+  <%= link_to new_user_registration_path do %>
+    <div class="center">
+      <%= button_tag "OllieMember", class: "btn #{params[:partner] ? 'btn-default' : 'btn-primary'}" %>
+    <% end %>
+    <%= link_to new_user_registration_path(partner: true) do %>
+      <%= button_tag "OlliePartner", class: "btn #{params[:partner] ? 'btn-primary' : 'btn-default'}" %>
+    <% end %>
+  </div>
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= f.error_notification %>
     <div class="form-inputs signup">
@@ -26,26 +34,28 @@
                 required: true,
                 autofocus: true ,
                 input_html: { autocomplete: "phone" }%>
-      <%= f.input :website,
-                :placeholder => "http://www.laanimalservices.com/shelters",
-                required: true,
-                autofocus: true ,
-                input_html: { autocomplete: "website" }%>
       <%= f.input :location, :label => "Address",
                 :placeholder => "street, city, state",
                 required: true,
                 autofocus: true ,
                 input_html: { autocomplete: "address" }%>
-      <%= f.input :nonprofit_status, :label => "501(c)(3) / Tax-Exempt Status",
+      <% if params[:partner] %>
+        <%= f.input :website,
+                :placeholder => "http://www.laanimalservices.com/shelters",
+                required: true,
+                autofocus: true ,
+                input_html: { autocomplete: "website" }%>
+        <%= f.input :nonprofit_status, :label => "501(c)(3) / Tax-Exempt Status",
                 required: true,
                 autofocus: true ,
                 input_html: { autocomplete: "tax-exempt status" },
                 :collection => { 'Qualified' => 1,'Pending' => 2, 'Not Applicable' => 3 } %>
-      <%= f.input :organization, :label => "Organization/Individual",
+        <%= f.input :organization, :label => "Organization/Individual",
                 required: true,
                 autofocus: true ,
                 input_html: { autocomplete: "organization" },
                 :collection => { 'Organization' => true,'Individual' => false } %>
+      <% end %>
     </div>
   </div>
   <div class="center signupbtn">
