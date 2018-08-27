@@ -1,5 +1,3 @@
-
-
 function checked1(address) {
   var checkBox = document.getElementById("myCheck1");
   var pickup = document.getElementById("pickup_loc");
@@ -47,18 +45,20 @@ function formatDate() {
   var str = `${year}-${month}-${day} ${hour}:${minutes}`
   return str
 }
-/*
 
-function checked4() {
-  var container = document.querySelector(".card_container");
-  var checkBox = document.getElementById("myCheck4");
-
-  if (checkBox.checked == true){
-    container.insertAdjacentHTML("afterbegin", ``);
-  } else {
-    date.value = "";
-  }
-};*/
+function favorites() {
+    // Declare variables
+    event.preventDefault();
+    var movies = document.querySelectorAll('.movie_card')
+    for (var i=0; i<movies.length; i++)  {
+      console.log(movies[i]);
+      /*if (movies[i].outerText.toLowerCase().includes(search)) {
+        movies[i].style.display = "flex";
+      } else {
+        movies[i].style.display = "none";
+      }*/
+    }
+}
 
 export function bindEventListener() {
   const check1 = document.getElementById("myCheck1");
@@ -76,9 +76,8 @@ export function bindEventListener() {
     checked3();
   });
 
-/*  const check4 = document.getElementById("myCheck4");
-  check4.addEventListener('click', () => {
-    checked4();
+  const favorites = document.getElementById("favorites_check");
+  favorites && favorites.addEventListener('click', () => {
+    favorites();
   });
-*/
 }

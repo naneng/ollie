@@ -1,7 +1,8 @@
 class Request < ApplicationRecord
   belongs_to :user
-  has_many :dog_requests
+  has_many :dog_requests, dependent: :destroy
   has_many :dogs, through: :dog_requests
+  has_many :bookings, dependent: :destroy
   accepts_nested_attributes_for :dogs
 
   validates :pickup_location, presence: true

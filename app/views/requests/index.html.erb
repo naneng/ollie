@@ -1,12 +1,13 @@
-
-
-<div class="search middle">
-    <section class="webdesigntuts-workshop">
-      <form accept-charset="UTF-8"><input name="utf8" type="hidden" value="&#x2713;" onsubmit="return false;" />
-        <input type="text" name="query" id="search_query" class="form-control" placeholder="Search Requests"  />
-        <button type="button" id ="search_function">Search</button>
-      </form>
-    </section>
+<div class="search middle relative">
+  <section class="webdesigntuts-workshop">
+    <form accept-charset="UTF-8"><input name="utf8" type="hidden" value="&#x2713;" onsubmit="return false;" />
+      <input type="text" name="query" id="search_query" class="form-control" placeholder="Search Requests"  />
+      <button type="button" id ="search_function">Search</button>
+    </form>
+  </section>
+  <div class="favorites">
+    <input type="checkbox" id="favorite_check"> Favorites
+  </div>
 </div>
 
   <% @requests.sort_by{|req| req.datetime}.each do |r| %>

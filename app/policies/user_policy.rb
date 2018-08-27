@@ -18,4 +18,12 @@ class UserPolicy < ApplicationPolicy
     @user == @record
   end
 
+  def follow?
+    true
+  end
+
+  def unfollow?
+    true
+  end
+
 end
