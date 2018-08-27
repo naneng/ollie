@@ -15,9 +15,6 @@
 </div>
 
 
-<% @dog.requests.each do |request| %>
-  <%= link_to "View Request", request_path(request), class: 'btn btn-warning btn' %>
-<% end %>
 
 
 <div class="center">
@@ -31,3 +28,6 @@
     <%= link_to "Remove OllieBuddy", dog_path(@dog), class: 'user-text-links', data: { confirm: "Are you sure?" }, method: :delete %>
   <% end %>
 </div>
+<% @dog.requests.each do |request| %>
+  <%= link_to "View Request", request_path(request), class: 'btn btn-warning btn' %>
+<% end %>

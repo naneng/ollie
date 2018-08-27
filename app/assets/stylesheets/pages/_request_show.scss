@@ -1,11 +1,38 @@
-.request-show-info {
-  display: flex;
+.request-shelter-image {
+  width: 500px;
+  height: 500px;
+  border-radius: 3px;
+  margin: 10px;
+}
+.request-title {
+  background-color: #adc58c;
+  color: white;
+  margin: 50px;
 }
 
+.request-dog-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 3px;
+  margin: 10px;
+  .request-dog-image:hover{
+     text-decoration: none;
+     color: white;
+      opacity: .7;
+  }
+}
 .flex-requests {
   display: flex;
+  align-items: center;
+}
+.request-container {
+  display:flex;
   justify-content: center;
-  color:red;
+  margin: 50px;
+}
+
+.request-show-info {
+  display: flex;
 }
 
 .request-btn-space {
