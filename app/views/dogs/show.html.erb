@@ -5,7 +5,7 @@
         <%= image_tag @dog.photo, :class=>"dog dog-user-card", width: 170, height: 300, :crop=>"fill"%>
         <div class="card-title-show col">
           <h1><%= @dog.name %> the <%= @dog.breed %> </h1>
-          <p> is <%= @dog.age %> years old and a <%= @dog.size %> <%= @dog.gender %>.</p>
+          <p> <%= @dog.age %> year old <%= @dog.size %> <%= @dog.gender %>. <%= @dog.personality %>.</p>
           <%= image_tag "show-bone.png", id: "show-bone" %>
         </div>
       </div>
@@ -13,6 +13,11 @@
     </div>
   </div>
 </div>
+
+    <%#= link_to request_path(@request) do %>
+<!--     <div><button type="button" class="btn btn-warning btn request-btn-space">View Request</button></div>
+ -->    <%# end %>
+
 <div class="center">
   <% if @dog.user.organization == true %>
     <%= link_to "OlliePartner Page", user_path(@dog.user), class: 'user-text-links' %>
