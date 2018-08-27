@@ -1,22 +1,31 @@
-<div class="navbar-wagon">
-  <!-- Logo -->
-  <%= link_to root_path do%>
-    <%=  image_tag "greensmalldog.png", id: "logo-nav" %>
-  <% end %>
-  <div class="search">
-    <section class="webdesigntuts-workshop">
-      <form action="/users" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
-        <input type="text" name="query" id="query" class="form-control" placeholder="Locate a shelter" />
-        <button>Search</button>
-      </form>
-    </section>
-  </div>
-  <!-- Right Navigation -->
-  <div class="navbar-wagon-right hidden-xs hidden-sm">
+<div class="navbar">
+  <div class="navbar-wagon">
+    <!-- Logo -->
+    <%= link_to root_path do%>
+      <%=  image_tag "greensmalldog.png", id: "logo-nav" %>
+    <% end %>
     <% if user_signed_in? %>
-      <%= link_to "Transport Requests", requests_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Create Request", new_request_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    <% else %>
+      <div class="search">
+        <section class="webdesigntuts-workshop">
+          <form action="/users" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+            <input type="text" name="query" id="query" class="form-control grey-text" placeholder="Locate an OllieBuddy" />
+            <button>Search</button>
+          </form>
+        </section>
+      </div>
+      <!-- Right Navigation -->
+      <div class="navbar-wagon-right hidden-xs hidden-sm">
+        <%= link_to "Transport Requests", requests_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        <%= link_to "Create Request", new_request_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <% else %>
+        <section class="webdesigntuts-workshop">
+          <form action="/users" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+            <input type="text" name="query" id="query" class="form-control" placeholder="Locate an OlliePartner, OllieBuddy" />
+            <button>Search</button>
+          </form>
+        </section>
+      </div>
+      <!-- Right Navigation -->
       <%= link_to "Become a Partner", new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Join Ollieboard", new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Log In", new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
@@ -49,3 +58,6 @@
       </div>
     </div>
   </div>
+
+</div>
+
