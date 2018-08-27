@@ -1,4 +1,5 @@
 import GMaps from 'gmaps/gmaps.js';
+import { autocomplete } from '../components/autocomplete';
 
 const mapElement = document.getElementById('map');
 if (mapElement) { // don't try to build a map if there's no div#map to inject in
@@ -40,6 +41,7 @@ if (currentElem) {
     });
   });
 };
+
 function distance(lat1, lon1, lat2, lon2) {
   var radlat1 = Math.PI * lat1/180
   var radlat2 = Math.PI * lat2/180
@@ -54,3 +56,5 @@ function distance(lat1, lon1, lat2, lon2) {
   dist = dist * 60 * 1.1515
   return dist
 }
+
+autocomplete();
