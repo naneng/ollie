@@ -1,5 +1,36 @@
 // Specific CSS for your home-page
+#olliebanner {
+  width: 100%;
+  height: auto;
+  padding: 6% 0;
+}
 
+#ollieinfo{
+  width: 100%;
+  height: auto;
+  padding: 6% 0;
+}
+#partner-icon {
+
+    height: auto;
+
+
+}
+ #partner-icon:hover {
+    opacity: .6;
+  }
+  #volunteer-icon {
+     height: auto;
+}
+ #volunteer-icon:hover {
+    opacity: .6;
+  }
+
+
+.lineone {
+  display: flex;
+  justify-content: center;
+}
 .logo-tag {
   position: relative
 }

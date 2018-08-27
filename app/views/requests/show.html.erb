@@ -6,6 +6,13 @@
 <div id="search_javascript">
   <div class="request-card-title-show" id="bright">
     <%= image_tag @request.user.photo, class: "locandinatwo flex-requests" %>
+
+    <div>
+      <%= link_to request_bookings_path(@request), method: :post do %>
+        <div><button type="button" class="btn btn-warning btn">Book Request</button></div>
+      <% end %>
+    </div>
+
     <div class="dog-row">
       <% @request.dogs.each do |dog| %>
         <%= link_to dog_path(dog) do %>
@@ -30,18 +37,17 @@
   </div>
 </div>
 
-<% if policy(@request).edit? %>
-  <%= link_to edit_request_path(@request.id) do %>
-  <div class="center link"><button>Edit Request</button></div>
+<div class="flex-requests">
+  <% if policy(@request).edit? %>
+    <%= link_to edit_request_path(@request.id) do %>
+    <div><button type="button" class="btn btn-warning btn request-btn-space">Edit Request</button></div>
+    <% end %>
   <% end %>
-<% end %>
 
-<% if policy(@request).destroy? %>
-  <%= link_to request_path(@request), data: { confirm: "Are you sure?" }, method: :delete do %>
-    <div class="center link"><button>Delete Request</button></div>
+  <% if policy(@request).destroy? %>
+    <%= link_to request_path(@request), data: { confirm: "Are you sure?" }, method: :delete do %>
+      <div><button type="button" class="btn btn-warning btn">Delete Request</button></div>
+    <% end %>
   <% end %>
-<% end %>
+</div>
 
-<%= link_to request_bookings_path(@request), method: :post do %>
-  <div class="center link"><button>Book Request</button></div>
-<% end %>
