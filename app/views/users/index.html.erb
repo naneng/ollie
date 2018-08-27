@@ -3,7 +3,7 @@
     <h1 class="center">OlliePartners</h1>
     <div class="cards">
       <% @users.organizations.each do |user| %>
-        <div class="card">
+        <div class="card relative">
           <%= link_to user_path(user) do %>
             <div class="user-picture">
               <% if user.photo? %>
@@ -15,7 +15,12 @@
                 <p><%= user.name %></p>
                 <p><%= user.phone%></p>
               </div>
-            <% end %>
+            </div>
+          <% end %>
+          <div class="follow">
+            <ul>
+              <%= render user %>
+            </ul>
           </div>
         </div>
       <% end %>
@@ -37,7 +42,12 @@
                 <p><%= user.name %></p>
                 <p><%= user.phone%></p>
               </div>
-            <% end %>
+            </div>
+          <% end %>
+          <div class="follow">
+            <ul>
+              <%= render user %>
+            </ul>
           </div>
         </div>
       <% end %>
