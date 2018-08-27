@@ -29,21 +29,15 @@
       <div class="flex-requests">
         <% if @request.user == @user %>
           <% if policy(@request).edit? %>
-            <%= link_to edit_request_path(@request.id) do %>
-            <div><button type="button" class="btn btn-warning btn request-btn-space">Edit Request</button></div>
-            <% end %>
+            <%= link_to "Edit Request", edit_request_path(@request.id), class: 'btn btn-warning btn request-btn-space' %>
           <% end %>
 
           <% if policy(@request).destroy? %>
-            <%= link_to request_path(@request), data: { confirm: "Are you sure?" }, method: :delete do %>
-              <div><button type="button" class="btn btn-warning btn">Delete Request</button></div>
-            <% end %>
+            <%= link_to "Delete Request", request_path(@request), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-warning btn' %>
           <% end %>
         <% else %>
-          <%= link_to request_bookings_path(@request), method: :post do %>
-            <div><button type="button" class="btn btn-warning btn">Book Request</button></div>
-            <% end %>
-          <% end %>
+            <%= link_to "Book Request", request_bookings_path(@request), method: :post, class:'btn btn-warning btn' %>
+        <% end %>
       </div>
     </div>
   </div>

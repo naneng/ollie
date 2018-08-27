@@ -14,18 +14,15 @@
   </div>
 </div>
 
-  <%= link_to request_path do %>
-    <div><button type="button" class="btn btn-warning btn">Transport Request</button></div>
-  <% end %>
 
+<% @dog.requests.each do |request| %>
+  <%= link_to "View Request", request_path(request), class: 'btn btn-warning btn' %>
+<% end %>
 
-    <%#= link_to request_path(@request) do %>
-<!--     <div><button type="button" class="btn btn-warning btn request-btn-space">View Request</button></div>
- -->    <%# end %>
 
 <div class="center">
   <% if @dog.user.organization == true %>
-    <%= link_to "OlliePartner Page", user_path(@dog.user), class: 'user-text-links' %>
+    <%= link_to "OlliePartner Page", user_path(@dog.requests), class: 'user-text-links' %>
   <% else %>
     <%= link_to "OllieMember Page", user_path(@dog.user), class: 'user-text-links' %>
   <% end  %>
