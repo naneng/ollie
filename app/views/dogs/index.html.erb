@@ -29,3 +29,15 @@
 <!-- <div class="dog-link">
   <p><%#= link_to "+ Add Dog", new_dog_path(@user)  %> </p>
 </div> -->
+<% @dogs.each do |dog| %>
+  <figure class="snip1336">
+    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample87.jpg" alt="sample87" />
+    <figcaption>
+      <img src="<%= dog.user.photo %>" alt="profile-sample4" class="profile" />
+      <h2><%= dog.name %><span> <%= dog.breed %></span></h2>
+      <%= link_to dog_path(dog) do %>
+        <a href="#" class="info">More Info</a>
+      <% end %>
+    </figcaption>
+  </figure>
+<% end %>
