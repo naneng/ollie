@@ -23,6 +23,7 @@ gem 'pundit'
 gem 'binding_of_caller'
 gem 'geocoder'
 gem 'omniauth-facebook'
+gem 'will_paginate'
 
 
 group :development do
