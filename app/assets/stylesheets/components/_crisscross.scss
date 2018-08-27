@@ -8,8 +8,6 @@
 }
 
 .olliecontent {
-  padding-left: 10%;
-  padding-right: 10%;
 }
 
 .dogicon {
@@ -30,8 +28,8 @@
 .purple {
   background-color: #D0CFEC;
   text-align: center;
-  width: 49%;
-  height: 18vw;
+      width: 50%;
+    height: 16vw;
   max-width: 100%;
   display: flex;
     justify-content: center;
@@ -44,8 +42,14 @@
     /* height: auto; */
     max-height: 100%;
     font-size: 25px;
+    margin: auto;
 }
 
 .larbtn {
-
+  display: flex;
+  justify-content:  space-around;
+  text-align: center;
+padding: 5%;
+   max-width: 100%;
+  max-height: 100%;
 }
