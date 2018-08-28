@@ -6,20 +6,19 @@
 <div class="container">
   <%= image_tag "doghouse.png", id: "doghouse" %>
   <div class="row">
-    <% @dogs.each do |dog| %>
-      <%= link_to dog_path(dog) do %>
-        <div class="col col-md-6">
-          <div class="dog-avatar">
-            <img class ="dog dog-request-card" src="<%= dog.user.photo %>" alt="">
-          </div>
-          <div class="card-dog">
-            <p class="card-title dog-request-card">
-              <%= dog.name %> the <%= dog.breed %>
-            </p>
-          </div>
-        </div>
+    <div class="col col-xs-12">
+      <% @dogs.each do |dog| %>
+        <figure class="snip1336 prettydogs">
+          <img src="https://images.pexels.com/photos/158063/bellingrath-gardens-alabama-landscape-scenic-158063.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="sample87" class="dogpark" />
+          <figcaption>
+            <img src="<%= dog.user.photo %>" alt="profile-sample4" class="profile"/>
+            <h2><%= dog.name %><span> <%= dog.breed %></span></h2>
+            <a <%= link_to dog_path(dog) do %> View Profile</a>
+            <% end %>
+          </figcaption>
+        </figure>
       <% end %>
-    <% end %>
+    </div>
   </div>
   <div class="center">
     <%= link_to "Home", root_path, class: 'user-text-links' %>

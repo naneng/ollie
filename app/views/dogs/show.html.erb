@@ -1,17 +1,18 @@
-<div class="container">
+<div class="container dog-show">
   <div class="row">
-    <div class="col col-sm">
-      <div class="dog-avatar">
-        <%= image_tag @dog.photo, :class=>"dog dog-user-card", width: 170, height: 300, :crop=>"fill"%>
-        <div class="card-title-show col">
-          <h1><%= @dog.name %> the <%= @dog.breed %> </h1>
-          <p> <%= @dog.age %> year old <%= @dog.size %> <%= @dog.gender %>. <%= @dog.personality %>.</p>
-          <%= image_tag "show-bone.png", id: "show-bone" %>
-        </div>
+    <div class="col flex-dog">
+      <div class="content">
+        <h1><%= @dog.name %></h1>
+        <p><%= @dog.breed %>, <%= @dog.age %>, <%= @dog.size %>, <%= @dog.gender %></p>
+        <h2>Bio</h2>
+        <p><%= @dog.personality %></p>
       </div>
-      <%= image_tag "greenshiba.png", id: "greenshiba" %>
+      <div class="dog-photo-side">
+        <%= image_tag @dog.photo, :class=>"dog-photo", width: 350, height: 350, :crop=>"fill"%>
+      </div>
     </div>
   </div>
+<<<<<<< HEAD
 </div>
 
 
@@ -31,3 +32,16 @@
 <% @dog.requests.each do |request| %>
   <%= link_to "View Request", request_path(request), class: 'btn btn-warning btn' %>
 <% end %>
+=======
+  <div class="center">
+    <% if @dog.user.organization == true %>
+      <%= link_to "OlliePartner Page", user_path(@dog.user), class: 'user-text-links' %>
+    <% else %>
+      <%= link_to "OllieMember Page", user_path(@dog.user), class: 'user-text-links' %>
+    <% end  %>
+    <% if policy(@dog.user).edit? %>
+      <%= link_to "Edit OllieBuddy", edit_dog_path(@dog), class: 'user-text-links' %>
+      <%= link_to "Remove OllieBuddy", dog_path(@dog), class: 'user-text-links', data: { confirm: "Are you sure?" }, method: :delete %>
+    <% end %>
+  </div>
+>>>>>>> b809b5155802fe7dd6d432439503b819db3ad268

@@ -20,18 +20,17 @@
       </div>
       <div class="purple">
         <%= image_tag "dogcar.png", class: 'dogicon' %>
-
       </div>
     </div>
   </div>
 </div>
 <div class="larbtn">
-  <%= link_to users_path do %>
+  <%= link_to new_user_registration_path(partner: true) do %>
     <h4>Become a Partner</h4>
     <%= image_tag "partner-icon.png" %>
   <% end %>
-  <%= link_to users_path do %>
-    <h4>Become a Volunteer</h4>
+  <%= link_to new_user_registration_path do %>
+    <h4>Become an OllieMember</h4>
     <%= image_tag "volunteer-icon.png"%>
   <% end %>
 </div>

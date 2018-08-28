@@ -1,7 +1,14 @@
+.navbar {
+  box-shadow: 0 5px 5px -5px #333!important;
+  width: 100%;
+  border-bottom-left-radius: 5px !important;
+  border-bottom-right-radius: 5px !important;
+  background: #ffffff;
+}
 /* Main navbar */
 .navbar-wagon {
-  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-  background: white;
+  // box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
+  // background: white;
   transition: all 0.3s ease;
   height: 70px;
   padding: 0px 30px;
@@ -19,6 +26,10 @@
 .navbar-wagon .avatar {
   height: 35px;
   width: 35px;
+}
+
+.grey-text {
+  color: #616668;
 }
 
 /* Right section */
@@ -100,7 +111,7 @@
 
 .webdesigntuts-workshop form {
 
-  border-radius: 5px;
+  border-radius: 15px;
   display: inline-block;
   font-size: 0px;
   margin: 5px auto;
@@ -111,8 +122,8 @@
 
 .webdesigntuts-workshop input {
   background: rgb(255,255,255);
-  border: 1px solid #444;
-  border-radius: 5px 0 0 5px;
+  border: 1px solid #c1c1c1;
+  border-radius: 15px 0 0 15px;
   color: black;
   display: block;
   float: left;
@@ -130,36 +141,36 @@
 }
 
 .webdesigntuts-workshop input::-webkit-input-placeholder {
-   color: black;
+   color: #c1c1c1;
 }
 
 .webdesigntuts-workshop input:-moz-placeholder {
-   color: black;
+   color: #c1c1c1;
 }
 
 .webdesigntuts-workshop input:focus {
   animation: glow 800ms ease-out infinite alternate;
   background: #E2AC3C;
   border-color: white;
-  color: black;
+  color: #c1c1c1;
   outline: none;
 }
 
 .webdesigntuts-workshop input:focus::-webkit-input-placeholder {
-  color: black;
+  color: #c1c1c1;
 }
 
 .webdesigntuts-workshop input:focus:-moz-placeholder {
-  color: black;
+  color: #c1c1c1;
 }
 
 .webdesigntuts-workshop button {
   background: #CEDCB1;
   box-sizing: border-box;
-  border: 1px solid #444;
+  border: 1px solid #c1c1c1;
   border-left-color: #E2AC3C;
   border-radius: 0 5px 5px 0;
-  color: black;
+  color: white;
   display: block;
   float: left;
   font-family: 'Cabin', helvetica, arial, sans-serif;
