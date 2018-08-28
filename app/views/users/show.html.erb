@@ -21,7 +21,7 @@
               </div>
               <%= @user.name %>
               <p><%= @user.location %></p>
-              <p><%= @user.phone %> <%= @user.email %></p>
+              <p>(<%= @user.phone.first(3) %>) <%= @user.phone[3..5] %>-<%= @user.phone[6..9] %> <%= @user.email %></p>
               <p><%= @user.website %></p>
               <p> 501(c)(3) Status: <% if @user.nonprofit_status == 1 %>
                   Qualified
