@@ -1,60 +1,67 @@
 import GMaps from 'gmaps/gmaps.js';
 import { autocomplete } from '../components/autocomplete';
 
-const mapElement = document.getElementById('map');
-if (mapElement) { // don't try to build a map if there's no div#map to inject in
-  const map = new GMaps({ el: '#map', lat: 0, lng: 0 });
+var map;
+var infowindow;
+var service;
+
+function initMap() {
   const markers = JSON.parse(mapElement.dataset.markers);
-  map.addMarkers(markers);
-  if (markers.length === 0) {
-    map.setZoom(2);
-  } else if (markers.length === 1) {
-    map.setCenter(markers[0].lat, markers[0].lng);
-    map.setZoom(14);
-  } else {
-    map.fitLatLngBounds(markers);
+  var pyrmont = {lat: markers[0].lat, lng: markers[0].lng};
+
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: pyrmont,
+    zoom: 14
+  });
+  var pinColor = "656CB9";
+  var pinImage = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
+      new google.maps.Size(21, 34),
+      new google.maps.Point(0,0),
+      new google.maps.Point(10, 34));
+  new google.maps.Marker({
+    map: map,
+    position: pyrmont,
+    icon: pinImage,
+    title: "Current Location"
+  });
+
+  infowindow = new google.maps.InfoWindow();
+  service = new google.maps.places.PlacesService(map);
+  service.nearbySearch({
+    location: pyrmont,
+    radius: 3000,
+    types: ['veterinary_care']
+  }, callback);
+}
+
+function callback(results, status) {
+  if (status === google.maps.places.PlacesServiceStatus.OK) {
+    for (var i = 0; i < results.length; i++) {
+      createMarker(results[i]);
+    }
   }
 }
 
+function createMarker(place) {
+  var placeLoc = place.geometry.location;
+  var marker = new google.maps.Marker({
+    map: map,
+    position: place.geometry.location
+  });
 
-var currentElem = document.getElementById('current_location');
-if (currentElem) {
-  var distances = document.querySelectorAll('.distance_from_me');
-  var pickup = document.querySelectorAll('.pickup_loc');
-  var current = currentElem.innerText;
-  var geocoder = new google.maps.Geocoder();
-  var latitude = 0;
-  var longitude = 0;
-  var i = 0;
-  geocoder.geocode( { 'address': current}, function(results, status) {
-    latitude = results[0].geometry.location.lat();
-    longitude = results[0].geometry.location.lng();
-    pickup.forEach(function(element) {
-      geocoder.geocode( { 'address': element.innerText}, function(results, status) {
-      var new_latitude = results[0].geometry.location.lat();
-      var new_longitude = results[0].geometry.location.lng();
-      var dist = distance(latitude, longitude, new_latitude, new_longitude);
-      distances[i].insertAdjacentText("afterbegin",`${parseFloat(dist).toFixed(1)} Miles`);
-      i = i + 1;
-      });
-
+  var request = { reference: place.reference };
+  service.getDetails(request, function(details, status) {
+    google.maps.event.addListener(marker, 'click', function() {
+      infowindow.setContent("<strong>"+details.name + "</strong><br />" + details.formatted_address +"<br />" + details.formatted_phone_number);
+      infowindow.open(map, this);
     });
   });
-};
+}
 
-function distance(lat1, lon1, lat2, lon2) {
-  var radlat1 = Math.PI * lat1/180
-  var radlat2 = Math.PI * lat2/180
-  var theta = lon1-lon2
-  var radtheta = Math.PI * theta/180
-  var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
-  if (dist > 1) {
-    dist = 1;
-  }
-  dist = Math.acos(dist)
-  dist = dist * 180/Math.PI
-  dist = dist * 60 * 1.1515
-  return dist
+
+const mapElement = document.getElementById('map');
+if (mapElement) {
+  initMap();
 }
 
 autocomplete();
