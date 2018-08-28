@@ -1,9 +1,21 @@
+.request-container {
+  display:flex;
+  justify-content: space-evenly;
+  margin: 50px;
+}
+.request-title {
+  color: black;
+  margin: 50px;
+  padding: 15px;
+  border-radius: 5px;
+}
 .request-shelter-image {
   width: 500px;
-  height: 500px;
+  height: 460px;
   border-radius: 3px;
   margin: 10px;
 }
+
 .request-title {
   background-color: #adc58c;
   color: white;
@@ -14,6 +26,7 @@
     margin: 10px auto 10px auto;
   }
 }
+
 
 .request-dog-image {
   width: 150px;
@@ -26,10 +39,19 @@
       opacity: .7;
   }
 }
-.flex-requests {
+.request-info {
+  background-color: white;
+  padding: 50px;
+}
+.request-card {
   display: flex;
   align-items: center;
+  text-align: -webkit-center;
+  margin-bottom: inherit;
+  justify-content: center;
+  border-radius: 3px;
 }
+
 .request-container {
   display: flex;
   justify-content: space-evenly;
@@ -37,53 +59,26 @@
 }
 
 .request-show-info {
+
   display: flex;
-}
-
-.request-btn-space {
-  margin-right: 5px;
-}
-
-
-.request-info{
-    height: 28%;
-    /* border-radius: 10px; */
-    text-align: center;
-}
-
-.locandinatwo {
-position: relative;
-    width: 32%;
-    margin: auto;
-    margin-bottom: 10px;
-    border-radius: 50%;
-    box-shadow: 0 0 20px -10px rgba(0,0,0,0.5);
-    border: 6px solid #c4dea6;
-  }
-
-
-.dog-row {
-  flex-direction: row;
-  display: flex;
+  align-items: center;
+  text-align: -webkit-center;
+  margin-bottom: inherit;
   justify-content: center;
-  padding-bottom: 4%;
-
-  a {
-     color: white;
-  }
-
-
-
 }
-.dog-row:hover a {
-  text-decoration: none;
-
-
+.request-content {
+  display: flex;
+  align-items: center;
+  padding-top: 25px;
+  font-size: 20px;
 }
-
+.request-user-img {
+  margin: 0;
+}
 .dog-name-link {
-  color: white;
+  color: black;
   text-decoration: none;
+  font-size: 40px;
   .dog-name-link:hover{
      text-decoration: none;
      color: white;
@@ -92,21 +87,3 @@ position: relative;
   }
 }
 
-
-
-
-.request-card-title-show {
-  box-shadow: 0px 0px 120px -25px rgba(0, 0, 0, 0.5);
-  padding: 2.25rem;
-    padding-left: 2rem;
-    text-align: center;
-    color: white;
-    font-size: 2.25rem;
-    background-color: #adc58c;
-    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23c6dea6' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
-
-}
-
-.green-header {
-  color: #adc58c ;
-}

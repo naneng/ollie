@@ -1,3 +1,4 @@
+
 <div class="container">
 <div class="center request-title">
   <h1><strong><%= @request.user.name %> Transportation Request</strong>
@@ -38,21 +39,16 @@
             <%= link_to "Edit Request", edit_request_path(@request.id), class: 'btn btn-warning btn request-btn-space' %>
           <% end %>
 
-          <% if policy(@request).destroy? %>
-            <%= link_to "Delete Request", request_path(@request), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-warning btn' %>
+
+        <div class="request-user-img">
+          <%= link_to user_path(@request.user) do %>
+            <%= image_tag @request.user.photo, class: 'request-shelter-image' %>
           <% end %>
-        <% else %>
-            <%= link_to "Book Request", request_bookings_path(@request), method: :post, class:'btn btn-warning btn' %>
-        <% end %>
+        </div>
       </div>
     </div>
   </div>
-
-  <div>
-    <%= image_tag @request.user.photo, class: 'request-shelter-image' %>
-  </div>
+</div>
 
 </div>
 
-
-</div>

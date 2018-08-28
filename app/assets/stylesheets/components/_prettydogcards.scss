@@ -47,31 +47,28 @@
   border-color: transparent transparent transparent #d7e7de;
 }
 .snip1336 figcaption a {
-  padding: 5px;
-  border: 1px solid #ffffff;
-  color: #ffffff;
-  font-size: 0.7em;
-  text-transform: uppercase;
-  margin: 10px 0;
-  display: inline-block;
-  opacity: 0.65;
-  width: 47%;
-  text-align: center;
-  text-decoration: none;
-  font-weight: 600;
-  letter-spacing: 1px;
+    color: #ffffff;
+    font-size: 0.7em;
+    text-transform: uppercase;
+    margin: 0px 6px;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+
 }
 .snip1336 figcaption a:hover {
-  opacity: 1;
+  opacity: .6;
 }
 .snip1336 .profile {
   border-radius: 50%;
-  height: 60%;
+  height: 84%;
   position: absolute;
-  bottom: 100%;
-  left: 25px;
+  bottom: 90%;
+  left: 33px;
   z-index: 1;
-  max-width: 90px;
+  max-width: 37%;
   opacity: 1;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
@@ -88,6 +85,7 @@
   display: block;
   font-size: 0.5em;
   color: #2980b9;
+  margin-left: 4px;
 }
 .snip1336 p {
   margin: 0 0 10px;
@@ -95,5 +93,6 @@
   letter-spacing: 1px;
   opacity: 0.8;
 }
+
 
 
