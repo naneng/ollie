@@ -23,7 +23,8 @@ def distance loc1, loc2
   rm * c # Delta in meters
 end
 
-NAME = %w(George Matt Larry Kat Ableen Takuma Nozomi David Douglas Hiroki)
+FIRST_NAME = %w(George Matt Larry Kat Ableen Takuma Nozomi David Douglas Hiroki)
+LAST_NAME = %w(Walden Frazier Nevins Ariola Naruke Ishii Li Berkley Furuichi)
 loc = ["2096 Mountain Blvd, Oakland, CA 94611, USA"]
 loc << "3250 Lakeshore Ave, Oakland, CA 94610, USA"
 loc << "555 Willie Stargell Ave, Alameda, CA 94501, USA"
@@ -38,11 +39,11 @@ drivers = []
 i = 0
 
 10.times do
-  user_name = NAME.sample
-  NAME.delete(user_name)
+  user_name = FIRST_NAME.sample
+  family_name = LAST_NAME.sample
+  FIRST_NAME.delete(user_name)
   drivers << User.create!(email: "#{user_name}@gmail.com",
-                          name: user_name,
-                          location: "#{loc[i]}",
+                          name: "#{user_name} #{family_name}",                          location: "#{loc[i]}",
                           password: "123456",
                           organization: false,
                           nonprofit_status: 1
@@ -56,7 +57,7 @@ oas = {
   email: "oas@gmail.com",
   name: "Oakland Animal Shelter",
   location: "1101 29th Ave, Oakland, CA 94601",
-  phone: "510-535-5602",
+  phone: "(510)535-5602",
   photo: "https://s3-media1.fl.yelpcdn.com/bphoto/84TzxwmLH-oVRrn4tmh4aA/o.jpg",
   password: "123456",
   organization: true,
@@ -66,7 +67,7 @@ har = {
   email: "har@gmail.com",
   name: "Hopalong Animal Rescue",
   location: "Oakland, CA 94606",
-  phone: "510-267-1915",
+  phone: "(510)267-1915",
   photo: "https://s3-media1.fl.yelpcdn.com/bphoto/3vWbtlN1NNczSuRiADWO8Q/o.jpg",
   password: "123456",
   organization: true,
@@ -76,7 +77,7 @@ faas = {
   email: "faas@gmail.com",
   name: "Friends of the Alameda Animal Shelter",
   location: "1590 Fortmann Way, Alameda, CA 94501",
-  phone: "510-337-8565",
+  phone: "(510)337-8565",
   photo: "https://s3-media2.fl.yelpcdn.com/bphoto/y5QvJyH1PUVC3u5vD1psuw/o.jpg",
   password: "123456",
   organization: true,
@@ -86,7 +87,7 @@ bacs = {
   email: "bacs@gmail.com",
   name: "Barkeley Animal Care Services",
   location: "1 Bolivar Dr, Berkeley, CA 94710",
-  phone: "510-981-6600",
+  phone: "(510)981-6600",
   photo: "https://s3-media2.fl.yelpcdn.com/bphoto/MLSkooS_0HXmyFGm6AtPcA/o.jpg",
   password: "123456",
   organization: true,
@@ -96,7 +97,7 @@ ebspca = {
   email: "ebspca@gmail.com",
   name: "Easy bay SPCA - Oakland",
   location: "8323 Baldwin St, Oakland, CA 94621",
-  phone: "510-569-0702",
+  phone: "(510)569-0702",
   photo: "https://s3-media4.fl.yelpcdn.com/bphoto/JyzRRnkALUBY8DUlCH9kzw/o.jpg",
   password: "123456",
   organization: true,
@@ -106,7 +107,7 @@ has = {
   email: "has@gmail.com",
   name: "Hayward Animal Shelter",
   location: "16 Barnes Ct, Hayward, CA 94544",
-  phone: "510-293-7200",
+  phone: "(510)293-7200",
   photo: "https://s3-media3.fl.yelpcdn.com/bphoto/qW23uy2AKWsmsvm_VQVhdQ/o.jpg",
   password: "123456",
   organization: true,
@@ -116,7 +117,7 @@ arf = {
   email: "arf@gmail.com",
   name: "ARF - Tony La Russa's Animal Rescue Foundation",
   location: "2890 Mitchell Dr, Walnut Creek, CA 94598",
-  phone: "925-256-1273",
+  phone: "(925)256-1273",
   photo: "https://s3-media2.fl.yelpcdn.com/bphoto/o3mzvbUykHsvUB-YMo_Sew/o.jpg",
   password: "123456",
   organization: true,
@@ -126,7 +127,7 @@ sfspca = {
   email: "sfspca@gmail.com",
   name: "San Francisco SPCA",
   location: "250 Florida St, San Francisco, CA 94103",
-  phone: "415-522-3500",
+  phone: "(415)522-3500",
   photo: "https://s3-media3.fl.yelpcdn.com/bphoto/THlQV3538xektuT2LsTgUw/o.jpg",
   password: "123456",
   organization: true,
@@ -136,7 +137,7 @@ accsf = {
   email: "accsf@gmail.com",
   name: "Animal Care & Control San Francisco",
   location: "1200 15th St, San Francisco, CA 94103",
-  phone: "415-554-6364",
+  phone: "(415)554-6364",
   photo: "https://s3-media4.fl.yelpcdn.com/bphoto/ypOoktTORDxECENEyakYhw/o.jpg",
   password: "123456",
   organization: true,
@@ -146,7 +147,7 @@ mas = {
   email: "mas@gmail.com",
   name: "Martinez Animal Shelter",
   location: "4800 Imhoff Pl, Martinez, CA 94553",
-  phone: "925-335-8300",
+  phone: "(925)335-8300",
   photo: "https://s3-media4.fl.yelpcdn.com/bphoto/lXGo7zshKWtk8TOldDllaQ/o.jpg",
   password: "123456",
   organization: true,
@@ -156,7 +157,7 @@ hssv = {
   email: "hssv@gmail.com",
   name: "Humane Society Silicon Valley",
   location: "901 Ames Ave, Milpitas, CA 95035",
-  phone: "408-262-2133",
+  phone: "(408)262-2133",
   photo: "https://s3-media1.fl.yelpcdn.com/bphoto/pfkLoUf_fNNi404VICFD3A/o.jpg",
   password: "123456",
   organization: true,
@@ -166,7 +167,7 @@ vhs = {
   email: "vhs@gmail.com",
   name: "Valley Humane Society",
   location: "3670 Nevada St, Pleasanton, CA 94566",
-  phone: "925-426-8656",
+  phone: "(925)426-8656",
   photo: "http://arizonacitychamber.com/newsite/images/sobipro/entries/169/thumb_ValleyHumaneLoge.gif",
   password: "123456",
   organization: true,
@@ -176,7 +177,7 @@ phs = {
   email: "phs@gmail.com",
   name: "Peninsula Humane Society & SPCA",
   location: "1450 Rollins Rd, Burlingame, CA 94010",
-  phone: "650-340-7022",
+  phone: "(650)340-7022",
   photo: "https://s3-media1.fl.yelpcdn.com/bphoto/BBwkVoVKF1xEKHxrqMpqFw/o.jpg",
   password: "123456",
   organization: true,
@@ -186,7 +187,7 @@ jp = {
   email: "shelter@gmail.com",
   name: "Jelly's Place",
   location: "2905 San Pablo Dam Rd, San Pablo, CA 94803",
-  phone: "510-621-3493",
+  phone: "(510)621-3493",
   photo: "https://d2g8igdw686xgo.cloudfront.net/24104938_1506117215.5443.jpg",
   password: "123456",
   organization: true,
