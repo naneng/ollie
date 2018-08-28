@@ -8,8 +8,12 @@
   background-color: #adc58c;
   color: white;
   margin: 50px;
+  padding: 15px;
+  border-radius: 5px;
 }
-
+.green-header {
+  color: #adc58c ;
+}
 .request-dog-image {
   width: 150px;
   height: 150px;
@@ -102,6 +106,3 @@ position: relative;
 
 }
 
-.green-header {
-  color: #adc58c ;
-}
