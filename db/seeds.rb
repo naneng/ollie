@@ -47,7 +47,7 @@ i = 0
                           password: "123456",
                           phone: "1235556789",
                           organization: false,
-                          nonprofit_status: 1
+                          nonprofit_status: 3
                           )
   i+=1
 end
@@ -62,7 +62,7 @@ oas = {
   photo: "https://s3-media1.fl.yelpcdn.com/bphoto/84TzxwmLH-oVRrn4tmh4aA/o.jpg",
   password: "123456",
   organization: true,
-nonprofit_status: 0}
+nonprofit_status: 1}
 
 har = {
   email: "har@gmail.com",
@@ -72,7 +72,7 @@ har = {
   photo: "https://s3-media1.fl.yelpcdn.com/bphoto/3vWbtlN1NNczSuRiADWO8Q/o.jpg",
   password: "123456",
   organization: true,
-nonprofit_status: 0}
+nonprofit_status: 2}
 
 faas = {
   email: "faas@gmail.com",
@@ -82,7 +82,7 @@ faas = {
   photo: "https://s3-media2.fl.yelpcdn.com/bphoto/y5QvJyH1PUVC3u5vD1psuw/o.jpg",
   password: "123456",
   organization: true,
-nonprofit_status: 0}
+nonprofit_status: 1}
 
 bacs = {
   email: "bacs@gmail.com",
@@ -92,7 +92,7 @@ bacs = {
   photo: "https://s3-media2.fl.yelpcdn.com/bphoto/MLSkooS_0HXmyFGm6AtPcA/o.jpg",
   password: "123456",
   organization: true,
-nonprofit_status: 0}
+nonprofit_status: 1}
 
 ebspca = {
   email: "ebspca@gmail.com",
@@ -102,7 +102,7 @@ ebspca = {
   photo: "https://s3-media4.fl.yelpcdn.com/bphoto/JyzRRnkALUBY8DUlCH9kzw/o.jpg",
   password: "123456",
   organization: true,
-nonprofit_status: 0}
+nonprofit_status: 2}
 
 has = {
   email: "has@gmail.com",
@@ -112,7 +112,7 @@ has = {
   photo: "https://s3-media3.fl.yelpcdn.com/bphoto/qW23uy2AKWsmsvm_VQVhdQ/o.jpg",
   password: "123456",
   organization: true,
-nonprofit_status: 0}
+nonprofit_status: 1}
 
 arf = {
   email: "arf@gmail.com",
@@ -122,7 +122,7 @@ arf = {
   photo: "https://s3-media2.fl.yelpcdn.com/bphoto/o3mzvbUykHsvUB-YMo_Sew/o.jpg",
   password: "123456",
   organization: true,
-nonprofit_status: 0}
+nonprofit_status: 1}
 
 sfspca = {
   email: "sfspca@gmail.com",
@@ -132,7 +132,7 @@ sfspca = {
   photo: "https://s3-media3.fl.yelpcdn.com/bphoto/THlQV3538xektuT2LsTgUw/o.jpg",
   password: "123456",
   organization: true,
-nonprofit_status: 0}
+nonprofit_status: 1}
 
 accsf = {
   email: "accsf@gmail.com",
@@ -142,7 +142,7 @@ accsf = {
   photo: "https://s3-media4.fl.yelpcdn.com/bphoto/ypOoktTORDxECENEyakYhw/o.jpg",
   password: "123456",
   organization: true,
-nonprofit_status: 0}
+nonprofit_status: 1}
 
 mas = {
   email: "mas@gmail.com",
@@ -152,7 +152,7 @@ mas = {
   photo: "https://s3-media4.fl.yelpcdn.com/bphoto/lXGo7zshKWtk8TOldDllaQ/o.jpg",
   password: "123456",
   organization: true,
-nonprofit_status: 0}
+nonprofit_status: 1}
 
 hssv = {
   email: "hssv@gmail.com",
@@ -162,7 +162,7 @@ hssv = {
   photo: "https://s3-media1.fl.yelpcdn.com/bphoto/pfkLoUf_fNNi404VICFD3A/o.jpg",
   password: "123456",
   organization: true,
-nonprofit_status: 0}
+nonprofit_status: 1}
 
 vhs = {
   email: "vhs@gmail.com",
@@ -172,7 +172,7 @@ vhs = {
   photo: "http://arizonacitychamber.com/newsite/images/sobipro/entries/169/thumb_ValleyHumaneLoge.gif",
   password: "123456",
   organization: true,
-nonprofit_status: 0}
+nonprofit_status: 1}
 
 phs = {
   email: "phs@gmail.com",
@@ -182,7 +182,7 @@ phs = {
   photo: "https://s3-media1.fl.yelpcdn.com/bphoto/BBwkVoVKF1xEKHxrqMpqFw/o.jpg",
   password: "123456",
   organization: true,
-nonprofit_status: 0}
+nonprofit_status: 1}
 
 jp = {
   email: "shelter@gmail.com",
@@ -192,7 +192,7 @@ jp = {
   photo: "https://d2g8igdw686xgo.cloudfront.net/24104938_1506117215.5443.jpg",
   password: "123456",
   organization: true,
-nonprofit_status: 0}
+nonprofit_status: 2}
 
 s1 = User.create!(oas)
 s2 = User.create!(har)
