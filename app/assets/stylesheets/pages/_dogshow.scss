@@ -15,3 +15,20 @@
 #greenshiba {
   text-align: left;
 }
+
+.dog-show-avatar {
+  border-radius: 2px;
+}
+
+.dog-tri {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 30px 74px 30px 46px;
+  border-color: transparent transparent transparent #cedcb1;
+
+}
+
+.dog-tri-flex {
+  display: flex;
+}
