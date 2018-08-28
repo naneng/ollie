@@ -12,9 +12,9 @@
 
 
 .card {
-  height: 175px;
+  height: 100px;
   text-shadow: 0 1px 5px rgba(0,0,0,0.6);
-  background-size: cover !important;
+  // background-size: cover !important;
   background-position: center;
   color: white;
   position: relative;
@@ -23,25 +23,26 @@
   // margin-bottom: 20px;
   margin: 3px;
   // border: 1px #C5A6DC solid;
-  flex: 0 0 32%;
+  // flex: 0 0 32%;
   box-shadow: 0px 0px 120px -25px rgba(0,0,0, 0.5);
   overflow: hidden;
+  width: 100%;
 }
 
 
 .card-description {
-  position: absolute;
-  bottom: 0px;
+  // position: absolute;
+  // bottom: 0px;
   color: white;
   left: 0px;
   padding: 0px 3px 0px;
   // background: rgb(171, 87, 219);
   background-color: #adc58c;
-  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23c6dea6' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+  // background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23c6dea6' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
   opacity: 0.5;
-  width: 100%;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  // width: 100%;
+  // border-bottom-left-radius: 10px;
+  // border-bottom-right-radius: 10px;
   text-align: center;
 }
 
