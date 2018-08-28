@@ -11,10 +11,16 @@
         <figure class="snip1336 prettydogs">
           <img src="https://images.pexels.com/photos/158063/bellingrath-gardens-alabama-landscape-scenic-158063.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="sample87" class="dogpark" />
           <figcaption>
-            <img src="<%= dog.user.photo %>" alt="profile-sample4" class="profile"/>
-            <h2><%= dog.name %><span> <%= dog.breed %></span></h2>
-            <a <%= link_to dog_path(dog) do %> View Profile</a>
+            <% if dog.photo %>
+              <%= image_tag dog.photo, :class=>"profile" %>
             <% end %>
+            <div class="flex-card-dog">
+              <h2><%= dog.name %><span> <%= dog.breed %></span></h2>
+              <span>
+                <a <%= link_to dog_path(dog) do %> View Profile</a>
+                <% end %>
+              </span>
+            </div>
           </figcaption>
         </figure>
       <% end %>
