@@ -1,23 +1,16 @@
-<div class="center green-header">
+<div class="center request-title">
   <h1><strong><%= @request.user.name %> Transportation Request</strong>
   <h3><%= @request.user.location %> Telephone: <%= @request.user.phone %></h3>
 </div>
 
-<div id="search_javascript">
-  <div class="request-card-title-show" id="bright">
-    <%= image_tag @request.user.photo, class: "locandinatwo flex-requests" %>
+<div class="request-container">
+  <div>
 
-    <div>
-      <%= link_to request_bookings_path(@request), method: :post do %>
-        <div><button type="button" class="btn btn-warning btn">Book Request</button></div>
-      <% end %>
-    </div>
-
-    <div class="dog-row">
+    <div class="flex-requests">
       <% @request.dogs.each do |dog| %>
         <%= link_to dog_path(dog) do %>
           <% if dog.photo %>
-            <%= image_tag dog.photo, class: "dog-mini", width: 100, height: 100, :crop=>"fill"%>
+            <%= image_tag dog.photo, class: 'request-dog-image' %>
           <% end %>
           <div class="dog-name-link">
             <%= dog.name %>
@@ -25,29 +18,43 @@
         <% end %>
       <% end %>
     </div>
-    <div class="request-info">
-      <strong><p>Pick Up Location:</p></strong>
-      <p><%= @request.pickup_location %></p>
-      <strong><p>Drop Off Location:</p></strong>
-      <p><%= @request.dropoff_location %></p>
-      <p>
-        <strong>Request Time:</strong> <%= @request.datetime < DateTime.now ? "Immediately" : @request.datetime %>
-      </p>
+
+    <div>
+      <div class="flex-requests">
+        <strong><p>Pick Up Location:</p></strong>
+        <p><%= @request.pickup_location %></p>
+      </div>
+      <div class="flex-requests">
+        <strong><p>Drop Off Location:</p></strong>
+        <p><%= @request.dropoff_location %></p>
+
+      </div>
+      <div class="flex-requests">
+        <p>
+          <strong>Request Time:</strong> <%= @request.datetime < DateTime.now ? "Immediately" : @request.datetime %>
+        </p>
+
+      </div>
+      <div class="flex-requests">
+        <% if @request.user == @user %>
+          <% if policy(@request).edit? %>
+            <%= link_to "Edit Request", edit_request_path(@request.id), class: 'btn btn-warning btn request-btn-space' %>
+          <% end %>
+
+          <% if policy(@request).destroy? %>
+            <%= link_to "Delete Request", request_path(@request), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-warning btn' %>
+          <% end %>
+        <% else %>
+            <%= link_to "Book Request", request_bookings_path(@request), method: :post, class:'btn btn-warning btn' %>
+        <% end %>
+      </div>
     </div>
   </div>
+
+  <div>
+    <%= image_tag @request.user.photo, class: 'request-shelter-image' %>
+  </div>
+
 </div>
 
-<div class="flex-requests">
-  <% if policy(@request).edit? %>
-    <%= link_to edit_request_path(@request.id) do %>
-    <div><button type="button" class="btn btn-warning btn request-btn-space">Edit Request</button></div>
-    <% end %>
-  <% end %>
-
-  <% if policy(@request).destroy? %>
-    <%= link_to request_path(@request), data: { confirm: "Are you sure?" }, method: :delete do %>
-      <div><button type="button" class="btn btn-warning btn">Delete Request</button></div>
-    <% end %>
-  <% end %>
-</div>
 

@@ -20,7 +20,9 @@
     <div class="dog-item-image" style="background-image: url('https://images.pexels.com/photos/827066/pexels-photo-827066.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')"></div>
   </div>
 </div>
-</div>
+
+
+
 <div class="center">
   <% if @dog.user.organization == true %>
     <%= link_to "OlliePartner Page", user_path(@dog.user), class: 'user-text-links' %>
@@ -31,4 +33,5 @@
     <%= link_to "Edit OllieBuddy", edit_dog_path(@dog), class: 'user-text-links' %>
     <%= link_to "Remove OllieBuddy", dog_path(@dog), class: 'user-text-links', data: { confirm: "Are you sure?" }, method: :delete %>
   <% end %>
+
 </div>
