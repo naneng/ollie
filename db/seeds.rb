@@ -219,17 +219,17 @@ Phantom Darth Balboa Ajax Wrigley Titan Yoyo Zulu Jake Champion Loki Punch Hiro 
 Bailey Max Charlie Buddy Rocky Jake Jack Toby Cody Buster Bella Lucy Molly Daisy Maggie Sophie Sadie Chloe)
 BREEDS = ["German Shepherd", "Labrador Retriever", "Bulldog", "Beagle", "Poodle", "Golden Retriever", "Corgi", "Shiba Inu", "Akita", "Chow Chow", "Rottwelier", "Boxer", "Siberian Husky", "Dobermann", "Great Dane", "Pug", "Border Collie", "Terrier", "Cocker Spaniel"]
 BREED_PHOTOS = ["germanshepherd.jpeg", "labradorretriever.jpeg", "bulldog.jpg", "beagle.jpg", "poodle.jpg", "goldenretriever.jpg", "corgi.jpg", "shibainu.jpg", "akita.jpg", "chowchow.jpg", "rottweiler.jpg", "boxer.jpg", "husky.jpg", "dobermann.jpg", "greatdane.PNG", "pug.jpeg", "bordercollie.jpg", "terrier.jpg", "cockerspaniel.jpg"]
-PERSONALITY = ["Quite energetic and playful. Does well with strangers and young children, however does get very anxious when traveling",
-               "A very confident animal and comfortable in various surroundings. Displays dominant behaviours and may be stubborn at times, but team player",
-               "Tends to be shy and nervous, but reacts very well to lots of praise, treats, and encouragement. Strangly loves car rides and will not hesitate to jump in for a ride",
-               "Very independent dog and takes a little time to form a bond, but not aggressive. Can appear to be standoffish, but if given treates will quickly trust you",
-               "This is the stereotypical friendly dog who loves everybody and would lead a robber directly to the family’s valuables with a wagging tail. Typically gets along with all people, dogs, and even cats",
-               "Very adaptable. Slightly different from the typical happy dog. Is eager to please in any environment and will control their enthusiasm in favor of doing something that will make their owner/handler happy",
-               "Laid back and happy and always ready to greet everyone they meet, whether known or not. Gets along well with other dogs and cats. Hasn’t been taught basic commands, like sit or down. This dog can become overly excited, especially around children, and could scare them",
-               "Needs an owner who can give calm, consistent and patient understanding, with a sensitivity to their needs and feelings. Does moderately well on car rides, but takes time when loading into a vehicle",
-               "Although a nice friendly dog, very standoffish and hates loud noises. Can travel moderately well, but if a vehicle is too noisy it can lead to a messy cage",
-               "A little hyperactive, this dog is difficult to get into a cage and take on walks, but when traveling they quickly settle down and sleep like a baby",
-               "This dog is a complete and total people person and loves company whether it be people or other dogs. Not a big fan of car rides, though, and non-aggressivly resists being put in a cage or vehicle"]
+PERSONALITY = ["Quite energetic and playful. Does well with strangers and young children, however does get very anxious when traveling.",
+               "A very confident animal and comfortable in various surroundings. Displays dominant behaviours and may be stubborn at times, but team player.",
+               "Tends to be shy and nervous, but reacts very well to lots of praise, treats, and encouragement. Strangly loves car rides and will not hesitate to jump in for a ride.",
+               "Very independent dog and takes a little time to form a bond, but not aggressive. Can appear to be standoffish, but if given treats will quickly trust you.",
+               "This is the stereotypical friendly dog who loves everybody and would lead a robber directly to the family’s valuables with a wagging tail. Typically gets along with all people, dogs, and even cats.",
+               "Very adaptable. Slightly different from the typical happy dog. Is eager to please in any environment and will control their enthusiasm in favor of doing something that will make their owner/handler happy.",
+               "Laid back and happy and always ready to greet everyone they meet, whether known or not. Gets along well with other dogs and cats. Hasn’t been taught basic commands, like sit or down. This dog can become overly excited, especially around children, and could scare them.",
+               "Needs an owner who can give calm, consistent and patient understanding, with a sensitivity to their needs and feelings. Does moderately well on car rides, but takes time when loading into a vehicle.",
+               "Although a nice friendly dog, very standoffish and hates loud noises. Can travel moderately well, but if a vehicle is too noisy it can lead to a messy cage.",
+               "A little hyperactive, this dog is difficult to get into a cage and take on walks, but when traveling they quickly settle down and sleep like a baby.",
+               "This dog is a complete and total people person and loves company whether it be people or other dogs. Not a big fan of car rides, though, and non-aggressivly resists being put in a cage or vehicle."]
 BREED_PHOTOS = ["germanshepherd.jpg", "labradorretriever.jpg", "bulldog.jpg", "beagle.jpg", "poodle.jpg", "goldenretriever.jpg", "corgi.jpg", "shibainu.jpg", "akita.jpg", "chowchow.jpg", "rottweiler.jpg", "boxer.jpg", "husky.jpg", "dobermann.jpg", "greatdane.PNG", "pug.jpg", "bordercollie.jpg", "terrier.jpg", "cockerspaniel.jpg"]
 60.times do
   personality = PERSONALITY.sample
