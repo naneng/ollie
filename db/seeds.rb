@@ -23,7 +23,8 @@ def distance loc1, loc2
   rm * c # Delta in meters
 end
 
-NAME = %w(George Matt Larry Kat Ableen Takuma Nozomi David Douglas Hiroki)
+FIRST_NAME = %w(George Matt Larry Kat Ableen Takuma Nozomi David Douglas Hiroki)
+LAST_NAME = %w(Walden Frazier Nevins Ariola Naruke Ishii Li Berkley Furuichi)
 loc = ["2096 Mountain Blvd, Oakland, CA 94611, USA"]
 loc << "3250 Lakeshore Ave, Oakland, CA 94610, USA"
 loc << "555 Willie Stargell Ave, Alameda, CA 94501, USA"
@@ -38,14 +39,15 @@ drivers = []
 i = 0
 
 10.times do
-  user_name = NAME.sample
-  NAME.delete(user_name)
+  user_name = FIRST_NAME.sample
+  family_name = LAST_NAME.sample
+  FIRST_NAME.delete(user_name)
   drivers << User.create!(email: "#{user_name}@gmail.com",
-                          name: user_name,
-                          location: "#{loc[i]}",
+                          name: "#{user_name} #{family_name}",                          location: "#{loc[i]}",
                           password: "123456",
+                          phone: "1235556789",
                           organization: false,
-                          nonprofit_status: 1
+                          nonprofit_status: 3
                           )
   i+=1
 end
@@ -56,141 +58,141 @@ oas = {
   email: "oas@gmail.com",
   name: "Oakland Animal Shelter",
   location: "1101 29th Ave, Oakland, CA 94601",
-  phone: "510-535-5602",
+  phone: "5105355602",
   photo: "https://s3-media1.fl.yelpcdn.com/bphoto/84TzxwmLH-oVRrn4tmh4aA/o.jpg",
   password: "123456",
   organization: true,
-nonprofit_status: 0}
+nonprofit_status: 1}
 
 har = {
   email: "har@gmail.com",
   name: "Hopalong Animal Rescue",
   location: "Oakland, CA 94606",
-  phone: "510-267-1915",
+  phone: "5102671915",
   photo: "https://s3-media1.fl.yelpcdn.com/bphoto/3vWbtlN1NNczSuRiADWO8Q/o.jpg",
   password: "123456",
   organization: true,
-nonprofit_status: 0}
+nonprofit_status: 2}
 
 faas = {
   email: "faas@gmail.com",
   name: "Friends of the Alameda Animal Shelter",
   location: "1590 Fortmann Way, Alameda, CA 94501",
-  phone: "510-337-8565",
+  phone: "510337565",
   photo: "https://s3-media2.fl.yelpcdn.com/bphoto/y5QvJyH1PUVC3u5vD1psuw/o.jpg",
   password: "123456",
   organization: true,
-nonprofit_status: 0}
+nonprofit_status: 1}
 
 bacs = {
   email: "bacs@gmail.com",
   name: "Barkeley Animal Care Services",
   location: "1 Bolivar Dr, Berkeley, CA 94710",
-  phone: "510-981-6600",
+  phone: "5109816600",
   photo: "https://s3-media2.fl.yelpcdn.com/bphoto/MLSkooS_0HXmyFGm6AtPcA/o.jpg",
   password: "123456",
   organization: true,
-nonprofit_status: 0}
+nonprofit_status: 1}
 
 ebspca = {
   email: "ebspca@gmail.com",
   name: "Easy bay SPCA - Oakland",
   location: "8323 Baldwin St, Oakland, CA 94621",
-  phone: "510-569-0702",
+  phone: "5105690702",
   photo: "https://s3-media4.fl.yelpcdn.com/bphoto/JyzRRnkALUBY8DUlCH9kzw/o.jpg",
   password: "123456",
   organization: true,
-nonprofit_status: 0}
+nonprofit_status: 2}
 
 has = {
   email: "has@gmail.com",
   name: "Hayward Animal Shelter",
   location: "16 Barnes Ct, Hayward, CA 94544",
-  phone: "510-293-7200",
+  phone: "5102937200",
   photo: "https://s3-media3.fl.yelpcdn.com/bphoto/qW23uy2AKWsmsvm_VQVhdQ/o.jpg",
   password: "123456",
   organization: true,
-nonprofit_status: 0}
+nonprofit_status: 1}
 
 arf = {
   email: "arf@gmail.com",
   name: "ARF - Tony La Russa's Animal Rescue Foundation",
   location: "2890 Mitchell Dr, Walnut Creek, CA 94598",
-  phone: "925-256-1273",
+  phone: "9252561273",
   photo: "https://s3-media2.fl.yelpcdn.com/bphoto/o3mzvbUykHsvUB-YMo_Sew/o.jpg",
   password: "123456",
   organization: true,
-nonprofit_status: 0}
+nonprofit_status: 1}
 
 sfspca = {
   email: "sfspca@gmail.com",
   name: "San Francisco SPCA",
   location: "250 Florida St, San Francisco, CA 94103",
-  phone: "415-522-3500",
+  phone: "4155223500",
   photo: "https://s3-media3.fl.yelpcdn.com/bphoto/THlQV3538xektuT2LsTgUw/o.jpg",
   password: "123456",
   organization: true,
-nonprofit_status: 0}
+nonprofit_status: 1}
 
 accsf = {
   email: "accsf@gmail.com",
   name: "Animal Care & Control San Francisco",
   location: "1200 15th St, San Francisco, CA 94103",
-  phone: "415-554-6364",
+  phone: "4155546364",
   photo: "https://s3-media4.fl.yelpcdn.com/bphoto/ypOoktTORDxECENEyakYhw/o.jpg",
   password: "123456",
   organization: true,
-nonprofit_status: 0}
+nonprofit_status: 1}
 
 mas = {
   email: "mas@gmail.com",
   name: "Martinez Animal Shelter",
   location: "4800 Imhoff Pl, Martinez, CA 94553",
-  phone: "925-335-8300",
+  phone: "9253358300",
   photo: "https://s3-media4.fl.yelpcdn.com/bphoto/lXGo7zshKWtk8TOldDllaQ/o.jpg",
   password: "123456",
   organization: true,
-nonprofit_status: 0}
+nonprofit_status: 1}
 
 hssv = {
   email: "hssv@gmail.com",
   name: "Humane Society Silicon Valley",
   location: "901 Ames Ave, Milpitas, CA 95035",
-  phone: "408-262-2133",
+  phone: "4082622133",
   photo: "https://s3-media1.fl.yelpcdn.com/bphoto/pfkLoUf_fNNi404VICFD3A/o.jpg",
   password: "123456",
   organization: true,
-nonprofit_status: 0}
+nonprofit_status: 1}
 
 vhs = {
   email: "vhs@gmail.com",
   name: "Valley Humane Society",
   location: "3670 Nevada St, Pleasanton, CA 94566",
-  phone: "925-426-8656",
+  phone: "9254268656",
   photo: "http://arizonacitychamber.com/newsite/images/sobipro/entries/169/thumb_ValleyHumaneLoge.gif",
   password: "123456",
   organization: true,
-nonprofit_status: 0}
+nonprofit_status: 1}
 
 phs = {
   email: "phs@gmail.com",
   name: "Peninsula Humane Society & SPCA",
   location: "1450 Rollins Rd, Burlingame, CA 94010",
-  phone: "650-340-7022",
+  phone: "6503407022",
   photo: "https://s3-media1.fl.yelpcdn.com/bphoto/BBwkVoVKF1xEKHxrqMpqFw/o.jpg",
   password: "123456",
   organization: true,
-nonprofit_status: 0}
+nonprofit_status: 1}
 
 jp = {
   email: "shelter@gmail.com",
   name: "Jelly's Place",
   location: "2905 San Pablo Dam Rd, San Pablo, CA 94803",
-  phone: "510-621-3493",
+  phone: "5106213493",
   photo: "https://d2g8igdw686xgo.cloudfront.net/24104938_1506117215.5443.jpg",
   password: "123456",
   organization: true,
-nonprofit_status: 0}
+nonprofit_status: 2}
 
 s1 = User.create!(oas)
 s2 = User.create!(har)
@@ -217,17 +219,17 @@ Phantom Darth Balboa Ajax Wrigley Titan Yoyo Zulu Jake Champion Loki Punch Hiro 
 Bailey Max Charlie Buddy Rocky Jake Jack Toby Cody Buster Bella Lucy Molly Daisy Maggie Sophie Sadie Chloe)
 BREEDS = ["German Shepherd", "Labrador Retriever", "Bulldog", "Beagle", "Poodle", "Golden Retriever", "Corgi", "Shiba Inu", "Akita", "Chow Chow", "Rottwelier", "Boxer", "Siberian Husky", "Dobermann", "Great Dane", "Pug", "Border Collie", "Terrier", "Cocker Spaniel"]
 BREED_PHOTOS = ["germanshepherd.jpeg", "labradorretriever.jpeg", "bulldog.jpg", "beagle.jpg", "poodle.jpg", "goldenretriever.jpg", "corgi.jpg", "shibainu.jpg", "akita.jpg", "chowchow.jpg", "rottweiler.jpg", "boxer.jpg", "husky.jpg", "dobermann.jpg", "greatdane.PNG", "pug.jpeg", "bordercollie.jpg", "terrier.jpg", "cockerspaniel.jpg"]
-PERSONALITY = ["Quite energetic and playful. Does well with strangers and young children, however does get very anxious when traveling",
-               "A very confident animal and comfortable in various surroundings. Displays dominant behaviours and may be stubborn at times, but team player",
-               "Tends to be shy and nervous, but reacts very well to lots of praise, treats, and encouragement. Strangly loves car rides and will not hesitate to jump in for a ride",
-               "Very independent dog and takes a little time to form a bond, but not aggressive. Can appear to be standoffish, but if given treates will quickly trust you",
-               "This is the stereotypical friendly dog who loves everybody and would lead a robber directly to the family’s valuables with a wagging tail. Typically gets along with all people, dogs, and even cats",
-               "Very adaptable. Slightly different from the typical happy dog. Is eager to please in any environment and will control their enthusiasm in favor of doing something that will make their owner/handler happy",
-               "Laid back and happy and always ready to greet everyone they meet, whether known or not. Gets along well with other dogs and cats. Hasn’t been taught basic commands, like sit or down. This dog can become overly excited, especially around children, and could scare them",
-               "Needs an owner who can give calm, consistent and patient understanding, with a sensitivity to their needs and feelings. Does moderately well on car rides, but takes time when loading into a vehicle",
-               "Although a nice friendly dog, very standoffish and hates loud noises. Can travel moderately well, but if a vehicle is too noisy it can lead to a messy cage",
-               "A little hyperactive, this dog is difficult to get into a cage and take on walks, but when traveling they quickly settle down and sleep like a baby",
-               "This dog is a complete and total people person and loves company whether it be people or other dogs. Not a big fan of car rides, though, and non-aggressivly resists being put in a cage or vehicle"]
+PERSONALITY = ["Quite energetic and playful. Does well with strangers and young children, however does get very anxious when traveling.",
+               "A very confident animal and comfortable in various surroundings. Displays dominant behaviours and may be stubborn at times, but team player.",
+               "Tends to be shy and nervous, but reacts very well to lots of praise, treats, and encouragement. Strangly loves car rides and will not hesitate to jump in for a ride.",
+               "Very independent dog and takes a little time to form a bond, but not aggressive. Can appear to be standoffish, but if given treats will quickly trust you.",
+               "This is the stereotypical friendly dog who loves everybody and would lead a robber directly to the family’s valuables with a wagging tail. Typically gets along with all people, dogs, and even cats.",
+               "Very adaptable. Slightly different from the typical happy dog. Is eager to please in any environment and will control their enthusiasm in favor of doing something that will make their owner/handler happy.",
+               "Laid back and happy and always ready to greet everyone they meet, whether known or not. Gets along well with other dogs and cats. Hasn’t been taught basic commands, like sit or down. This dog can become overly excited, especially around children, and could scare them.",
+               "Needs an owner who can give calm, consistent and patient understanding, with a sensitivity to their needs and feelings. Does moderately well on car rides, but takes time when loading into a vehicle.",
+               "Although a nice friendly dog, very standoffish and hates loud noises. Can travel moderately well, but if a vehicle is too noisy it can lead to a messy cage.",
+               "A little hyperactive, this dog is difficult to get into a cage and take on walks, but when traveling they quickly settle down and sleep like a baby.",
+               "This dog is a complete and total people person and loves company whether it be people or other dogs. Not a big fan of car rides, though, and non-aggressivly resists being put in a cage or vehicle."]
 BREED_PHOTOS = ["germanshepherd.jpg", "labradorretriever.jpg", "bulldog.jpg", "beagle.jpg", "poodle.jpg", "goldenretriever.jpg", "corgi.jpg", "shibainu.jpg", "akita.jpg", "chowchow.jpg", "rottweiler.jpg", "boxer.jpg", "husky.jpg", "dobermann.jpg", "greatdane.PNG", "pug.jpg", "bordercollie.jpg", "terrier.jpg", "cockerspaniel.jpg"]
 60.times do
   personality = PERSONALITY.sample
