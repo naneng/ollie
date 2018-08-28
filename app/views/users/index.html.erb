@@ -20,26 +20,24 @@
     <% end %>
     <div class="cards">
       <% @users.each do |user| %>
-        <div class="card relative">
-          <%= link_to user_path(user) do %>
-            <div class="user-picture">
-              <% if user.organization == true %>
-                <%= image_tag 'animalshelter.png' %>
-              <% elsif user.organization == false %>
-                <%= image_tag 'userdog.png' %>
-              <% end %>
-            </div>
-            <div class="card-description">
-              <!--  <div>
+        <div class="card">
+          <div class="user-picture">
+            <% if user.organization == true %>
+              <%= image_tag 'animalshelter.png', height: 80, width: 70 %>
+            <% elsif user.organization == false %>
+              <%= image_tag 'userdog.png', height: 80, width: 70 %>
+            <% end %>
+          </div>
+          <div class="card-description">
+            <!--  <div>
                 <p><strong><%#= user.name %></strong></p>
                 <p><%= user.phone%></p>
               </div> -->
-              <div>
-                <%= user.name %>
-                <%= user.phone%>
-              </div>
+            <div>
+              <%= user.name %>
+              <%= user.phone%>
             </div>
-          <% end %>
+          </div>
           <div class="follow">
             <ul>
               <%= render user %>
