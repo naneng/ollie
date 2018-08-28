@@ -260,7 +260,7 @@
 /* lists */
 .request_index_row ul {
   margin:0;
-  padding:0;
+  padding-bottom:3px;
   .wide {
     width: 39%;
   }
@@ -289,11 +289,11 @@
 /* request_index_rows */
 .request_index_row {
   padding:20px 0;
-  height: 70px;
+  height: 80px;
   font-size:0;
   position:relative;
   overflow:hidden;
-  ulansition:all 0.2s ease-out;
+  transition:all 0.2s ease-out;
   border-top:1px solid darken($light-bg, 100%);
 }
 
@@ -357,8 +357,6 @@
     display:none;
   }
 }
-
-
 
 ul.main-content {
   margin: 0 auto 20px auto;

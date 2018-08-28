@@ -20,32 +20,34 @@
     <% end %>
     <div class="cards">
       <% @users.each do |user| %>
-        <div class="card">
-          <div class="user-picture">
-            <% if user.organization == true %>
-              <%= image_tag 'animalshelter.png', height: 80, width: 70 %>
-            <% elsif user.organization == false %>
-              <%= image_tag 'userdog.png', height: 80, width: 70 %>
-            <% end %>
-          </div>
-          <div class="card-description">
-            <!--  <div>
+        <%#= link_to user_path(user) do %>
+          <div class="card" onclick="location.href='<%= "users/#{user.id}" %>';">
+            <div class="user-picture">
+              <% if user.organization == true %>
+                <%= image_tag 'animalshelter.png', height: 80, width: 70 %>
+              <% elsif user.organization == false %>
+                <%= image_tag 'userdog.png', height: 80, width: 70 %>
+              <% end %>
+            </div>
+            <div class="card-description">
+              <!--  <div>
                 <p><strong><%#= user.name %></strong></p>
                 <p><%= user.phone%></p>
               </div> -->
-            <div>
-              <%= user.name %>
-              <%= user.phone%>
+              <div>
+                <%= user.name %>
+                <%= user.phone%>
+              </div>
+            </div>
+            <div class="follow">
+              <ul>
+                <%= render user %>
+              </ul>
             </div>
           </div>
-          <div class="follow">
-            <ul>
-              <%= render user %>
-            </ul>
-          </div>
-        </div>
-      <% end %>
+          <%# end %>
+        <% end %>
+      </div>
     </div>
+    <p class="fixed-links"><%= link_to "Home", root_path, class: 'arrow-btn' %></p>
   </div>
-  <p class="fixed-links"><%= link_to "Home", root_path, class: 'white-btn' %></p>
-</div>

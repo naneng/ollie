@@ -103,6 +103,7 @@
 
 .webdesigntuts-workshop {
   text-align: center;
+  width: 72%;
 }
 
 .webdesigntuts-workshop:before,
@@ -157,7 +158,7 @@
 
 .webdesigntuts-workshop input:focus {
   animation: glow 800ms ease-out infinite alternate;
-  background: #E2AC3C;
+  background: #c5dea6;
   border-color: white;
   color: black;
   outline: none;
@@ -175,7 +176,7 @@
   background: #CEDCB1;
   box-sizing: border-box;
   border: 1px solid #c1c1c1;
-  // border-left-color: #E2AC3C;
+  // border-left-color: #c5dea6;
   border-left-color: #c1c1c1;
   border-radius: 0 5px 5px 0;
   color: white;
