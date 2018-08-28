@@ -8,27 +8,33 @@
       <div class="search">
         <section class="webdesigntuts-workshop">
           <form action="/users" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
-            <input type="text" name="query" id="query" class="form-control grey-text" placeholder="Locate an OllieBuddy" />
-            <button>Search</button>
+            <input type="text" name="query" id="query" class="form-control white-text" placeholder="Locate an OllieBuddy" />
+            <button><i class="fas fa-arrow-right"></i></button>
           </form>
         </section>
       </div>
       <!-- Right Navigation -->
       <div class="navbar-wagon-right hidden-xs hidden-sm">
-        <%= link_to "Transport Requests", requests_path, class: "navbar-wagon-item navbar-wagon-link" %>
-        <%= link_to "Create Request", new_request_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <% else %>
-        <div class="search">
-          <section class="webdesigntuts-workshop">
-            <form action="/users" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
-              <input type="text" name="query" id="query" class="form-control" placeholder="Locate an OlliePartner, OllieBuddy" />
-              <button>Search</button>
-            </form>
-          </section>
+        <div class="navbar-wagon-item">
+          <%= link_to "Transport Requests", requests_path, class: "navbar-wagon-link" %>
+          <%= link_to "Create Request", new_request_path, class: " navbar-wagon-link" %>
         </div>
-        <!-- Right Navigation -->
-        <%= link_to "Join Ollieboard", new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
-        <%= link_to "Log In", new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      </div>
+    <% else %>
+      <div class="search">
+        <section class="webdesigntuts-workshop">
+          <form action="/users" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+            <input type="text" name="query" id="query" class="form-control white-text" placeholder="Locate an OlliePartner, OllieBuddy" />
+            <button><i class="fas fa-arrow-right"></i></button>
+          </form>
+        </section>
+      </div>
+      <!-- Right Navigation -->
+      <div class="navbar-wagon-right hidden-xs hidden-sm">
+        <div class="navbar-wagon-item">
+          <%= link_to "Join Ollieboard", new_user_registration_path, class: "navbar-wagon-link" %>
+          <%= link_to "Log In", new_user_session_path, class: "navbar-wagon-link" %>
+        </div>
       <% end %>
       <!-- Profile picture with dropdown list -->
       <div class="navbar-wagon-item">
