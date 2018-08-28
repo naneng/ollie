@@ -12,6 +12,20 @@ class RequestsController < ApplicationController
     if params[:favorite]
       @requests = @requests.select {|req| current_user.following.include?(req.user)}
     end
+    @currentmarker =
+      [{
+        name: current_user.name,
+        lat: current_user.latitude,
+        lng: current_user.longitude
+      }]
+    @markers = User.all.select{|u| u.organization == true }.map do |user|
+      {
+        name: user.name,
+        lat: user.latitude,
+        lng: user.longitude,
+        address: user.location
+      }
+    end
   end
 
   def show

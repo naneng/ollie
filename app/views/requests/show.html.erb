@@ -1,59 +1,44 @@
-<div>
+
+<div class="container">
+<div class="center request-title">
+  <h1><strong><%= @request.user.name %> Transportation Request</strong>
+  <h3><%= @request.user.location %></h3>
+  <h3>(<%= @request.user.phone.first(3) %>) <%= @request.user.phone[3..5] %>-<%= @request.user.phone[6..9] %></h3>
+</div>
+
+<div class="request-container">
   <div>
-    <div class="center request-title">
-      <h1><strong><%= @request.user.name %> Transportation Request</strong></h1>
-      <h3><%= @request.user.location %> Telephone: <%= @request.user.phone %></h3>
+    <div class="flex-requests">
+      <% @request.dogs.each do |dog| %>
+        <%= link_to dog_path(dog) do %>
+          <% if dog.photo %>
+            <%= image_tag dog.photo, class: 'request-dog-image' %>
+          <% end %>
+          <div class="dog-name-link">
+            <%= dog.name %>
+          </div>
+        <% end %>
+      <% end %>
     </div>
+    <div>
+      <div class="flex-requests">
+        <p><strong>Pick Up Location: </strong><%= @request.pickup_location %></p>
+      </div>
+      <div class="flex-requests">
+        <p><strong>Drop Off Location: </strong><%= @request.dropoff_location %></p>
 
-    <div class="request-container">
-      <div class="request-card">
-        <div>
+      </div>
+      <div class="flex-requests">
+        <p>
+          <strong>Request Time: </strong> <%= @request.datetime < DateTime.now ? "Immediately" : @request.datetime %>
+        </p>
+      </div>
+      <div class="flex-requests">
+        <% if @request.user == @user %>
+          <% if policy(@request).edit? %>
+            <%= link_to "Edit Request", edit_request_path(@request.id), class: 'btn btn-warning btn request-btn-space' %>
+          <% end %>
 
-          <div class="requested-dogs">
-            <% @request.dogs.each do |dog| %>
-              <%= link_to dog_path(dog) do %>
-                <% if dog.photo %>
-                  <%= image_tag dog.photo, class: 'request-dog-image' %>
-                <% end %>
-                <div class="dog-name-link">
-                  <%= dog.name %>
-                  <div class="break-border"></div>
-                </div>
-              <% end %>
-            <% end %>
-          </div>
-
-          <div>
-            <div class="request-content">
-              <strong><p>Pick Up Location:&nbsp;&nbsp;</p></strong>
-              <p><%= @request.pickup_location %></p>
-            </div>
-            <div class="request-content">
-              <strong><p>Drop Off Location:&nbsp;&nbsp;</p></strong>
-              <p><%= @request.dropoff_location %></p>
-
-            </div>
-            <div class="request-content">
-              <p>
-                <strong>Request Time:&nbsp;&nbsp;</strong><%= @request.datetime < DateTime.now ? "Immediately" : @request.datetime %>
-              </p>
-            </div>
-            <div class="flex-requests">
-              <% if @request.user == @user %>
-                <% if policy(@request).edit? %>
-                  <%= link_to "Edit Request", edit_request_path(@request.id), class: 'btn btn-warning btn request-btn-space' %>
-                <% end %>
-
-                <% if policy(@request).destroy? %>
-                  <%= link_to "Delete Request", request_path(@request), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-warning btn' %>
-                <% end %>
-              <% else %>
-                  <%= link_to "Book Request", request_bookings_path(@request), method: :post, class:'btn btn-warning btn' %>
-              <% end %>
-            </div>
-
-          </div>
-        </div>
 
         <div class="request-user-img">
           <%= link_to user_path(@request.user) do %>
@@ -63,5 +48,7 @@
       </div>
     </div>
   </div>
+</div>
+
 </div>
 
