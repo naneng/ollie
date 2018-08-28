@@ -1,57 +1,73 @@
-<h1 class="center">Transportation Requests</h1>
+<div class="request_index_flex">
+  <div class="info-flex">
+    <h1 class="center">Transportation Requests</h1>
+    <div class="search middle relative">
+      <section class="webdesigntuts-workshop">
+        <form action="/requests" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
+          <input type="text" name="query" id="query" value="" class="form-control" placeholder="Find a Request">
+          <button type="submit">Search</button>
+          <div>
+            <input type="checkbox" id="scales" name="favorite"
+                   value="yes"/>
+            <label for="favorite" id="scales_label">Favorites</label>
+          </div>
+        </form>
+      </section>
 
-<div class="search middle relative">
-  <section class="webdesigntuts-workshop">
-    <form action="/requests" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
-      <input type="text" name="query" id="query" value="" class="form-control" placeholder="Find a Request">
-      <button type="submit">Search</button>
-      <div>
-        <input type="checkbox" id="scales" name="favorite"
-               value="yes"/>
-        <label for="favorite" id="scales_label">Favorites</label>
+      <div class="left favorites">
+
       </div>
-    </form>
-  </section>
+    </div>
 
-  <div class="left favorites">
+    <body>
+      <section class="request_index_wrapper">
+        <!-- request_index_row title -->
+        <main class="titles">
+          <ul class=main-content>
+            <li class="skinny center">Date</li>
+            <li class="skinny center">Time</li>
+            <li class="wide center">Shelter</li>
+            <li class="skinny center"># Dogs</li>
+            <li class="skinny center">Trip Distance (miles)</li>
+            <li class="skinny center">Status</li>
+          </ul>
+        </main>
 
+      <% @requests.sort_by{|req| req.datetime}.each do |r| %>
+        <!-- request_index_row 3 -->
+        <%= link_to request_path(r), :class => "unstyled_links" do %>
+          <article class="request_index_row">
+            <ul class = "main-content">
+              <li class="skinny center"><%= r.datetime.strftime("%m-%d-%Y") %></li>
+              <li class="skinny center"><%= r.datetime.strftime("%H:%M") %></li>
+              <li class="wide small-indent text-left"><%= r.user.name %></li>
+              <li class="skinny center"><%= r.dogs.count %></li>
+              <li class="skinny center"><%= r.distance %></li>
+              <% if r.status == "Booked" %>
+                <li class="skinny center" style="color:#008000;"><%= r.status %></li>
+              <% else %>
+                <li class="skinny center" style="color:#E2AC3C;"><%= r.status %></li>
+              <% end %>
+            </ul>
+            <ul class="more-content">
+              <li>Pick Up Location: <%= r.pickup_location %></li>
+              <li>Drop Off Location: <%= r.dropoff_location %></li>
+            </ul>
+          </article>
+        <% end %>
+      <% end %>
+      </section>
+
+
+    <div id="current_location" class="middle"> <strong><p>Current location</p></strong> <p> <%= current_user.location %></p></div>
   </div>
+
+  <div
+      id="map"
+      style="width: 50%;
+      height: calc(100vh - 70px);"
+      data-markers="<%= @markers.to_json %>"
+      data-current="<%= @currentmarker.to_json %>"
+      data-extras="none"
+    ></div>
 </div>
-
-<body>
-  <section class="request_index_wrapper">
-    <!-- request_index_row title -->
-    <main class="titles">
-      <ul class=main-content>
-        <li class="skinny center">Date</li>
-        <li class="skinny center">Time</li>
-        <li class="wide center small-indent">Shelter</li>
-        <li class="skinny center"># Dogs</li>
-        <li class="skinny center">Trip Distance (miles)</li>
-        <li class="skinny center">Status</li>
-      </ul>
-    </main>
-
-  <% @requests.sort_by{|req| req.datetime}.each do |r| %>
-    <!-- request_index_row 3 -->
-    <%= link_to request_path(r), :class => "unstyled_links" do %>
-      <article class="request_index_row">
-        <ul class = "main-content">
-          <li class="skinny center"><%= r.datetime.strftime("%m-%d-%Y") %></li>
-          <li class="skinny center"><%= r.datetime.strftime("%H:%M") %></li>
-          <li class="wide small-indent"><%= r.user.name %></li>
-          <li class="skinny center"><%= r.dogs.count %></li>
-          <li class="skinny center"><%= r.distance %></li>
-          <li class="skinny center"><%= r.status %></li>
-        </ul>
-        <ul class="more-content">
-          <li>Pick Up Location: <%= r.pickup_location %></li>
-          <li>Drop Off Location: <%= r.dropoff_location %></li>
-        </ul>
-      </article>
-    <% end %>
-  <% end %>
-  </section>
-
-
-<div id="current_location" class="middle"> <strong><p>Current location</p></strong> <p> <%= current_user.location %></p></div>

@@ -1,11 +1,12 @@
+<div class="container">
 <div class="center request-title">
   <h1><strong><%= @request.user.name %> Transportation Request</strong>
-  <h3><%= @request.user.location %> Telephone: <%= @request.user.phone %></h3>
+  <h3><%= @request.user.location %></h3>
+  <h3>(<%= @request.user.phone.first(3) %>) <%= @request.user.phone[3..5] %>-<%= @request.user.phone[6..9] %></h3>
 </div>
 
 <div class="request-container">
   <div>
-
     <div class="flex-requests">
       <% @request.dogs.each do |dog| %>
         <%= link_to dog_path(dog) do %>
@@ -18,22 +19,18 @@
         <% end %>
       <% end %>
     </div>
-
     <div>
       <div class="flex-requests">
-        <strong><p>Pick Up Location:</p></strong>
-        <p><%= @request.pickup_location %></p>
+        <p><strong>Pick Up Location: </strong><%= @request.pickup_location %></p>
       </div>
       <div class="flex-requests">
-        <strong><p>Drop Off Location:</p></strong>
-        <p><%= @request.dropoff_location %></p>
+        <p><strong>Drop Off Location: </strong><%= @request.dropoff_location %></p>
 
       </div>
       <div class="flex-requests">
         <p>
-          <strong>Request Time:</strong> <%= @request.datetime < DateTime.now ? "Immediately" : @request.datetime %>
+          <strong>Request Time: </strong> <%= @request.datetime < DateTime.now ? "Immediately" : @request.datetime %>
         </p>
-
       </div>
       <div class="flex-requests">
         <% if @request.user == @user %>
@@ -58,3 +55,4 @@
 </div>
 
 
+</div>
