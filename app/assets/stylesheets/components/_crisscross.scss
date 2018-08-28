@@ -1,6 +1,6 @@
 .ollieinfo {
   margin: 0 auto;
-  padding-top: 3%;
+  padding-top: 19%;
 }
 
 .ollietext{
@@ -28,10 +28,10 @@
 .purple {
   background-color: #D0CFEC;
   text-align: center;
-      width: 50%;
+    width: 50%;
     height: 16vw;
-  max-width: 100%;
-  display: flex;
+    max-width: 100%;
+    display: flex;
     justify-content: center;
 }
 
@@ -47,9 +47,24 @@
 
 .larbtn {
   display: flex;
-  justify-content:  space-around;
-  text-align: center;
-padding: 5%;
-   max-width: 100%;
   max-height: 100%;
+  position: absolute;
+  justify-content:  space-between;
+  bottom: -78px;
+  width: 534px;
+
+}
+
+.larbtn:hover{
+  opacity: .6;
+
+}
+
+.larbtntext {
+  display: flex;
+  color: black;
+}
+.larbtnflex {
+  display: flex;
+  justify-content: center;
 }
