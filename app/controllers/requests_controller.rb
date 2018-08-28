@@ -4,7 +4,14 @@ class RequestsController < ApplicationController
 
   def index
     policy_scope(Request)
-    @requests = Request.all
+    if params[:query].present?
+      @requests = Request.all.global_search(params[:query])
+    else
+      @requests = Request.all
+    end
+    if params[:favorite]
+      @requests = @requests.select {|req| current_user.following.include?(req.user)}
+    end
   end
 
   def show

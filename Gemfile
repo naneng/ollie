@@ -23,7 +23,7 @@ gem 'pundit'
 gem 'binding_of_caller'
 gem 'geocoder'
 gem 'omniauth-facebook'
-
+gem 'ransack'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

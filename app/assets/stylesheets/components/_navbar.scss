@@ -113,7 +113,7 @@
 
   border-radius: 15px;
   display: inline-block;
-  font-size: 0px;
+  font-size: 20px;
   margin: 5px auto;
   padding: 20px;
   position: relative;
@@ -145,23 +145,23 @@
 }
 
 .webdesigntuts-workshop input:-moz-placeholder {
-   color: #c1c1c1;
+   color: black;
 }
 
 .webdesigntuts-workshop input:focus {
   animation: glow 800ms ease-out infinite alternate;
   background: #E2AC3C;
   border-color: white;
-  color: #c1c1c1;
+  color: black;
   outline: none;
 }
 
 .webdesigntuts-workshop input:focus::-webkit-input-placeholder {
-  color: #c1c1c1;
+  color: black;
 }
 
 .webdesigntuts-workshop input:focus:-moz-placeholder {
-  color: #c1c1c1;
+  color: black;
 }
 
 .webdesigntuts-workshop button {
@@ -187,7 +187,7 @@
 .webdesigntuts-workshop button:hover,
 .webdesigntuts-workshop button:focus {
   background: #CEDCB1;
-  color: white;
+  color: black;
   outline: none;
 }
 

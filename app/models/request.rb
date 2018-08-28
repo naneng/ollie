@@ -10,4 +10,15 @@ class Request < ApplicationRecord
   validates :datetime, presence: true
   geocoded_by :pickup_location
   after_validation :geocode, if: :will_save_change_to_pickup_location?
+
+  include PgSearch
+  pg_search_scope :global_search,
+    against: [ :status, :time, :pickup_location, :dropoff_location ],
+    associated_against: {
+      user: [ :name ],
+      dogs: [ :name ]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
 end

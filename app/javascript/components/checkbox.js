@@ -46,10 +46,10 @@ function formatDate() {
   return str
 }
 
-function favorites() {
+function favorite_click() {
     // Declare variables
     event.preventDefault();
-    var movies = document.querySelectorAll('.movie_card')
+    var movies = document.querySelectorAll('.movie_card');
     for (var i=0; i<movies.length; i++)  {
       console.log(movies[i]);
       /*if (movies[i].outerText.toLowerCase().includes(search)) {
@@ -76,8 +76,8 @@ export function bindEventListener() {
     checked3();
   });
 
-  const favorites = document.getElementById("favorites_check");
+  const favorites = document.getElementById("favorite_check");
   favorites && favorites.addEventListener('click', () => {
-    favorites();
+    favorite_click();
   });
 }
