@@ -1,5 +1,20 @@
+.dog-item-flex{
+  display: flex;
+}
+.dog-item {
+  background-color: #D0CFEC;
+  height: 100px;
+  width: 25%;
+
+}
+.dog-item-image {
+  height: 64px;
+  width: 372px;
+  background-size: cover;
+}
 .dog-show{
   background-color:white;
+
 }
 .card-dog {
   margin: 3%;
@@ -7,12 +22,17 @@
   box-shadow: 1px 1px 1px #acc58b96;
 }
 
+.dog-photo-side {
+box-sizing: border-box;
+padding: 6px;
+
+}
+
 .flex-dog {
   display: flex;
-    /* flex-wrap: wrap; */
-    margin: 0 -10px;
-    /* text-align: center; */
-    color: black;
+  margin: 20px 20px;
+  text-align: justify;
+  color: black;
 }
 
 .card-text {
@@ -116,3 +136,14 @@
   box-shadow: 0px 0px 3px #c4dea6;
 }
 
+.dog-content {
+  background-size: cover;
+  h1 {
+    font-size: 100px;
+  }
+}
+.break-border {
+  width: 280px;
+  background-color: #05c13f;
+  height: 13px;
+}
