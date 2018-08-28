@@ -26,6 +26,7 @@ gem 'omniauth-facebook'
 gem 'will_paginate'
 
 
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end
