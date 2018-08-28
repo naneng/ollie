@@ -6,39 +6,28 @@
 }
 
 
-.white-btn {
-  // border: 2px #707070 solid;
+.arrow-btn {
   background-color: #707070;
   // color: #707070;
   color: white;
   padding: 5px 10px 5px 5px;
   text-decoration: none;
-  // margin: 10px;
   border-radius: 3px;
   transition: all .5s;
-  // cursor: pointer;
   display: inline-block;
   position: relative;
-  // transition: 0.5s;
+
 }
 
-
-
-.white-btn:after {
+.arrow-btn:after {
   content: '\00bb';
   opacity: 0;
-  // top: 50%;
-  // right: -20px;
-  // right: 50%;
+
   transition: 0.5s;
 }
 
-// .white-btn:hover {
-//   // background-color: rgb(234, 197, 96);
-// }
 
-
-.white-btn:hover {
+.arrow-btn:hover {
   padding-right: 10px;
   text-decoration: none;
   background: #707070;
@@ -46,7 +35,7 @@
   opacity: 0.50;
 }
 
-.white-btn:hover:after {
+.arrow-btn:hover:after {
   opacity: 1;
   // right: 0;
 }

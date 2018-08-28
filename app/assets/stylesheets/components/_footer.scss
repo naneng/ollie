@@ -80,3 +80,12 @@
   flex: display;
   flex-direction: column;
 }
+
+.fixed-links {
+  position: fixed;
+  z-index: 0;
+  top: 50%;
+  left: 4px;
+  width: 11%;
+  margin: 5px 0px;
+}
