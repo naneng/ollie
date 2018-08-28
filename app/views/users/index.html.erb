@@ -1,42 +1,32 @@
 <div class="user-container">
+  <div class="center">
+    <%= link_to users_path do %>
+      <%= button_tag "OllieFriends", class: "btn #{ params[:partner] || params[:member] ? 'btn-default' : 'btn-primary'}" %>
+    <% end %>
+    <%= link_to users_path(partner: true) do %>
+      <%= button_tag "OlliePartners", class: "btn #{params[:partner] ? 'btn-primary' : 'btn-default'}" %>
+    <% end %>
+    <%= link_to users_path(member: true) do %>
+      <%= button_tag "OllieMembers", class: "btn #{params[:member] ? 'btn-primary' : 'btn-default'}" %>
+    <% end %>
+  </div>
   <div class="container user-title">
-    <h1 class="center">OlliePartners</h1>
+    <% if params[:partner] %>
+      <h1 class="center">OlliePartners</h1>
+    <% elsif params[:member] %>
+      <h1 class="center">OllieMembers</h1>
+    <% else %>
+      <h1 class="center">OllieFriends</h1>
+    <% end %>
     <div class="cards">
-      <% @users.organizations.each do |user| %>
+      <% @users.each do |user| %>
         <div class="card relative">
           <%= link_to user_path(user) do %>
             <div class="user-picture">
-              <% if user.photo? %>
-                <%= image_tag user.photo %>
-              <% else %>
-                <%= image_tag "small-dog-icondog.jpg" %>
-              <% end %>
-              <div class="card-description">
-                <p><%= user.name %></p>
-                <p><%= user.phone%></p>
-              </div>
-            </div>
-          <% end %>
-          <div class="follow">
-            <ul>
-              <%= render user %>
-            </ul>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
-  <div class="container user-title">
-    <h1 class="center">OllieMembers</h1>
-    <div class="cards">
-      <% @users.individuals.each do |user| %>
-        <div class="card">
-          <%= link_to user_path(user) do %>
-            <div class="user-picture">
-              <% if user.photo? %>
-                <%= image_tag user.photo %>
-              <% else %>
-                <%= image_tag "small-dog-icondog.jpg" %>
+              <% if params[:partner] %>
+                <%= image_tag 'animalshelter.png' %>
+              <% elsif params[:member] %>
+                <%= image_tag 'userdog.png' %>
               <% end %>
               <div class="card-description">
                 <p><%= user.name %></p>

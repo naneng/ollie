@@ -1,31 +1,28 @@
-// #footer {
-//    position:absolute;
-//    bottom:0;
-//    width:100%;
-//    height:60px;   /* Height of the footer */
-//    background:#6cf;
-// }
 
 
 .footer {
-  // background: #F4F4F4;
   background: #eaeaea;
   display: flex;
   align-items: center;
   justify-content: space-around;
   height: 100px;
-  // padding: 5px 10px;
-  // color: rgba(0,0,0,0.3);
   color: white;
   bottom: 0;
-  // posit10ion: fixed;
+  // position: fixed;
   width: 100%;
   margin-top: 3px;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
-  // box-shadow: 10px 10px 0px #aaaaaa;
   box-shadow: 0 -5px 5px -4px #333;
   text-decoration: none;
+}
+
+.footer-contact {
+  margin: 5px 1px;
+}
+
+.footer-contact a {
+  color: #707070;
 }
 
 .footer h6 {
@@ -35,10 +32,6 @@
   text-align: center;
 }
 
-// .footer p {
-//   font-size: 10px;
-
-// }
 
 .footer-left-border {
   border-left: 1px solid #707070;
@@ -53,9 +46,6 @@
 }
 
 .footer-links p {
-  // display: flex;
-  // align-items: center;
-  // color: #616668;
   color: #707070;
   opacity: 0.80;
   // text-decoration: none;
@@ -74,7 +64,7 @@
 
 .min-height {
   // min-height: calc(100vh - 150px);
-  flex: 1 0 auto;
+  // flex: 1 0 auto;
 }
 
 .footer-copyright {

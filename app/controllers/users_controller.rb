@@ -6,6 +6,10 @@ class UsersController < ApplicationController
   def index
     if params[:query].present?
       @users = policy_scope(User).global_search(params[:query])
+    elsif params[:partner].present?
+      @users = policy_scope(User).where(organization: true)
+    elsif params[:member].present?
+      @users = policy_scope(User).where(organization: false)
     else
       @users = policy_scope(User)
     end
