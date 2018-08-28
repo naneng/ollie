@@ -1,6 +1,5 @@
 .navbar {
   box-shadow: 0 5px 5px -5px #333!important;
-  width: 100%;
   border-bottom-left-radius: 5px !important;
   border-bottom-right-radius: 5px !important;
   background: #ffffff;
@@ -11,10 +10,11 @@
   // background: white;
   transition: all 0.3s ease;
   height: 70px;
-  padding: 0px 30px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  // padding: 0px 30px;
+  align-items: center;
+  width: 100%;
 }
 
 /* Logo */
@@ -45,10 +45,12 @@
   padding: 0 20px;
 }
 
+
 /* Navbar link */
 .navbar-wagon-link {
   color: #616668;
   font-size: 80%;
+  padding: 0px 5px;
 }
 .navbar-wagon-link:hover {
   color: rgb(146, 178, 94);
@@ -93,6 +95,10 @@
 .search {
   width: 60%;
 }
+
+// .search:hover {
+//   width: 60%;
+// }
 
 .webdesigntuts-workshop {
   text-align: center;
@@ -145,30 +151,36 @@
 }
 
 .webdesigntuts-workshop input:-moz-placeholder {
-   color: #c1c1c1;
+   // color: #c1c1c1;
+   color: white;
 }
 
 .webdesigntuts-workshop input:focus {
   animation: glow 800ms ease-out infinite alternate;
   background: #E2AC3C;
   border-color: white;
-  color: #c1c1c1;
+  color: white;
   outline: none;
 }
 
 .webdesigntuts-workshop input:focus::-webkit-input-placeholder {
-  color: #c1c1c1;
+  color: white;
 }
 
 .webdesigntuts-workshop input:focus:-moz-placeholder {
-  color: #c1c1c1;
+  color: white;
+}
+
+.white-text {
+  color: white;
 }
 
 .webdesigntuts-workshop button {
   background: #CEDCB1;
   box-sizing: border-box;
   border: 1px solid #c1c1c1;
-  border-left-color: #E2AC3C;
+  // border-left-color: #E2AC3C;
+  border-left-color: #c1c1c1;
   border-radius: 0 5px 5px 0;
   color: white;
   display: block;
