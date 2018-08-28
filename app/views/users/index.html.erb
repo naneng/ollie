@@ -23,14 +23,20 @@
         <div class="card relative">
           <%= link_to user_path(user) do %>
             <div class="user-picture">
-              <% if params[:partner] %>
+              <% if user.organization == true %>
                 <%= image_tag 'animalshelter.png' %>
-              <% elsif params[:member] %>
+              <% elsif user.organization == false %>
                 <%= image_tag 'userdog.png' %>
               <% end %>
-              <div class="card-description">
-                <p><%= user.name %></p>
+            </div>
+            <div class="card-description">
+              <!--  <div>
+                <p><strong><%#= user.name %></strong></p>
                 <p><%= user.phone%></p>
+              </div> -->
+              <div>
+                <%= user.name %>
+                <%= user.phone%>
               </div>
             </div>
           <% end %>
@@ -43,5 +49,5 @@
       <% end %>
     </div>
   </div>
-  <p class="center"><%= link_to "Home", root_path, class: 'user-text-links' %></p>
+  <p class="fixed-links"><%= link_to "Home", root_path, class: 'white-btn' %></p>
 </div>

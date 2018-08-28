@@ -1,6 +1,6 @@
 .user-picture {
   // filter: brightness(.65);
-  // width: 364;
+  width: 5px;
   // height: 220;
   // position: relative;
 }
@@ -19,4 +19,13 @@
   // color: rgb(93, 137, 17);
   color: white;
   background: #36bc88;
+}
+
+.fixed-links {
+  position: fixed;
+  z-index: 0;
+  top: 50%;
+  left: 4px;
+  width: 11%;
+  margin: 5px 0px;
 }

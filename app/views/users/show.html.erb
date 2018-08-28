@@ -1,6 +1,5 @@
 <div class="user-container">
   <div class="container">
-
     <div class="center user-show-title">
       <% if @user.organization == true %>
         <h1>OlliePartner</h1>
@@ -8,198 +7,193 @@
         <h1>OllieMember</h1>
       <% end %>
     </div>
-
-
     <div class="card-split">
       <div>
         <ul class="flex cards">
           <li>
             <h2>
               <div class="dog-request-card-show">
-              <% if @user.photo? %>
-          <%= image_tag @user.photo, class: "dog-request-card-show" %>
-        <% else %>
-          <%= image_tag "small-dog-icondog.jpg", class: "dog-request-card-show" %>
-        <% end %>
-        </div>
-        <%= @user.name %>
-        <p><%= @user.location %></p>
-        <p><%= @user.phone %> <%= @user.email %></p>
-        <p><%= @user.website %></p>
-         <p> 501(c)(3) Status: <% if @user.nonprofit_status == 1 %>
-              <%= puts "Qualified" %>
-            <% elsif  %>
-              <% @user.nonprofit_status == 2 %>
-              <%= puts "Pending" %>
-            <% else %>
-              <% @user.nonprofit_status == 3 %>
-              <%= puts "Not Applicable" %>
-            <% end %> </p></p>
-            </h2>
-          </li>
-        </div>
+                <% if @user.photo? %>
+                  <%= image_tag @user.photo, class: "dog-request-card-show" %>
+                <% else %>
+                  <%= image_tag "small-dog-icondog.jpg", class: "dog-request-card-show" %>
+                <% end %>
+              </div>
+              <%= @user.name %>
+              <p><%= @user.location %></p>
+              <p><%= @user.phone %> <%= @user.email %></p>
+              <p><%= @user.website %></p>
+              <p> 501(c)(3) Status: <% if @user.nonprofit_status == 1 %>
+                  <%= puts "Qualified" %>
+                <% elsif  %>
+                  <% @user.nonprofit_status == 2 %>
+                  <%= puts "Pending" %>
+                <% else %>
+                  <% @user.nonprofit_status == 3 %>
+                  <%= puts "Not Applicable" %>
+                <% end %> </p>
+            </p>
+          </h2>
+        </li>
       </div>
     </div>
-
-<div class="wrapper">
-  <% if @user.dogs.count > 0 %>
-  <h1>OllieBuddies</h1>
-  <ul class="grid-show">
-    <% @user.dogs.each do |dog| %>
-        <li>
-          <%= link_to dog_path(dog) do %>
-          <% if dog.photo %>
-            <%= image_tag dog.photo, :class=>"dog dog-user-card", width: 70, height: 160, :crop=>"fill"%>
-          <% end %>
-          <h2><%= dog.name %></h2> <h4><%= dog.breed %></h4>
-          <% end %>
-          <% if dog.personality %>
-            <p><%= dog.personality %>
-          <% else %>
-            <p>Posuere varius ullamcorper ipsum adipiscing dignissim ipsum adipiscing a a quisque malesuada quam purus venenatis sagittis fermentum parturient curabitur montes a metus.
-            </p>
-          <% end %>
-
-      </li>
-      <% end %>
-  </ul>
-  <div class="center margin-bottom">
-        <%= link_to "Add an OllieBuddy", new_dog_path(@user_id), class: 'user-text-links' %>
   </div>
-<% end %>
-<% if @user.requests.count > 0 %>
-  <h1 class="middle">Requests</h1>
-  <div class = "requests">
-    <% @user.requests.each do |r| %>
-          <%= link_to request_path(r), class: "no-decoration" do %>
-    <div class="movie_card" id="bright">
-      <div class = "distances">
-        <div>
-          <p class = "indent"><strong>To Pickup:</strong></p><p class="distance_from_me"></p>
-          <% if r.distance %>
-            <div class = "margin-top">
-              <p class = "indent"><strong>Trip:</strong></p><p> <%= r.distance %> Miles</p>
-            </div>
-          <% end %>
-          <div class = "margin-top">
-              <p class = "indent"><strong>Status:</strong></p><p> <%= r.status %></p>
-            </div>
-        </div>
-      </div>
-
-        <div class="info_section">
-          <div class="movie_header">
-            <img class="locandina" src="<%= r.user.photo %>"/>
-            <h4><strong><%= r.user.name %></strong></h4>
-            <h6><%= r.user.location %></h6>
-            <h6>Telephone: <%= r.user.phone %></h6>
-          </div>
-
-
-          <div class="movie_desc">
-            <div class = "pickup_header">
-            <p class = "indent">Pick Up Location:</p> <p class="pickup_loc"><%= r.pickup_location %></p>
-            </div>
-            <div>
-            <p class = "indent">Drop Off Location:</p> <p><%= r.dropoff_location %></p>
-            </div>
-            <div class="bottom-left">
-            <p>
-              <strong>Request Time:</strong> <%= r.datetime < DateTime.now ? "Immediately" : r.datetime %>
-            </p>
-            </div>
-          </div>
-
-          <div class="dog_grid">
-            <% r.dogs.each do |dog| %>
-              <%= link_to dog_path(dog) do %>
-                <div class="dog_card">
-                  <% if dog.photo %>
-                    <%= image_tag dog.photo, width: 100, height: 100, :crop=>"fill"%>
-                  <% end %>
-                  <div class = "middle"><%= dog.name %></div>
-                </div>
+  <div class="wrapper">
+    <% if @user.dogs.count > 0 %>
+      <h1>OllieBuddies</h1>
+      <ul class="grid-show">
+        <% @user.dogs.each do |dog| %>
+          <li>
+            <%= link_to dog_path(dog) do %>
+              <% if dog.photo %>
+                <%= image_tag dog.photo, :class=>"dog dog-user-card", width: 70, height: 160, :crop=>"fill"%>
               <% end %>
+              <h2><%= dog.name %></h2>
+              <h4><%= dog.breed %></h4>
             <% end %>
-          </div>
-        </div>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-<% end %>
-
-<% if @user.bookings.count > 0 %>
-  <div class = "requests">
-    <h1 class="middle">Bookings</h1>
-    <% @user.bookings.each do |booking| %>
-          <%= link_to request_path(booking.request), class: "no-decoration" do %>
-    <div class="movie_card" id="bright">
-      <div class = "distances">
-        <div>
-          <p class = "indent"><strong>To Pickup:</strong></p><p class="distance_from_me"></p>
-          <% if booking.request.distance %>
-            <div class = "margin-top">
-              <p class = "indent"><strong>Trip:</strong></p><p> <%= booking.request.distance %> Miles</p>
-            </div>
-          <% end %>
-          <div class = "margin-top">
-              <p class = "indent"><strong>Status:</strong></p><p> <%= booking.request.status %></p>
-            </div>
-        </div>
-      </div>
-
-        <div class="info_section">
-          <div class="movie_header">
-            <img class="locandina" src="<%= booking.request.user.photo %>"/>
-            <h4><strong><%= booking.request.user.name %></strong></h4>
-            <h6><%= booking.request.user.location %></h6>
-            <h6>Telephone: <%= booking.request.user.phone %></h6>
-          </div>
-
-
-          <div class="movie_desc">
-            <div class = "pickup_header">
-            <p class = "indent">Pick Up Location:</p> <p class="pickup_loc"><%= booking.request.pickup_location %></p>
-            </div>
-            <div>
-            <p class = "indent">Drop Off Location:</p> <p><%= booking.request.dropoff_location %></p>
-            </div>
-            <div class="bottom-left">
-            <p>
-              <strong>Request Time:</strong> <%= booking.request.datetime < DateTime.now ? "Immediately" : booking.request.datetime %>
-            </p>
-            </div>
-          </div>
-
-          <div class="dog_grid">
-            <% booking.request.dogs.each do |dog| %>
-              <%= link_to dog_path(dog) do %>
-                <div class="dog_card">
-                  <% if dog.photo %>
-                    <%= image_tag dog.photo, width: 100, height: 100, :crop=>"fill"%>
-                  <% end %>
-                  <div class = "middle"><%= dog.name %></div>
-                </div>
+            <% if dog.personality %>
+              <p><%= dog.personality %>
+              <% else %>
+                <p>Posuere varius ullamcorper ipsum adipiscing dignissim ipsum adipiscing a a quisque malesuada quam purus venenatis sagittis fermentum parturient curabitur montes a metus.
+                </p>
               <% end %>
-            <% end %>
-          </div>
-        </div>
+            </li>
+          <% end %>
+        </ul>
+        <div class="center margin-bottom">
+          <%= link_to "Add an OllieBuddy", new_dog_path(@user_id), class: 'white-btn' %>
         </div>
       <% end %>
-    <% end %>
-  </div>
-<% end %>
-</div>
-
-
-
- <div class="center">
-    <%= link_to "Back", :back, class: 'user-text-links' %>
-    <% if policy(@user).edit? %>
-      <%= link_to "Edit", edit_user_registration_path(@user_id), class: 'user-text-links' %>
-    <% else %>
-      <%= link_to "Home", root_path, class: 'user-text-links' %>
-    <% end %>
-
-  </div>
+      <% if @user.requests.count > 0 %>
+        <h1 class="middle">Requests</h1>
+        <div class = "requests">
+          <% @user.requests.each do |r| %>
+            <%= link_to request_path(r), class: "no-decoration" do %>
+              <div class="movie_card" id="bright">
+                <div class = "distances">
+                  <div>
+                    <p class = "indent"><strong>To Pickup:</strong></p>
+                    <p class="distance_from_me"></p>
+                    <% if r.distance %>
+                      <div class = "margin-top">
+                        <p class = "indent"><strong>Trip:</strong></p>
+                        <p> <%= r.distance %> Miles</p>
+                      </div>
+                    <% end %>
+                    <div class = "margin-top">
+                      <p class = "indent"><strong>Status:</strong></p>
+                      <p> <%= r.status %></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="info_section">
+                  <div class="movie_header">
+                    <img class="locandina" src="<%= r.user.photo %>"/>
+                    <h4><strong><%= r.user.name %></strong></h4>
+                    <h6><%= r.user.location %></h6>
+                    <h6>Telephone: <%= r.user.phone %></h6>
+                  </div>
+                  <div class="movie_desc">
+                    <div class = "pickup_header">
+                      <p class = "indent">Pick Up Location:</p>
+                      <p class="pickup_loc"><%= r.pickup_location %></p>
+                    </div>
+                    <div>
+                      <p class = "indent">Drop Off Location:</p>
+                      <p><%= r.dropoff_location %></p>
+                    </div>
+                    <div class="bottom-left">
+                      <p>
+                        <strong>Request Time:</strong> <%= r.datetime < DateTime.now ? "Immediately" : r.datetime %>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="dog_grid">
+                    <% r.dogs.each do |dog| %>
+                      <%= link_to dog_path(dog) do %>
+                        <div class="dog_card">
+                          <% if dog.photo %>
+                            <%= image_tag dog.photo, width: 100, height: 100, :crop=>"fill"%>
+                          <% end %>
+                          <div class = "middle"><%= dog.name %></div>
+                        </div>
+                      <% end %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+      <% if @user.bookings.count > 0 %>
+        <div class = "requests">
+          <h1 class="middle">Bookings</h1>
+          <% @user.bookings.each do |booking| %>
+            <%= link_to request_path(booking.request), class: "no-decoration" do %>
+              <div class="movie_card" id="bright">
+                <div class = "distances">
+                  <div>
+                    <p class = "indent"><strong>To Pickup:</strong></p>
+                    <p class="distance_from_me"></p>
+                    <% if booking.request.distance %>
+                      <div class = "margin-top">
+                        <p class = "indent"><strong>Trip:</strong></p>
+                        <p> <%= booking.request.distance %> Miles</p>
+                      </div>
+                    <% end %>
+                    <div class = "margin-top">
+                      <p class = "indent"><strong>Status:</strong></p>
+                      <p> <%= booking.request.status %></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="info_section">
+                  <div class="movie_header">
+                    <img class="locandina" src="<%= booking.request.user.photo %>"/>
+                    <h4><strong><%= booking.request.user.name %></strong></h4>
+                    <h6><%= booking.request.user.location %></h6>
+                    <h6>Telephone: <%= booking.request.user.phone %></h6>
+                  </div>
+                  <div class="movie_desc">
+                    <div class = "pickup_header">
+                      <p class = "indent">Pick Up Location:</p>
+                      <p class="pickup_loc"><%= booking.request.pickup_location %></p>
+                    </div>
+                    <div>
+                      <p class = "indent">Drop Off Location:</p>
+                      <p><%= booking.request.dropoff_location %></p>
+                    </div>
+                    <div class="bottom-left">
+                      <p>
+                        <strong>Request Time:</strong> <%= booking.request.datetime < DateTime.now ? "Immediately" : booking.request.datetime %>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="dog_grid">
+                    <% booking.request.dogs.each do |dog| %>
+                      <%= link_to dog_path(dog) do %>
+                        <div class="dog_card">
+                          <% if dog.photo %>
+                            <%= image_tag dog.photo, width: 100, height: 100, :crop=>"fill"%>
+                          <% end %>
+                          <div class = "middle"><%= dog.name %></div>
+                        </div>
+                      <% end %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <div class="center flex-column">
+      <%= link_to "Back", :back, class: 'white-btn fixed-links' %>
+      <% if policy(@user).edit? %>
+        <%= link_to "Edit", edit_user_registration_path(@user_id), class: 'white-btn fixed-links' %>
+      <% else %>
+        <%= link_to "Home", root_path, class: 'white-btn fixed-links' %>
+      <% end %>
+    </div>
