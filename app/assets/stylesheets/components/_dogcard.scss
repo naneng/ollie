@@ -23,8 +23,10 @@
 }
 
 .dog-photo-side {
-box-sizing: border-box;
-padding: 6px;
+  box-sizing: border-box;
+  margin-top: 5%;
+  margin-left: 5%;
+  border: 45px solid #cedcb1;
 
 }
 
@@ -144,6 +146,6 @@ padding: 6px;
 }
 .break-border {
   width: 280px;
-  background-color: #05c13f;
+  background-color: #cedcb1;
   height: 13px;
 }
