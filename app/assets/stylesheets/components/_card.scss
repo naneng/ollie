@@ -1,5 +1,5 @@
 .user-container {
-  background: #FDFFF9;
+  background: #FFFFFF;
 }
 
 // .card-container-user {
@@ -18,24 +18,19 @@
 }
 
 .card {
-  display: flex;
-  height: 100px;
-  text-shadow: 0 1px 5px rgba(0,0,0,0.6);
-  // background-size: cover !important;
-  // background-position: center;
-  color: white;
-  position: relative;
-  border-radius: 10px;
-  padding-top: 3px;
-  // margin-bottom: 20px;
-  margin: 3px;
-  // border: 1px #C5A6DC solid;
-  // flex: 0 0 32%;
-  box-shadow: 0px 0px 120px -25px rgba(0,0,0, 0.5);
-  overflow: hidden;
-  width: 100%;
-  justify-content: space-around;
-  cursor: pointer;
+    display: flex;
+    height: 100px;
+    /* text-shadow: 0 1px 5px rgba(0, 0, 0, 0.6); */
+    color: white;
+    position: relative;
+    border-radius: 10px;
+    padding-top: 3px;
+    margin: 3px;
+    box-shadow: 1px 1px 1px 1px rgba(218, 210, 210, 0.5);
+    overflow: hidden;
+    width: 100%;
+    justify-content: space-around;
+    cursor: pointer;
 }
 
 

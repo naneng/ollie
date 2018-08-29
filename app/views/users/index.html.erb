@@ -1,4 +1,4 @@
-<div class="user-container">
+<div class="user-container container">
   <div class="center">
     <%= link_to users_path do %>
       <%= button_tag "OllieFriends", class: "btn #{ params[:partner] || params[:member] ? 'btn-default' : 'btn-primary'}" %>
@@ -10,7 +10,7 @@
       <%= button_tag "OllieMembers", class: "btn #{params[:member] ? 'btn-primary' : 'btn-default'}" %>
     <% end %>
   </div>
-  <div class="container user-title">
+  <div class=" user-title">
     <% if params[:partner] %>
       <h1 class="center">OlliePartners</h1>
     <% elsif params[:member] %>
@@ -18,35 +18,37 @@
     <% else %>
       <h1 class="center">OllieFriends</h1>
     <% end %>
-    <div class="cards">
-      <% @users.each do |user| %>
-        <%#= link_to user_path(user) do %>
-          <div class="card" onclick="location.href='<%= "users/#{user.id}" %>';">
-            <div class="user-picture">
-              <% if user.organization == true %>
-                <%= image_tag 'animalshelter.png', height: 80, width: 70 %>
-              <% elsif user.organization == false %>
-                <%= image_tag 'userdog.png', height: 80, width: 70 %>
-              <% end %>
-            </div>
-            <div class="card-description">
-              <!--  <div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-4">
+        <% @users.each do |user| %>
+          <%#= link_to user_path(user) do %>
+            <div class="card" onclick="location.href='<%= "users/#{user.id}" %>';">
+              <div class="user-picture">
+                <% if user.organization == true %>
+                  <%= image_tag 'animalshelter.png', height: 80, width: 70 %>
+                <% elsif user.organization == false %>
+                  <%= image_tag 'userdog.png', height: 80, width: 70 %>
+                <% end %>
+              </div>
+              <div class="card-description">
+                <!--  <div>
                 <p><strong><%#= user.name %></strong></p>
                 <p><%= user.phone%></p>
               </div> -->
-              <div>
-                <%= user.name %>
-                <%= user.phone%>
+                <div>
+                  <%= user.name %>
+                  <%= user.phone%>
+                </div>
+              </div>
+              <div class="follow">
+                <ul>
+                  <%= render user %>
+                </ul>
               </div>
             </div>
-            <div class="follow">
-              <ul>
-                <%= render user %>
-              </ul>
-            </div>
-          </div>
-          <%# end %>
-        <% end %>
+            <%# end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
