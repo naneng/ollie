@@ -96,7 +96,7 @@ nonprofit_status: 1}
 
 ebspca = {
   email: "ebspca@gmail.com",
-  name: "Easy bay SPCA - Oakland",
+  name: "Easy Bay SPCA - Oakland",
   location: "8323 Baldwin St, Oakland, CA 94621",
   phone: "5105690702",
   photo: "https://s3-media4.fl.yelpcdn.com/bphoto/JyzRRnkALUBY8DUlCH9kzw/o.jpg",
