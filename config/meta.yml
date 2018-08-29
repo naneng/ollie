@@ -5,4 +5,5 @@ meta_description: "Driven by the desire of volunteers who wants
                    of transporting animals to and from adoption events,
                    directly to rescue partners, and to their forever homes!"
 meta_image: "dogcar.png"                      # should exist in `app/assets/images/`
+# meta_image: "<%#= image_path 'ogimage.png' %>"
 twitter_account: "@product_twitter_account"   # required for Twitter Cards
