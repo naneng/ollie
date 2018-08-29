@@ -264,9 +264,12 @@
   .wide {
     width: 39%;
   }
+  .skinnyish {
+    width: 15%
+  }
 
   .skinny {
-    width: 12%;
+    width: 10%;
   }
 }
 .request_index_row ul li  {
@@ -332,8 +335,12 @@
     .wide {
       width: 37%;
     }
+    .skinnyish {
+      width: 15%
+    }
+
     .skinny {
-      width: 12%;
+      width: 10%;
     }
   }
 }
@@ -407,3 +414,8 @@ ul.more-content li {
   font-weight: normal;
 }
 
+.booking {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #A50600;
+}
