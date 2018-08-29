@@ -21,10 +21,8 @@
             <div class="left check2" id="bottom_check"><input type="checkbox" id="myCheck2" data-location="<%= @user.location %>"> Use current address</div>
           <% end %>
           <%= f.input :datetime, :label => "Date / Time for Transportation", :as => :string, required: true, :input_html => {:class => "datepicker", :id => 'date'}, :value => Time.now %>
-
           <div class="left check3"><input type="checkbox" id="myCheck3" > Immediately</div>
-          <%= f.input :dogs, collection: current_user.dogs, input_html: { multiple: true } %>
-
+          <%= f.input :dog_ids, collection: current_user.dogs.sort_by{|dog| dog.name}, input_html: { multiple: true }, :label => "Dogs" %>
           <%= f.input :notes, as: :text, autofocus: true, :input_html => {:style => 'width: 100%', :rows => 2} %>
 
           <%= f.submit "Submit" %>

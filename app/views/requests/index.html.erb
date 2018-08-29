@@ -24,11 +24,11 @@
         <!-- request_index_row title -->
         <main class="titles">
           <ul class=main-content>
-            <li class="skinny center">Date</li>
+            <li class="skinnyish center">Date</li>
             <li class="skinny center">Time</li>
             <li class="wide center">Shelter / Dog Owner</li>
             <li class="skinny center"># Dogs</li>
-            <li class="skinny center" style="font-size:16px;">Trip Distance (miles)</li>
+            <li class="skinnyish center" style="font-size:16px;">Trip Distance (miles)</li>
             <li class="skinny center">Status</li>
           </ul>
         </main>
@@ -38,11 +38,11 @@
         <%= link_to request_path(r), :class => "unstyled_links" do %>
           <article class="request_index_row">
             <ul class = "main-content">
-              <li class="skinny center" style="font-size:16px;"><%= r.datetime.strftime("%m-%d-%Y") %></li>
+              <li class="skinnyish center" style="font-size:16px;"><%= r.datetime.strftime("%m-%d-%Y") %></li>
               <li class="skinny center"><%= r.datetime.strftime("%H:%M") %></li>
               <li class="wide small-indent text-left"><%= r.user.name %></li>
               <li class="skinny center"><%= r.dogs.count %></li>
-              <li class="skinny center"><%= r.distance %></li>
+              <li class="skinnyish center"><%= r.distance %></li>
               <% if r.status == "Booked" %>
                 <li class="skinny center" style="color:#990000;"><%= r.status %></li>
               <% else %>
