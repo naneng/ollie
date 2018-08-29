@@ -37,10 +37,6 @@
     line-height: 1.5em;
   }
 
-  .error-image {
-
-  }
-
   .rails-default-error-page div.dialog > p {
     margin: 0 0 1em;
     padding: 1em;
@@ -61,8 +57,15 @@
   }
   </style>
 </head>
-
-<body style="background-image: url('https://www.gavick.com/documentation/wp-content/uploads/2014/02/error404.png')">
+<body class="rails-default-error-page">
   <!-- This file lives in public/404.html -->
+  <img src="/images/Shiba-logo.png">
+  <div class="dialog">
+    <div>
+      <h1>Oops! Wrong turn!</h1>
+      <p> The Ollieboard page you're looking for doesn't exist!</p>
+    </div>
+    <p>You may have mistyped the address or the page may have moved!</p>
+  </div>
 </body>
 </html>
