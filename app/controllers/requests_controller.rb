@@ -67,7 +67,7 @@ class RequestsController < ApplicationController
     dropoff_lat = dropoff_results.first.geometry["location"]["lat"]
     dropoff_long = dropoff_results.first.geometry["location"]["lng"]
     @request.distance = (distance [pickup_lat, pickup_long], [dropoff_lat, dropoff_long])*0.000621371
-    @request.status = "Requested"
+    @request.status = "Open"
     if @request.save
       flash[:create] = "Transportation request has been created!"
       redirect_to request_path(@request)
@@ -114,7 +114,7 @@ class RequestsController < ApplicationController
   end
 
   def request_params
-    params.require(:request).permit(:pickup_location, :dropoff_location, :datetime, dog_ids: [])
+    params.require(:request).permit(:pickup_location, :dropoff_location, :datetime, :notes, dog_ids: [])
   end
 
   def distance loc1, loc2

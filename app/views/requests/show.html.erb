@@ -2,8 +2,9 @@
 <div class="request_index_flex">
   <div class="info-flex">
     <div class="center request-title">
-      <h1><strong><%= @request.user.name %> Transportation Request</strong></h1>
-      <h3><%= @request.user.location %></h3>
+      <h1><strong><%= @request.user.name %></strong></h1>
+      <h2 style="margin-top:0;"><strong>Transportation Request</strong></h2>
+      <h4><%= @request.user.location %></h4>
       <h3>(<%= @request.user.phone.first(3) %>) <%= @request.user.phone[3..5] %>-<%= @request.user.phone[6..9] %></h3>
     </div>
     <div class="flex-requests">
@@ -45,6 +46,12 @@
         </div>
       </div>
     </div>
+    <% if @request.notes %>
+      <div style="font-size: 20px; margin-bottom: 10px;">
+        <strong>Notes: </strong><%= @request.notes %>
+      </div>
+    <% end %>
+
     <div class = "center">
         <% if @request.user == current_user %>
           <% if policy(@request).edit? %>
