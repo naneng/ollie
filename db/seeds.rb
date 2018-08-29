@@ -294,7 +294,7 @@ early_reqs = []
   pickup = shelter.location
   dropoff = addresses.sample
   if i < 8
-    req = Request.create!(user_id: shelter.id, pickup_location: pickup, dropoff_location: dropoff, datetime: DateTime.new(2018,8,31,(12..20).to_a.sample,(1..59).to_a.sample), status: "Requested")
+    req = Request.create!(user_id: shelter.id, pickup_location: pickup, dropoff_location: dropoff, datetime: DateTime.new(2018,8,31,(12..20).to_a.sample,(1..59).to_a.sample), status: "Open")
     pickup_results = Geocoder.search(req.pickup_location)
     pickup_lat = pickup_results.first.geometry["location"]["lat"]
     pickup_long = pickup_results.first.geometry["location"]["lng"]
@@ -304,7 +304,7 @@ early_reqs = []
     req.distance = (distance [pickup_lat, pickup_long], [dropoff_lat, dropoff_long])*0.000621371
     early_reqs << req
   else
-    req = Request.create!(user_id: shelter.id, pickup_location: pickup, dropoff_location: dropoff, datetime: DateTime.new(2018,(9..12).to_a.sample,(1..30).to_a.sample,(8..20).to_a.sample,(1..59).to_a.sample), status: "Requested" )
+    req = Request.create!(user_id: shelter.id, pickup_location: pickup, dropoff_location: dropoff, datetime: DateTime.new(2018,(9..12).to_a.sample,(1..30).to_a.sample,(8..20).to_a.sample,(1..59).to_a.sample), status: "Open" )
     pickup_results = Geocoder.search(req.pickup_location)
     pickup_lat = pickup_results.first.geometry["location"]["lat"]
     pickup_long = pickup_results.first.geometry["location"]["lng"]
@@ -344,7 +344,7 @@ i = 0
   dropoff = shelter.location
   pickup = addresses.sample
   if i < 8
-    req = Request.create!(user_id: shelter.id, pickup_location: pickup, dropoff_location: dropoff, datetime: DateTime.new(2018,8,31,(12..20).to_a.sample,(1..59).to_a.sample), status: "Requested")
+    req = Request.create!(user_id: shelter.id, pickup_location: pickup, dropoff_location: dropoff, datetime: DateTime.new(2018,8,31,(12..20).to_a.sample,(1..59).to_a.sample), status: "Open")
     pickup_results = Geocoder.search(req.pickup_location)
     pickup_lat = pickup_results.first.geometry["location"]["lat"]
     pickup_long = pickup_results.first.geometry["location"]["lng"]
@@ -354,7 +354,7 @@ i = 0
     req.distance = (distance [pickup_lat, pickup_long], [dropoff_lat, dropoff_long])*0.000621371
     early_reqs << req
   else
-    req = Request.create!(user_id: shelter.id, pickup_location: pickup, dropoff_location: dropoff, datetime: DateTime.new(2018,(9..12).to_a.sample,(1..30).to_a.sample,(8..20).to_a.sample,(1..59).to_a.sample), status: "Requested" )
+    req = Request.create!(user_id: shelter.id, pickup_location: pickup, dropoff_location: dropoff, datetime: DateTime.new(2018,(9..12).to_a.sample,(1..30).to_a.sample,(8..20).to_a.sample,(1..59).to_a.sample), status: "Open" )
     pickup_results = Geocoder.search(req.pickup_location)
     pickup_lat = pickup_results.first.geometry["location"]["lat"]
     pickup_long = pickup_results.first.geometry["location"]["lng"]
