@@ -1,8 +1,21 @@
 .request-container {
-  display:flex;
-  justify-content: space-evenly;
-  margin: 50px;
+  margin-top: 5px;
+  padding: 0 30px 0 30px;
+  display: flex;
+  p {
+    margin: 5px 0 0 0;
+  }
+  em {
+    font-size: 18px;
+  }
+  #locations {
+    width: 65%;
+  }
+  #distance {
+    font-size: 20px;
+  }
 }
+
 .request-title {
   color: black;
   margin: 50px;
@@ -32,7 +45,6 @@
   width: 150px;
   height: 150px;
   border-radius: 3px;
-  margin: 10px;
   .request-dog-image:hover{
      text-decoration: none;
      color: white;
@@ -50,12 +62,6 @@
   margin-bottom: inherit;
   justify-content: center;
   border-radius: 3px;
-}
-
-.request-container {
-  display: flex;
-  justify-content: space-evenly;
-  margin: 50px;
 }
 
 .request-show-info {
@@ -76,9 +82,10 @@
   margin: 0;
 }
 .dog-name-link {
-  color: black;
+  color: #2980B9;
   text-decoration: none;
-  font-size: 40px;
+  font-size: 24px;
+  text-align: center;
   .dog-name-link:hover{
      text-decoration: none;
      color: white;
@@ -87,3 +94,12 @@
   }
 }
 
+.flex-requests {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+
+.margins-top-bottom {
+  margin: 30px 0 30px 0;
+}

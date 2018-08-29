@@ -1,13 +1,10 @@
-
-<div class="container">
-<div class="center request-title">
-  <h1><strong><%= @request.user.name %> Transportation Request</strong>
-  <h3><%= @request.user.location %></h3>
-  <h3>(<%= @request.user.phone.first(3) %>) <%= @request.user.phone[3..5] %>-<%= @request.user.phone[6..9] %></h3>
-</div>
-
-<div class="request-container">
-  <div>
+<div class="request_index_flex">
+  <div class="info-flex">
+    <div class="center request-title">
+      <h1><strong><%= @request.user.name %> Transportation Request</strong></h1>
+      <h3><%= @request.user.location %></h3>
+      <h3>(<%= @request.user.phone.first(3) %>) <%= @request.user.phone[3..5] %>-<%= @request.user.phone[6..9] %></h3>
+    </div>
     <div class="flex-requests">
       <% @request.dogs.each do |dog| %>
         <%= link_to dog_path(dog) do %>
@@ -20,35 +17,50 @@
         <% end %>
       <% end %>
     </div>
-    <div>
-      <div class="flex-requests">
-        <p><strong>Pick Up Location: </strong><%= @request.pickup_location %></p>
+    <div class="request-container">
+      <div id="locations">
+        <div class="margins-top-bottom">
+          <p><strong>( A ) Current Location: </strong> <div> <%= current_user.location %></div></p>
+        </div>
+        <div class="margins-top-bottom">
+          <p><strong>( B ) Pick Up Location: </strong> <div id="start"> <%= @request.pickup_location %></div></p>
+        </div>
+        <div class="margins-top-bottom">
+          <p><strong>( C ) Drop Off Location: </strong> <div id="end"> <%= @request.dropoff_location %></div></p>
+        </div>
       </div>
-      <div class="flex-requests">
-        <p><strong>Drop Off Location: </strong><%= @request.dropoff_location %></p>
-
-      </div>
-      <div class="flex-requests">
-        <p>
-          <strong>Request Time: </strong> <%= @request.datetime < DateTime.now ? "Immediately" : @request.datetime %>
-        </p>
-      </div>
-      <div class="flex-requests">
-        <% if @request.user == @user %>
-          <% if policy(@request).edit? %>
-            <%= link_to "Edit Request", edit_request_path(@request.id), class: 'btn btn-warning btn request-btn-space' %>
-          <% end %>
-
-
-        <div class="request-user-img">
-          <%= link_to user_path(@request.user) do %>
-            <%= image_tag @request.user.photo, class: 'request-shelter-image' %>
-          <% end %>
+      <div id = "distances">
+        <div class="margins-top-bottom">
+          <p><em>Distance:    <span id="Distance1"> </span></em>
+          <div><em>Time:        <span id="Time1"> </span></p></em> </div>
+        </div>
+        <div class="margins-top-bottom">
+          <p><em>Distance:    <span id="Distance2"> </span></em>
+          <div><em>Time:        <span id="Time2"> </span></p></em> </div>
+        </div>
+        <div class="margins-top-bottom">
+          <p><em>Total Distance: <span id="Distance3"> </span></em>
+          <div><em>Total Time: <span id="Time3"> </span></p></em> </div>
         </div>
       </div>
     </div>
+    <div class = "center">
+        <% if @request.user == current_user %>
+          <% if policy(@request).edit? %>
+            <%= link_to "Edit Request", edit_request_path(@request.id), class: 'btn btn-warning btn request-btn-space' %>
+          <% end %>
+          <% if policy(@request).destroy? %>
+            <%= link_to "Delete Request", request_path(@request), method: :delete, class: 'btn btn-warning btn request-btn-space' %>
+          <% end %>
+        <% else %>
+          <%= link_to "Book Request", request_bookings_path(@request), method: :post, class: 'btn btn-warning btn request-btn-space' %>
+        <% end %>
+      </div>
   </div>
-</div>
-
+  <div
+      id="directions_map"
+      class = "map"
+      data-current="<%= @currentmarker.to_json %>"
+    ></div>
 </div>
 

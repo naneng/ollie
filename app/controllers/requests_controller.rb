@@ -30,17 +30,31 @@ class RequestsController < ApplicationController
 
   def show
     authorize @request
+    @currentmarker =
+      [{
+        name: current_user.name,
+        lat: current_user.latitude,
+        lng: current_user.longitude
+      }]
   end
 
   def new
     @request = Request.new
     authorize @request
-    @markers = [
-      {
+    @currentmarker =
+      [{
+        name: current_user.name,
         lat: current_user.latitude,
-        lng: current_user.longitude#,
-        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
-    }]
+        lng: current_user.longitude
+      }]
+    @markers = User.all.select{|u| u.organization == true }.map do |user|
+      {
+        name: user.name,
+        lat: user.latitude,
+        lng: user.longitude,
+        address: user.location
+      }
+    end
   end
 
   def create
