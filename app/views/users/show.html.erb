@@ -28,71 +28,39 @@
             <% else @user.nonprofit_status == 3 %>
               Not Applicable
             <% end %> </p>
-        </p>
-      </h2>
-    </div>
-  </div>
-  <div class="row">
-    <% if @user.dogs.count > 0 %>
-      <h1 class="center">OllieBuddies</h1>
-      <div class="col col-xs-12">
-        <% @user.dogs.each do |dog| %>
-          <figure class="snip1336 prettydogs">
-            <img src="https://images.pexels.com/photos/158063/bellingrath-gardens-alabama-landscape-scenic-158063.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="sample87" class="dogpark" />
-            <figcaption>
-              <% if dog.photo %>
-                <%= image_tag dog.photo, :class=>"profile" %>
-              <% end %>
-              <div class="flex-card-dog">
-                <h2><%= dog.name %><span> <%= dog.breed %></span></h2>
-                <span>
-                  <a> <%= link_to dog_path(dog) do %> View Profile</a>
-                  <% end %>
-                </span>
-              </div>
-            </figcaption>
-          </figure>
-        <% end %>
-      </div>
-    </div>
-    <div>
-      <% if @user.requests.count > 0 %>
-        <h1 class="middle">Transport Requests</h1>
-        <section class="request_index_wrapper">
-          <!-- request_index_row title -->
-          <main class="titles">
-            <ul class=main-content>
-              <li class="skinny center">Date</li>
-              <li class="skinny center">Time</li>
-              <li class="wide center small-indent">OllieBuddy</li>
-              <li class="skinny center">Trip Distance (miles)</li>
-              <li class="skinny center">Status</li>
-            </ul>
-          </main>
-          <% @user.requests.sort_by{|req| req.datetime}.each do |r| %>
-            <!-- request_index_row 3 -->
-            <%= link_to request_path(r), :class => "unstyled_links" do %>
-              <article class="request_index_row">
-                <ul class = "main-content">
-                  <li class="skinny center"><%= r.datetime.strftime("%m-%d-%Y") %></li>
-                  <li class="skinny center"><%= r.datetime.strftime("%H:%M") %></li>
-                  <li class="wide center small-indent"><%= r.dogs.count %></li>
-                  <li class="skinny center"><%= r.distance %></li>
-                  <li class="skinny center"><%= r.status %></li>
-                </ul>
-                <ul class="more-content">
-                  <li>Pick Up Location: <%= r.pickup_location %></li>
-                  <li>Drop Off Location: <%= r.dropoff_location %></li>
-                </ul>
-              </article>
-            <% end %>
+          <% if policy(@user).edit? %>
+            <%= link_to "Edit Profile", edit_user_registration_path(@user_id), class: 'arrow-btn' %>
+          <% else %>
+            <%= link_to "Home", root_path, class: 'arrow-btn fixed-links' %>
           <% end %>
-        </section>
+        </div>
       </div>
-      <div>
-        <% if @user.bookings.count > 0 %>
-          <div class = "requests">
-            <h1 class="middle">Booked Transport Request For OllieFriends</h1>
+      <div class="row">
+        <% if @user.dogs.count > 0 %>
+          <h1 class="center">OllieBuddies <%= link_to "Add OllieBuddy", new_dog_path(@user_id), class: 'arrow-btn' %></h1>
+          <div class="col col-xs-12">
+            <% @user.dogs.each do |dog| %>
+              <figure class="snip1336 prettydogs">
+                <img src="https://images.pexels.com/photos/158063/bellingrath-gardens-alabama-landscape-scenic-158063.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="sample87" class="dogpark" />
+                <figcaption>
+                  <% if dog.photo %>
+                    <%= image_tag dog.photo, :class=>"profile" %>
+                  <% end %>
+                  <div class="flex-card-dog">
+                    <h2><%= dog.name %><span> <%= dog.breed %></span></h2>
+                    <span>
+                      <a> <%= link_to dog_path(dog) do %> View Profile</a>
+                      <% end %>
+                    </span>
+                  </div>
+                </figcaption>
+              </figure>
+            <% end %>
+          </div>
+        </div>
+        <div>
+          <% if @user.requests.count > 0 %>
+            <h1 class="middle">Transport Requests</h1>
             <section class="request_index_wrapper">
               <!-- request_index_row title -->
               <main class="titles">
@@ -104,38 +72,64 @@
                   <li class="skinny center">Status</li>
                 </ul>
               </main>
-              <% @user.bookings.sort_by{|req| req.request.datetime}.each do |r| %>
+              <% @user.requests.sort_by{|req| req.datetime}.each do |r| %>
                 <!-- request_index_row 3 -->
-                <%= link_to request_path(r.request), :class => "unstyled_links" do %>
+                <%= link_to request_path(r), :class => "unstyled_links" do %>
                   <article class="request_index_row">
                     <ul class = "main-content">
-                      <li class="skinny center"><%= r.request.datetime.strftime("%m-%d-%Y") %></li>
-                      <li class="skinny center"><%= r.request.datetime.strftime("%H:%M") %></li>
-                      <li class="wide center small-indent"><%= r.request.dogs.count %></li>
-                      <li class="skinny center"><%= r.request.distance %></li>
-                      <li class="skinny center"><%= r.request.status %></li>
+                      <li class="skinny center"><%= r.datetime.strftime("%m-%d-%Y") %></li>
+                      <li class="skinny center"><%= r.datetime.strftime("%H:%M") %></li>
+                      <li class="wide center small-indent"><%= r.dogs.count %></li>
+                      <li class="skinny center"><%= r.distance %></li>
+                      <li class="skinny center"><%= r.status %></li>
                     </ul>
                     <ul class="more-content">
-                      <li>Pick Up Location: <%= r.request.pickup_location %></li>
-                      <li>Drop Off Location: <%= r.request.dropoff_location %></li>
+                      <li>Pick Up Location: <%= r.pickup_location %></li>
+                      <li>Drop Off Location: <%= r.dropoff_location %></li>
                     </ul>
                   </article>
                 <% end %>
               <% end %>
             </section>
           </div>
-        <% end %>
-      </div>
-      <div class="flex-column fixed-links">
-        <%= link_to "Back", :back, class: 'arrow-btn' %>
+          <div>
+            <% if @user.bookings.count > 0 %>
+              <div class = "requests">
+                <h1 class="middle">Booked Transport Request For OllieFriends</h1>
+                <section class="request_index_wrapper">
+                  <!-- request_index_row title -->
+                  <main class="titles">
+                    <ul class=main-content>
+                      <li class="skinny center">Date</li>
+                      <li class="skinny center">Time</li>
+                      <li class="wide center small-indent">OllieBuddy</li>
+                      <li class="skinny center">Trip Distance (miles)</li>
+                      <li class="skinny center">Status</li>
+                    </ul>
+                  </main>
+                  <% @user.bookings.sort_by{|req| req.request.datetime}.each do |r| %>
+                    <!-- request_index_row 3 -->
+                    <%= link_to request_path(r.request), :class => "unstyled_links" do %>
+                      <article class="request_index_row">
+                        <ul class = "main-content">
+                          <li class="skinny center"><%= r.request.datetime.strftime("%m-%d-%Y") %></li>
+                          <li class="skinny center"><%= r.request.datetime.strftime("%H:%M") %></li>
+                          <li class="wide center small-indent"><%= r.request.dogs.count %></li>
+                          <li class="skinny center"><%= r.request.distance %></li>
+                          <li class="skinny center"><%= r.request.status %></li>
+                        </ul>
+                        <ul class="more-content">
+                          <li>Pick Up Location: <%= r.request.pickup_location %></li>
+                          <li>Drop Off Location: <%= r.request.dropoff_location %></li>
+                        </ul>
+                      </article>
+                    <% end %>
+                  <% end %>
+                </section>
+              </div>
+            <% end %>
+          </div>
+        </div>
       <% end %>
-      <% if policy(@user).edit? %>
-        <%= link_to "Edit Profile", edit_user_registration_path(@user_id), class: 'arrow-btn' %>
-      <% else %>
-        <%= link_to "Home", root_path, class: 'arrow-btn fixed-links' %>
-      <% end %>
-      <%= link_to "Add OllieBuddy", new_dog_path(@user_id), class: 'arrow-btn' %>
-    <% end %>
-  </div>
-</div>
-</div>
+    </div>
+  <% end %>

@@ -4,7 +4,6 @@
   <h2>Ollie Dog  </h2>
 </div>
 <div class="container">
-  <%= image_tag "doghouse.png", id: "doghouse" %>
   <div class="row">
     <div class="col col-xs-12">
       <% @dogs.each do |dog| %>
@@ -24,14 +23,6 @@
           </figcaption>
         </figure>
       <% end %>
-    </div>
-  </div>
-  <div class="flex-column fixed-links">
-    <div>
-      <%= link_to "Home", root_path, class: 'white-btn' %>
-    </div>
-    <div>
-      <%= link_to "View OllieFriends", users_path, class: 'white-btn' %>
     </div>
   </div>
 </div>
