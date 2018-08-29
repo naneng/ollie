@@ -1,7 +1,6 @@
 .card_form {
   height: 900px;
-  width: 50%;
-  margin: 20px 250px 0 250px;
+  width: 100%;
   background: #FCFFF8;
   padding: 15px;
   opacity: .9;
@@ -56,4 +55,9 @@
 
 .request_dogs {
   margin-bottom: 20px;
+}
+
+.new_request {
+  width: 60%;
+  margin: 0 auto;
 }

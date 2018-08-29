@@ -4,23 +4,20 @@
       <h2>Transportation Request</h2>
         <%= simple_form_for [@request] do |f| %>
           <p>Shelter: <%= @user.name %></p>
-          <%= f.input :pickup_location, as: :text, autofocus: true, :input_html => {:style => 'width: 100%', :rows => 3, :id => "pickup_loc"}, :autocomplete => :on %>
+          <%= f.input :pickup_location, as: :text, autofocus: true, :input_html => {:style => 'width: 100%', :rows => 2, :id => "pickup_loc"}, :autocomplete => :on %>
 
-          <div class="left"><input type="checkbox" id="myCheck1" data-location="<%= @user.location %>"> Use shelter address</div>
+          <div class="left" id="top_check"><input type="checkbox" id="myCheck1" data-location="<%= @user.location %>"> Use shelter address</div>
 
-          <%= f.input :dropoff_location, as: :text, autofocus: true, :input_html => {:style => 'width: 100%', :rows => 3, :id => "dropoff_loc"}, :autocomplete => :on %>
+          <%= f.input :dropoff_location, as: :text, autofocus: true, :input_html => {:style => 'width: 100%', :rows => 2, :id => "dropoff_loc"}, :autocomplete => :on %>
 
-          <div class="left check2"><input type="checkbox" id="myCheck2" data-location="<%= @user.location %>"> Use shelter address</div>
+          <div class="left check2" id="bottom_check"><input type="checkbox" id="myCheck2" data-location="<%= @user.location %>"> Use shelter address</div>
 
-          <%= f.input :datetime, :label => "What time is the service needed?", :as => :string, required: true, :input_html => {:class => "datepicker", :id => 'date'}, :value => Time.now %>
+          <%= f.input :datetime, :label => "Date / Time for Transportation", :as => :string, required: true, :input_html => {:class => "datepicker", :id => 'date'}, :value => Time.now %>
 
           <div class="left check3"><input type="checkbox" id="myCheck3" > Immediately</div>
-          <div class="dog_list"> <fieldset class="form-group check_boxes optional request_dogs"><legend class="col-form-label pt-0">Rescues</legend><input type="hidden" name="request[dog_ids][]" value="" /><div class = "grid">
-            <% current_user.dogs.sort_by{|d| d.name}.each do |dog| %>
-              <div class="form-check"><input class="form-check-input check_boxes optional" type="checkbox" value="<%= dog.id %>" name="request[dog_ids][]" id="request_dog_ids_<%= dog.id %>" /><label class="collection_check_boxes" for="request_dog_ids_<%= dog.id %>"><%= dog.name %></label></div>
-            <% end %>
-          </div></fieldset></div>
+          <%= f.input :dogs, collection: current_user.dogs, input_html: { multiple: true } %>
 
+          <%= f.input :notes, as: :text, autofocus: true, :input_html => {:style => 'width: 100%', :rows => 2} %>
 
           <%= f.submit "Submit" %>
         <% end %>
@@ -31,6 +28,7 @@
       style="width: 100%;
       height: calc(100vh - 70px);"
       data-markers="<%= @markers.to_json %>"
+      data-current="<%= @currentmarker.to_json %>"
     ></div>
   </div>
 </div>

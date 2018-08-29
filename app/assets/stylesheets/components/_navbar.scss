@@ -93,17 +93,13 @@
   width: 61px;
 }
 
-.search {
-  width: 60%;
-}
-
 // .search:hover {
 //   width: 60%;
 // }
 
 .webdesigntuts-workshop {
   text-align: center;
-  width: 72%;
+  margin: 0 auto;
 }
 
 .webdesigntuts-workshop:before,
@@ -141,7 +137,7 @@
   height: 40px;
   margin: 0;
   padding: 0 10px;
-  width: 400px;
+  width: 300px;
 }
 
 .ie .webdesigntuts-workshop input {

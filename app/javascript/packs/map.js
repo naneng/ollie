@@ -99,6 +99,7 @@ function createMarker(place) {
     google.maps.event.addListener(marker, 'click', function() {
       infowindow.setContent("<strong>"+details.name + "</strong><br />" + details.formatted_address +"<br />" + details.formatted_phone_number);
       infowindow.open(map, this);
+      document.getElementById('dropoff_loc').value = details.formatted_address;
     });
   });
 }
@@ -110,3 +111,56 @@ if (mapElement) {
 }
 
 autocomplete();
+
+
+
+// Directions Map
+function initDirectionsMap() {
+
+  var directionsService = new google.maps.DirectionsService;
+  var directionsDisplay = new google.maps.DirectionsRenderer;
+  var current_marker = JSON.parse(mapDirectionsElement.dataset.current);
+  var map = new google.maps.Map(document.getElementById('directions_map'), {
+    zoom: 6,
+    center: {lat: current_marker[0].lat, lng: current_marker[0].lng}
+  });
+  directionsDisplay.setMap(map);
+
+  window.addEventListener('load', function() {
+    calculateAndDisplayRoute(directionsService, directionsDisplay);
+  });
+}
+
+function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+  var waypts = [{location: document.getElementById('start').innerText, stopover: true}];
+  var current_marker = JSON.parse(mapDirectionsElement.dataset.current);
+
+  directionsService.route({
+    origin: {lat: current_marker[0].lat, lng: current_marker[0].lng},
+    destination: document.getElementById('end').innerText,
+    waypoints: waypts,
+    optimizeWaypoints: true,
+    travelMode: 'DRIVING'
+  }, function(response, status) {
+    if (status === 'OK') {
+      directionsDisplay.setDirections(response);
+      var route = response.routes[0];
+      document.getElementById('Distance1').innerText = route.legs[0].distance.text;
+      document.getElementById('Distance2').innerText = route.legs[1].distance.text;
+      document.getElementById('Distance3').innerText = `${Math.round( (route.legs[0].distance.value + route.legs[1].distance.value)/1609.34 * 10 ) / 10} mi`;
+      document.getElementById('Time1').innerText = route.legs[0].duration.text;
+      document.getElementById('Time2').innerText = route.legs[1].duration.text;
+      document.getElementById('Time3').innerText = `${Math.round( (route.legs[0].duration.value + route.legs[1].duration.value)/60)} mins`;
+      console.log(route);
+      var summaryPanel = document.getElementById('directions-panel');
+    } else {
+      window.alert('Directions request failed due to ' + status);
+    }
+  });
+}
+
+const mapDirectionsElement = document.getElementById('directions_map');
+if (mapDirectionsElement) {
+  initDirectionsMap();
+}
+

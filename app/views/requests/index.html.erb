@@ -28,7 +28,7 @@
             <li class="skinny center">Time</li>
             <li class="wide center">Shelter</li>
             <li class="skinny center"># Dogs</li>
-            <li class="skinny center">Trip Distance (miles)</li>
+            <li class="skinny center" style="font-size:16px;">Trip Distance (miles)</li>
             <li class="skinny center">Status</li>
           </ul>
         </main>
@@ -44,9 +44,9 @@
               <li class="skinny center"><%= r.dogs.count %></li>
               <li class="skinny center"><%= r.distance %></li>
               <% if r.status == "Booked" %>
-                <li class="skinny center" style="color:#008000;"><%= r.status %></li>
+                <li class="skinny center" style="color:#990000;"><%= r.status %></li>
               <% else %>
-                <li class="skinny center" style="color:#E2AC3C;"><%= r.status %></li>
+                <li class="skinny center" style="color:#008000;"><%= r.status %></li>
               <% end %>
             </ul>
             <ul class="more-content">
@@ -64,8 +64,7 @@
 
   <div
       id="map"
-      style="width: 50%;
-      height: calc(100vh - 70px);"
+      class = "map"
       data-markers="<%= @markers.to_json %>"
       data-current="<%= @currentmarker.to_json %>"
       data-extras="none"
