@@ -23,14 +23,17 @@
           (<%= @user.phone.first(3) %>) <%= @user.phone[3..5] %>-<%= @user.phone[6..9] %></h4>
         <h4><%= @user.website %></h4>
         <p> <%= @user.location %></p>
-        <h4> 501(c)(3) Status: <% if @user.nonprofit_status == 1 %>
-            Qualified
-          <% elsif @user.nonprofit_status == 2 %>
-            Pending
-          <% else @user.nonprofit_status == 3 %>
-            Not Applicable
-          <% end %> </h4>
-        <%= link_to '<i class="fas fa-plus-circle"></i> Add OllieBuddy'.html_safe,new_dog_path(@user_id) %>
+        <% if @user.organization == true %>
+          <h4> 501(c)(3) Status:
+            <% if @user.nonprofit_status == 1 %>
+              Qualified
+            <% elsif @user.nonprofit_status == 2 %>
+              Pending
+            <% else @user.nonprofit_status == 3 %>
+              Not Applicable
+            <% end %>
+          </h4>
+        <% end %>
       </div>
       <div class="row">
         <% if @user.dogs.count > 0 %>
@@ -55,6 +58,9 @@
             <% end %>
           </div>
         </div>
+      <% end %>
+      <% if @user == current_user %>
+        <%= link_to '<i class="fas fa-plus-circle"></i> Add OllieBuddy'.html_safe,new_dog_path(@user_id) %>
       <% end %>
     </div>
     <div>
@@ -102,7 +108,8 @@
               <ul class="user_main-content">
                 <li class="skinny center">Date</li>
                 <li class="skinny center">Time</li>
-                <li class="wide center user_small-indent">OllieBuddies (#)</li>
+                <li class="wide center user_small-indent">OlliePartner/Member</li>
+                <li class="skinny center ">OllieBuddies (#)</li>
                 <li class="skinny center">Trip Distance (miles)</li>
                 <li class="skinny center">Status</li>
               </ul>
@@ -114,7 +121,8 @@
                   <ul class = "user_main-content">
                     <li class="skinny center"><%= r.request.datetime.strftime("%m-%d-%Y") %></li>
                     <li class="skinny center"><%= r.request.datetime.strftime("%H:%M") %></li>
-                    <li class="wide center user_small-indent"><%= r.request.dogs.count %></li>
+                    <li class="wide center user_small-indent"><%= r.user.name %></li>
+                    <li class="skinny center"><%= r.request.dogs.count %></li>
                     <li class="skinny center"><%= r.request.distance %></li>
                     <li class="skinny center"><%= r.request.status %></li>
                   </ul>
