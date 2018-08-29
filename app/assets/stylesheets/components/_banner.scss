@@ -8,20 +8,22 @@
   justify-content: center;
 }
 .banner h1 {
-  font-size: 100px;
+  font-size: 106px;
+  letter-spacing: 10px;
   font-weight: bold;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
 }
 .banner p {
   font-size: 30px;
-  font-weight: lighter;
+  font-weight: bolder;
   color: #ffffff;
   text-align: -webkit-right;
   padding: 4px;
+  letter-spacing: 2px;
 }
 
 .parallax {
-    height: 70vh;
+    height: 75vh;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;

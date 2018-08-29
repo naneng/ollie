@@ -12,25 +12,23 @@
 
 .cards {
   display: flex;
-  flex-wrap: wrap;
+
+  flex-direction: row;
   margin: 3px;
   align-items: center;
 }
 
 .card {
-    display: flex;
-    height: 100px;
-    /* text-shadow: 0 1px 5px rgba(0, 0, 0, 0.6); */
-    color: white;
+ color: #ffffff00;
     position: relative;
-    border-radius: 10px;
+    border-radius: 3px;
     padding-top: 3px;
     margin: 3px;
     box-shadow: 1px 1px 1px 1px rgba(218, 210, 210, 0.5);
     overflow: hidden;
-    width: 100%;
     justify-content: space-around;
     cursor: pointer;
+
 }
 
 
@@ -40,6 +38,7 @@
   // color: rgb(63, 84, 54);
   display: flex;
   color: black;
+  flex-direction: column;
   // border: 1px green solid;
   // left: 0px;
   padding: 0px 3px 0px;
@@ -66,7 +65,7 @@
 
 .card:hover {
   opacity: 0.8;
-  border: 2px rgb(114, 186, 0) solid;
+  border: 1px lightgray solid;
 }
 
 
@@ -82,9 +81,15 @@
 }
 
 .card-link:hover {
-  opacity: 0.1;
+  opacity: 0.9;
 }
 
 .user-title h1 {
   color: rgb(123, 173, 38);
+}
+
+
+.user-picture {
+  text-align: center;
+  border-radius: 50%;
 }
