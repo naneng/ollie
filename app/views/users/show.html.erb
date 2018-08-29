@@ -17,8 +17,8 @@
           <% end %>
         </div>
         <div class="user-show-info">
-          <a href="tel:(<%= @user.phone.first(3) %>) <%= @user.phone[3..5] %>-<%= @user.phone[6..9] %>"><i class="fas fa-phone-square"></i></a>
-          <a href="mailto:<%= @user.email %>"><i class="fas fa-envelope-square"></i>
+          <a href="mailto:<%= @user.email %>"><i class="fas fa-envelope-square fonticon"></i>
+            <a href="tel:(<%= @user.phone.first(3) %>) <%= @user.phone[3..5] %>-<%= @user.phone[6..9] %>"><i class="fas fa-phone-square fonticon"></i></a>
           </a>
           <h4><%= @user.name %> |
             (<%= @user.phone.first(3) %>) <%= @user.phone[3..5] %>-<%= @user.phone[6..9] %></h4>
@@ -31,11 +31,12 @@
             <% else @user.nonprofit_status == 3 %>
               Not Applicable
             <% end %> </h4>
+          <%= link_to '<i class="fas fa-plus-circle"></i> Add OllieBuddy'.html_safe,new_dog_path(@user_id) %>
         </div>
       </div>
       <div class="row">
         <% if @user.dogs.count > 0 %>
-          <h1 class="center">OllieBuddies <%= link_to "Add OllieBuddy", new_dog_path(@user_id), class: 'arrow-btn' %></h1>
+          <h1 class="center">OllieBuddies</h1>
           <div class="col col-xs-12">
             <% @user.dogs.each do |dog| %>
               <figure class="snip1336 prettydogs">
