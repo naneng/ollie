@@ -1,0 +1,8 @@
+meta_product_name: "OllieBoard"
+meta_title: "Ollieboard - Bringing Convenience to Animal Shelters Everywhere"
+meta_description: "Driven by the desire of volunteers who wants
+                   to save homeless pets, Ollie hopes to streamline the process
+                   of transporting animals to and from adoption events,
+                   directly to rescue partners, and to their forever homes!"
+meta_image: "dogcar.png"                      # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
