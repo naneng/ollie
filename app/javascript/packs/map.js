@@ -99,6 +99,7 @@ function createMarker(place) {
     google.maps.event.addListener(marker, 'click', function() {
       infowindow.setContent("<strong>"+details.name + "</strong><br />" + details.formatted_address +"<br />" + details.formatted_phone_number);
       infowindow.open(map, this);
+      document.getElementById('dropoff_loc').value = details.formatted_address;
     });
   });
 }

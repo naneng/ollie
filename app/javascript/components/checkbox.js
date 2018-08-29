@@ -4,9 +4,11 @@ function checked1(address) {
   if (checkBox.checked == true){
     pickup.value = address;
     pickup.setAttribute("readonly","readonly");
+    document.getElementById('bottom_check').style.display = "none";
   } else {
     pickup.value = "";
     pickup.removeAttribute("readonly");
+    document.getElementById('bottom_check').style.display = "block";
   }
 }
 
@@ -16,9 +18,11 @@ function checked2(address) {
   if (checkBox.checked == true){
     dropoff.value = address;
     dropoff.setAttribute("readonly","readonly");
+    document.getElementById('top_check').style.display = "none";
   } else {
     dropoff.value = "";
     dropoff.removeAttribute("readonly");
+    document.getElementById('top_check').style.display = "block";
   }
 }
 
