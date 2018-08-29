@@ -49,9 +49,14 @@
     <% if @request.notes %>
       <div style="font-size: 20px; margin-bottom: 10px;">
         <strong>Notes: </strong><%= @request.notes %>
+
       </div>
     <% end %>
-
+    <% if @request.status == "Booked" %>
+    <div class="booking">
+      <strong>Booked by: <%= @request.bookings.first.user.name %></strong>
+    </div>
+    <% end %>
     <div class = "center">
         <% if @request.user == current_user %>
           <% if policy(@request).edit? %>
@@ -61,7 +66,10 @@
             <%= link_to "Delete Request", request_path(@request), method: :delete, class: 'btn btn-warning btn request-btn-space' %>
           <% end %>
         <% else %>
+        <% if @request.status != "Booked" %>
           <%= link_to "Book Request", request_bookings_path(@request), method: :post, class: 'btn btn-warning btn request-btn-space' %>
+        <% end %>
+
         <% end %>
       </div>
   </div>

@@ -79,8 +79,7 @@
 .dog-request-card-show {
   padding: 10px;
   border-radius: 3px;
-
-
+  height: 400px;
 }
 .dog-request-card-show:hover {
   opacity: .9;
@@ -230,9 +229,10 @@ ul.user_more-content li {
 .user_small-indent {
   padding-left: 20px;
 }
+
 .user-show-info {
   letter-spacing: 3px;
-
+  margin-top: 10px;
 }
 
 .dogbone {
@@ -244,6 +244,10 @@ a:hover{
   text-decoration: none;
 }
 
+.fit-text {
+  overflow: hidden;
+  max-width: 15ch;
+}
 
 .fonticon{
 
