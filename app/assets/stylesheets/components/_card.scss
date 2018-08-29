@@ -29,6 +29,8 @@
     justify-content: space-around;
     cursor: pointer;
 
+    height: 47vh;
+    max-height: 100%;
 }
 
 
@@ -45,7 +47,6 @@
   // background: rgb(171, 87, 219);
   // background-color: #adc58c;
   // background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23c6dea6' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
-  opacity: 0.5;
   // width: 100%;
   // border-bottom-left-radius: 10px;
   // border-bottom-right-radius: 10px;
@@ -55,17 +56,25 @@
   margin: 3px;
   align-items: center;
   flex-grow: 1;
+  h3{
+    color: #36bc88;
+  }
 }
 
 .card p {
   // position: absolute;
   // color: white;
+  font-size:  15px;
   margin: 0px;
 }
 
+
+
+
+
 .card:hover {
   opacity: 0.8;
-  border: 1px lightgray solid;
+  border: 0 gray solid;
 }
 
 
@@ -92,4 +101,9 @@
 .user-picture {
   text-align: center;
   border-radius: 50%;
+  padding: 5px 5px;
+}
+
+a{
+  text-decoration: none;
 }

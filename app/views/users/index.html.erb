@@ -26,34 +26,41 @@
 </div>
 <div class="wrapper">
   <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-4">
-        <% @users.each do |user| %>
-          <%#= link_to user_path(user) do %>
-            <div class="card" onclick="location.href='<%= "users/#{user.id}" %>';">
-              <div class="user-picture">
-                <% if user.organization == true %>
-                  <%= image_tag 'animalshelter.png', height: 80, width: 70 %>
-                <% elsif user.organization == false %>
+    <% @users.each do |user| %>
+      <div class="col-sm-4">
+        <%#= link_to user_path(user) do %>
+          <div class="card" onclick="location.href='<%= "users/#{user.id}" %>';">
+            <div class="user-picture">
+              <% if user.organization == true %>
+                <% if user.photo? %>
+                  <%= image_tag user.photo(), width: 70, height: 80 %>
+                <% else %>
+                <% end %>
+              <% elsif user.organization == false %>
+                <% if user.photo? %>
+                  <%= image_tag user.photo(), width: 70, height: 80 %>
+                <%else %>
                   <%= image_tag 'userdog.png', height: 80, width: 70 %>
                 <% end %>
+              <% end %>
+            </div>
+            <div class="card-description">
+              <div>
+                <h3><%= user.name %></h3>
               </div>
-              <div class="card-description">
-                <div>
-                  <h3><%= user.name %></h3>
-                </div>
-                <div>
-                  <p>(<%= user.phone.first(3) %>) <%= user.phone[3..5] %>-<%= user.phone[6..9] %></p>
-                </div>
-              </div>
-              <div class="follow">
-                <ul>
-                  <%= render user %>
-                </ul>
+              <div>
+                <p>(<%= user.phone.first(3) %>) <%= user.phone[3..5] %>-<%= user.phone[6..9] %></p>
               </div>
             </div>
-            <%# end %>
-          <% end %>
+            <div class="follow">
+              <ul>
+                <%= render user %>
+              </ul>
+            </div>
+          </div>
+          <%# end %>
         </div>
-      </div>
+      <% end %>
     </div>
+  </div>
+</div>
