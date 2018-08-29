@@ -1,42 +1,55 @@
-<div class="user-container">
-  <div class="center">
-    <%= link_to users_path do %>
-      <%= button_tag "OllieFriends", class: "btn #{ params[:partner] || params[:member] ? 'btn-default' : 'btn-primary'}" %>
-    <% end %>
-    <%= link_to users_path(partner: true) do %>
-      <%= button_tag "OlliePartners", class: "btn #{params[:partner] ? 'btn-primary' : 'btn-default'}" %>
-    <% end %>
-    <%= link_to users_path(member: true) do %>
-      <%= button_tag "OllieMembers", class: "btn #{params[:member] ? 'btn-primary' : 'btn-default'}" %>
-    <% end %>
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="center">
+        <%= link_to users_path do %>
+          <%= button_tag "OllieFriends", class: "btn #{ params[:partner] || params[:member] ? 'btn-default' : 'btn-primary'}" %>
+        <% end %>
+        <%= link_to users_path(partner: true) do %>
+          <%= button_tag "OlliePartners", class: "btn #{params[:partner] ? 'btn-primary' : 'btn-default'}" %>
+        <% end %>
+        <%= link_to users_path(member: true) do %>
+          <%= button_tag "OllieMembers", class: "btn #{params[:member] ? 'btn-primary' : 'btn-default'}" %>
+        <% end %>
+      </div>
+      <div class=" user-title">
+        <% if params[:partner] %>
+          <h1 class="center">OlliePartners</h1>
+        <% elsif params[:member] %>
+          <h1 class="center">OllieMembers</h1>
+        <% else %>
+          <h1 class="center">OllieFriends</h1>
+        <% end %>
+      </div>
+    </div>
   </div>
-  <div class="container user-title">
-    <% if params[:partner] %>
-      <h1 class="center">OlliePartners</h1>
-    <% elsif params[:member] %>
-      <h1 class="center">OllieMembers</h1>
-    <% else %>
-      <h1 class="center">OllieFriends</h1>
-    <% end %>
-    <div class="cards">
-      <% @users.each do |user| %>
+</div>
+<div class="wrapper">
+  <div class="container">
+    <% @users.each do |user| %>
+      <div class="col-sm-4">
         <%#= link_to user_path(user) do %>
           <div class="card" onclick="location.href='<%= "users/#{user.id}" %>';">
             <div class="user-picture">
               <% if user.organization == true %>
-                <%= image_tag 'animalshelter.png', height: 80, width: 70 %>
+                <% if user.photo? %>
+                  <%= image_tag user.photo(), width: 70, height: 80 %>
+                <% else %>
+                <% end %>
               <% elsif user.organization == false %>
-                <%= image_tag 'userdog.png', height: 80, width: 70 %>
+                <% if user.photo? %>
+                  <%= image_tag user.photo(), width: 70, height: 80 %>
+                <%else %>
+                  <%= image_tag 'userdog.png', height: 80, width: 70 %>
+                <% end %>
               <% end %>
             </div>
             <div class="card-description">
-              <!--  <div>
-                <p><strong><%#= user.name %></strong></p>
-                <p><%= user.phone%></p>
-              </div> -->
               <div>
-                <%= user.name %>
-                <%= user.phone%>
+                <h3><%= user.name %></h3>
+              </div>
+              <div>
+                <p>(<%= user.phone.first(3) %>) <%= user.phone[3..5] %>-<%= user.phone[6..9] %></p>
               </div>
             </div>
             <div class="follow">
@@ -46,7 +59,8 @@
             </div>
           </div>
           <%# end %>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
   </div>
+</div>
