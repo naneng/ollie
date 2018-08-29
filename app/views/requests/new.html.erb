@@ -3,15 +3,23 @@
     <div class="card_form">
       <h2>Transportation Request</h2>
         <%= simple_form_for [@request] do |f| %>
-          <p>Shelter: <%= @user.name %></p>
+          <% if current_user.organization == true %>
+            <p>Shelter: <%= @user.name %></p>
+          <% else %>
+            <p>Dog Owner: <%= @user.name %></p>
+          <% end %>
           <%= f.input :pickup_location, as: :text, autofocus: true, :input_html => {:style => 'width: 100%', :rows => 2, :id => "pickup_loc"}, :autocomplete => :on %>
-
-          <div class="left" id="top_check"><input type="checkbox" id="myCheck1" data-location="<%= @user.location %>"> Use shelter address</div>
-
+          <% if current_user.organization == true %>
+            <div class="left" id="top_check"><input type="checkbox" id="myCheck1" data-location="<%= @user.location %>"> Use shelter address</div>
+          <% else %>
+            <div class="left" id="top_check"><input type="checkbox" id="myCheck1" data-location="<%= @user.location %>"> Use current address</div>
+          <% end %>
           <%= f.input :dropoff_location, as: :text, autofocus: true, :input_html => {:style => 'width: 100%', :rows => 2, :id => "dropoff_loc"}, :autocomplete => :on %>
-
-          <div class="left check2" id="bottom_check"><input type="checkbox" id="myCheck2" data-location="<%= @user.location %>"> Use shelter address</div>
-
+          <% if current_user.organization == true %>
+            <div class="left check2" id="bottom_check"><input type="checkbox" id="myCheck2" data-location="<%= @user.location %>"> Use shelter address</div>
+          <% else %>
+            <div class="left check2" id="bottom_check"><input type="checkbox" id="myCheck2" data-location="<%= @user.location %>"> Use current address</div>
+          <% end %>
           <%= f.input :datetime, :label => "Date / Time for Transportation", :as => :string, required: true, :input_html => {:class => "datepicker", :id => 'date'}, :value => Time.now %>
 
           <div class="left check3"><input type="checkbox" id="myCheck3" > Immediately</div>
