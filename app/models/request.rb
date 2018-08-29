@@ -14,11 +14,16 @@ class Request < ApplicationRecord
   include PgSearch
   pg_search_scope :global_search,
     against: [ :status, :time, :pickup_location, :dropoff_location ],
-    associated_against: {
-      user: [ :name ],
-      dogs: [ :name ]
-    },
-    using: {
-      tsearch: { prefix: true }
-    }
+  associated_against: {
+    user: [ :name ],
+    dogs: [ :name ]
+  },
+  using: {
+    tsearch: { prefix: true }
+  }
+
+
+  def dog_list
+    dogs.map {|dog| dog.name }.join(', ')
+  end
 end

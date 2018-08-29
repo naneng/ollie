@@ -1,15 +1,14 @@
 <div class="dog-index">
 </div>
 <div class="center add-dog">
-  <h2>Ollie Dog  </h2>
+  <h1>OllieBuddies</h1>
 </div>
 <div class="container">
-  <%= image_tag "doghouse.png", id: "doghouse" %>
   <div class="row">
     <div class="col col-xs-12">
       <% @dogs.each do |dog| %>
         <figure class="snip1336 prettydogs">
-          <img src="https://images.pexels.com/photos/158063/bellingrath-gardens-alabama-landscape-scenic-158063.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="sample87" class="dogpark" />
+          <%= image_tag("dogbonebackground.png", :class => "dogbone") %>
           <figcaption>
             <% if dog.photo %>
               <%= image_tag dog.photo, :class=>"profile" %>
@@ -24,14 +23,6 @@
           </figcaption>
         </figure>
       <% end %>
-    </div>
-  </div>
-  <div class="flex-column fixed-links">
-    <div>
-      <%= link_to "Home", root_path, class: 'white-btn' %>
-    </div>
-    <div>
-      <%= link_to "View OllieFriends", users_path, class: 'white-btn' %>
     </div>
   </div>
 </div>
