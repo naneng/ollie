@@ -5,12 +5,24 @@
     <div class="larbtnflex">
       <h2 class="joinollie">Are you a volunteer or a partner?</h2>
       <div class="larbtn">
-        <%= link_to new_user_registration_path(partner: true) do %>
-          <%= image_tag "partner-icon.png", class: 'landingicon' %>
+        <% if user_signed_in? %>
+          <%= link_to user_path(current_user) do %>
+            <%= image_tag "partner-icon.png", class: 'landingicon' %>
+          <% end %>
+        <% else %>
+          <%= link_to new_user_registration_path(partner: true) do %>
+            <%= image_tag "partner-icon.png", class: 'landingicon' %>
+          <% end %>
         <% end %>
         <p></p>
-        <%= link_to new_user_registration_path do %>
-          <%= image_tag "volunteer-icon.png", class: 'landingicon'%>
+        <% if user_signed_in? && current_user %>
+          <%= link_to user_path(current_user) do %>
+            <%= image_tag "volunteer-icon.png", class: 'landingicon'%>
+          <% end %>
+        <% else %>
+          <%= link_to new_user_registration_path do %>
+            <%= image_tag "volunteer-icon.png", class: 'landingicon'%>
+          <% end %>
         <% end %>
       </div>
     </div>
