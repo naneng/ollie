@@ -61,12 +61,17 @@
 
     <div id="current_location" class="middle"> <strong><p>Current location</p></strong> <p> <%= current_user.location %></p></div>
   </div>
-
   <div
       id="map"
-      class = "map"
+      class = "map relative"
       data-markers="<%= @markers.to_json %>"
       data-current="<%= @currentmarker.to_json %>"
       data-extras="none"
-    ></div>
+    >
+    <div class="over-map">
+    <p>Legend!!</p>
+    </div>
+  </div>
+
+
 </div>

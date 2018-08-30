@@ -52,11 +52,13 @@
                 <p>(<%= user.phone.first(3) %>) <%= user.phone[3..5] %>-<%= user.phone[6..9] %></p>
               </div>
             </div>
-            <div class="follow">
-              <ul>
-                <%= render user %>
-              </ul>
-            </div>
+            <% if user_signed_in? %>
+              <div class="follow">
+                <ul>
+                  <%= render user %>
+                </ul>
+              </div>
+            <% end %>
           </div>
           <%# end %>
         </div>

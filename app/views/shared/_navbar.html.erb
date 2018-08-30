@@ -14,12 +14,6 @@
         </section>
       </div>
       <!-- Right Navigation -->
-      <div class="navbar-wagon-right hidden-xs hidden-sm">
-        <div class="navbar-wagon-item">
-          <%= link_to "Transport Requests", requests_path, class: "navbar-wagon-link" %>
-          <%= link_to "Add Request", new_request_path, class: " navbar-wagon-link" %>
-        </div>
-      </div>
     <% else %>
       <div class="search">
         <section class="webdesigntuts-workshop">
@@ -39,20 +33,24 @@
       <!-- Profile picture with dropdown list -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <% if user_signed_in? %>
-            <% if current_user.nonprofit_status == 3 %>
-              <% avatar_url = current_user.facebook_picture_url || 'dogcar.png' %>
-            <% else %>
-              <% avatar_url = current_user.facebook_picture_url || 'doghouse.png' %>
-            <% end %>
-            <%= image_tag avatar_url, class: 'avatar dropdown-toggle', id: 'navbar-wagon-menu', "data-toggle": 'dropdown'  %>
-            <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-              <li><%= link_to "Profile", user_path(current_user) %></li>
-              <li><%= link_to "OllieFriends", users_path, class: "navbar-wagon-link"  %></li>
-              <li><%= link_to "OllieBuddies", dogs_path, class: "navbar-wagon-link"  %></li>
-              <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
+
+          <% if user_signed_in?  %>
+            <div class="navbar-wagon-right hidden-xs hidden-sm">
+              <div class="navbar-wagon-item">
+                <%= link_to "Transport Requests", requests_path, class: "navbar-wagon-link" %>
+                <%= link_to "Add Request", new_request_path, class: " navbar-wagon-link" %>
+                <% avatar_url = current_user.facebook_picture_url || 'doghouse.png' %>
+                <%= image_tag avatar_url, class: 'avatar dropdown-toggle', id: 'navbar-wagon-menu', "data-toggle": 'dropdown'  %>
+                <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+                  <li><%= link_to "Profile", user_path(current_user) %></li>
+                  <li> <%= link_to "OllieFriends", users_path, class: "navbar-wagon-link"  %></li>
+                  <li> <%= link_to "OllieBuddies", dogs_path, class: "navbar-wagon-link"  %></li>
+                  <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
+                </ul>
+              </div>
+            </div>
           <% end %>
-          </ul>
+
         </div>
       </div>
     </div>
