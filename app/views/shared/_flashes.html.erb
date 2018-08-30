@@ -1,32 +1,32 @@
 <% if notice %>
-  <div class="alert alert-info alert-dismissible" role="alert">
+  <div class="alert alert-info alert-dismissible front" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <%= notice %>
   </div>
 <% end %>
 <% if alert %>
-  <div class="alert alert-warning alert-dismissible" role="alert">
+  <div class="alert alert-warning alert-dismissible front" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <%= alert %>
   </div>
 <% end %>
 
 <% if flash[:create] %>
-  <div class="alert alert-info alert-dismissible" role="alert">
+  <div class="alert alert-info alert-dismissible front" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <%= flash[:create] %>
   </div>
 <% end %>
 
 <% if flash[:nocreate] %>
-  <div class="alert alert-warning alert-dismissible" role="alert">
+  <div class="alert alert-warning alert-dismissible front" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <%= flash[:nocreate] %>
   </div>
 <% end %>
 
 <% if flash[:booking_create] %>
-  <div class="alert alert-info alert-dismissible" role="alert">
+  <div class="alert alert-info alert-dismissible front" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <%= flash[:booking_create] %>
   </div>
