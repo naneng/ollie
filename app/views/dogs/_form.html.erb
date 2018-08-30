@@ -12,6 +12,8 @@
           <%= f.input :age %>
           <%= f.input :gender,
                       collection: [ "Male", "Female" ] %>
+          <%= f.input :photo %>
+          <%= f.input :photo_cache, as: :hidden %>
           <%= f.input :personality, as: :text, autofocus: true, :input_html => {:style => 'width: 100%', :rows => 3} %>
           <div class="center ">
             <%= f.submit "Submit", :class => 'user-text-links' %>

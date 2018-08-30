@@ -24,6 +24,8 @@ gem 'binding_of_caller'
 gem 'geocoder'
 gem 'omniauth-facebook'
 gem 'will_paginate'
+gem 'cloudinary'
+gem 'carrierwave', '~> 1.2'
 
 
 

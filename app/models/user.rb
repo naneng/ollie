@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
+  mount_uploader :photo, PhotoUploader
   # :confirmable, :lockable, :timeoutable and :omniauthable
   include PgSearch
   pg_search_scope :global_search,
@@ -25,6 +26,7 @@ class User < ApplicationRecord
 
   has_many :following_relationships, foreign_key: :follower_id, class_name: 'Follow'
   has_many :following, through: :following_relationships, source: :following
+
 
   def follow(user_id)
     following_relationships.create(following_id: user_id)
