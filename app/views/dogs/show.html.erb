@@ -14,7 +14,7 @@
       <p><%= @dog.personality %></p>
     </div>
     <div class="dog-photo-side">
-      <%= image_tag @dog.photo, :class=>"dog-photo dog-show-avatar", width: 350, height: 350, :crop=>"fill"%>
+      <%= cl_image_tag @dog.photo, :class=>"dog-photo dog-show-avatar", width: 350, height: 350, :crop=>"fill"%>
     </div>
   </div>
 </div>
