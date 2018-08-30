@@ -59,7 +59,7 @@ oas = {
   name: "Oakland Animal Shelter",
   location: "1101 29th Ave, Oakland, CA 94601",
   phone: "5105355602",
-  photo: "https://s3-media1.fl.yelpcdn.com/bphoto/84TzxwmLH-oVRrn4tmh4aA/o.jpg",
+  remote_photo_url: "https://s3-media1.fl.yelpcdn.com/bphoto/84TzxwmLH-oVRrn4tmh4aA/o.jpg",
   password: "123456",
   organization: true,
 nonprofit_status: 1}
@@ -69,7 +69,7 @@ har = {
   name: "Hopalong Animal Rescue",
   location: "Oakland, CA 94606",
   phone: "5102671915",
-  photo: "https://s3-media1.fl.yelpcdn.com/bphoto/3vWbtlN1NNczSuRiADWO8Q/o.jpg",
+  remote_photo_url: "https://s3-media1.fl.yelpcdn.com/bphoto/3vWbtlN1NNczSuRiADWO8Q/o.jpg",
   password: "123456",
   organization: true,
 nonprofit_status: 2}
@@ -79,7 +79,7 @@ faas = {
   name: "Friends of the Alameda Animal Shelter",
   location: "1590 Fortmann Way, Alameda, CA 94501",
   phone: "510337565",
-  photo: "https://s3-media2.fl.yelpcdn.com/bphoto/y5QvJyH1PUVC3u5vD1psuw/o.jpg",
+  remote_photo_url: "https://s3-media2.fl.yelpcdn.com/bphoto/y5QvJyH1PUVC3u5vD1psuw/o.jpg",
   password: "123456",
   organization: true,
 nonprofit_status: 1}
@@ -89,7 +89,7 @@ bacs = {
   name: "Barkeley Animal Care Services",
   location: "1 Bolivar Dr, Berkeley, CA 94710",
   phone: "5109816600",
-  photo: "https://s3-media2.fl.yelpcdn.com/bphoto/MLSkooS_0HXmyFGm6AtPcA/o.jpg",
+  remote_photo_url: "https://s3-media2.fl.yelpcdn.com/bphoto/MLSkooS_0HXmyFGm6AtPcA/o.jpg",
   password: "123456",
   organization: true,
 nonprofit_status: 1}
@@ -99,7 +99,7 @@ ebspca = {
   name: "Easy Bay SPCA - Oakland",
   location: "8323 Baldwin St, Oakland, CA 94621",
   phone: "5105690702",
-  photo: "https://s3-media4.fl.yelpcdn.com/bphoto/JyzRRnkALUBY8DUlCH9kzw/o.jpg",
+  remote_photo_url: "https://s3-media4.fl.yelpcdn.com/bphoto/JyzRRnkALUBY8DUlCH9kzw/o.jpg",
   password: "123456",
   organization: true,
 nonprofit_status: 2}
@@ -109,7 +109,7 @@ has = {
   name: "Hayward Animal Shelter",
   location: "16 Barnes Ct, Hayward, CA 94544",
   phone: "5102937200",
-  photo: "https://s3-media3.fl.yelpcdn.com/bphoto/qW23uy2AKWsmsvm_VQVhdQ/o.jpg",
+  remote_photo_url: "https://s3-media3.fl.yelpcdn.com/bphoto/qW23uy2AKWsmsvm_VQVhdQ/o.jpg",
   password: "123456",
   organization: true,
 nonprofit_status: 1}
@@ -119,7 +119,7 @@ arf = {
   name: "ARF - Tony La Russa's Animal Rescue Foundation",
   location: "2890 Mitchell Dr, Walnut Creek, CA 94598",
   phone: "9252561273",
-  photo: "https://s3-media2.fl.yelpcdn.com/bphoto/o3mzvbUykHsvUB-YMo_Sew/o.jpg",
+  remote_photo_url: "https://s3-media2.fl.yelpcdn.com/bphoto/o3mzvbUykHsvUB-YMo_Sew/o.jpg",
   password: "123456",
   organization: true,
 nonprofit_status: 1}
@@ -129,7 +129,7 @@ sfspca = {
   name: "San Francisco SPCA",
   location: "250 Florida St, San Francisco, CA 94103",
   phone: "4155223500",
-  photo: "https://s3-media3.fl.yelpcdn.com/bphoto/THlQV3538xektuT2LsTgUw/o.jpg",
+  remote_photo_url: "https://s3-media3.fl.yelpcdn.com/bphoto/THlQV3538xektuT2LsTgUw/o.jpg",
   password: "123456",
   organization: true,
 nonprofit_status: 1}
@@ -139,7 +139,7 @@ accsf = {
   name: "Animal Care & Control San Francisco",
   location: "1200 15th St, San Francisco, CA 94103",
   phone: "4155546364",
-  photo: "https://s3-media4.fl.yelpcdn.com/bphoto/ypOoktTORDxECENEyakYhw/o.jpg",
+  remote_photo_url: "https://s3-media4.fl.yelpcdn.com/bphoto/ypOoktTORDxECENEyakYhw/o.jpg",
   password: "123456",
   organization: true,
 nonprofit_status: 1}
@@ -149,7 +149,7 @@ mas = {
   name: "Martinez Animal Shelter",
   location: "4800 Imhoff Pl, Martinez, CA 94553",
   phone: "9253358300",
-  photo: "https://s3-media4.fl.yelpcdn.com/bphoto/lXGo7zshKWtk8TOldDllaQ/o.jpg",
+  remote_photo_url: "https://s3-media4.fl.yelpcdn.com/bphoto/lXGo7zshKWtk8TOldDllaQ/o.jpg",
   password: "123456",
   organization: true,
 nonprofit_status: 1}
@@ -159,7 +159,7 @@ hssv = {
   name: "Humane Society Silicon Valley",
   location: "901 Ames Ave, Milpitas, CA 95035",
   phone: "4082622133",
-  photo: "https://s3-media1.fl.yelpcdn.com/bphoto/pfkLoUf_fNNi404VICFD3A/o.jpg",
+  remote_photo_url: "https://s3-media1.fl.yelpcdn.com/bphoto/pfkLoUf_fNNi404VICFD3A/o.jpg",
   password: "123456",
   organization: true,
 nonprofit_status: 1}
@@ -169,7 +169,7 @@ vhs = {
   name: "Valley Humane Society",
   location: "3670 Nevada St, Pleasanton, CA 94566",
   phone: "9254268656",
-  photo: "http://arizonacitychamber.com/newsite/images/sobipro/entries/169/thumb_ValleyHumaneLoge.gif",
+  remote_photo_url: "http://arizonacitychamber.com/newsite/images/sobipro/entries/169/thumb_ValleyHumaneLoge.gif",
   password: "123456",
   organization: true,
 nonprofit_status: 1}
@@ -179,7 +179,7 @@ phs = {
   name: "Peninsula Humane Society & SPCA",
   location: "1450 Rollins Rd, Burlingame, CA 94010",
   phone: "6503407022",
-  photo: "https://s3-media1.fl.yelpcdn.com/bphoto/BBwkVoVKF1xEKHxrqMpqFw/o.jpg",
+  remote_photo_url: "https://s3-media1.fl.yelpcdn.com/bphoto/BBwkVoVKF1xEKHxrqMpqFw/o.jpg",
   password: "123456",
   organization: true,
 nonprofit_status: 1}
@@ -189,7 +189,7 @@ jp = {
   name: "Jelly's Place",
   location: "2905 San Pablo Dam Rd, San Pablo, CA 94803",
   phone: "5106213493",
-  photo: "https://d2g8igdw686xgo.cloudfront.net/24104938_1506117215.5443.jpg",
+  remote_photo_url: "https://d2g8igdw686xgo.cloudfront.net/24104938_1506117215.5443.jpg",
   password: "123456",
   organization: true,
 nonprofit_status: 2}
@@ -235,7 +235,7 @@ BREED_PHOTOS = ["germanshepherd.jpg", "labradorretriever.jpg", "bulldog.jpg", "b
   breed = BREEDS.sample
   dog_name = DOG_NAME.sample
   DOG_NAME.delete(dog_name)
-  Dog.create!(photo: "#{BREED_PHOTOS[BREEDS.index(breed)]}", name: dog_name, breed: breed, user_id: shelters.sample.id, size: ["small", "medium", "large"].sample, age: (1..13).to_a.sample, gender: ["male", "female"].sample, personality: personality)
+  Dog.create!(remote_photo_url: "#{BREED_PHOTOS[BREEDS.index(breed)]}", name: dog_name, breed: breed, user_id: shelters.sample.id, size: ["small", "medium", "large"].sample, age: (1..13).to_a.sample, gender: ["male", "female"].sample, personality: personality)
 end
 
 puts "Created #{Dog.count} Dogs!"
