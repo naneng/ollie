@@ -62,24 +62,22 @@
               </main>
               <% @user.requests.sort_by{|req| req.datetime}.each do |r| %>
                 <!-- request_index_row 3 -->
-
-                  <article class="user_request_index_row">
-                    <ul class = "user_main-content">
-                      <li class="skinnyish center"><%= r.datetime.strftime("%m-%d-%Y") %></li>
-                      <li class="skinny center"><%= r.datetime.strftime("%H:%M") %></li>
-                      <li class="wide center user_small-indent"><%= r.dog_list %></li>
-                      <li class="skinnyish center"><%= r.distance %></li>
-                      <li class="skinnyish center"><%= r.status %></li>
-                      <li class="skinnyish center"> <% if r.status != "Delivered" %>
+                <article class="user_request_index_row">
+                  <ul class = "user_main-content">
+                    <li class="skinnyish center"><%= r.datetime.strftime("%m-%d-%Y") %></li>
+                    <li class="skinny center"><%= r.datetime.strftime("%H:%M") %></li>
+                    <li class="wide center user_small-indent"><%= r.dog_list %></li>
+                    <li class="skinnyish center"><%= r.distance %></li>
+                    <li class="skinnyish center"><%= r.status %></li>
+                    <li class="skinnyish center"> <% if r.status != "Delivered" %>
                         <%= link_to "Delivered", request_delivered_path(r), method: :post %>
                       <% end %></li>
-                    </ul>
-                    <ul class="user_more-content">
-                      <li>Pick Up Location: <%= r.pickup_location %></li>
-                      <li>Drop Off Location: <%= r.dropoff_location %></li>
-                    </ul>
-                  </article>
-
+                  </ul>
+                  <ul class="user_more-content">
+                    <li>Pick Up Location: <%= r.pickup_location %></li>
+                    <li>Drop Off Location: <%= r.dropoff_location %></li>
+                  </ul>
+                </article>
               <% end %>
             </section>
           </div>
@@ -104,27 +102,22 @@
               </main>
               <% @user.bookings.sort_by{|req| req.request.datetime}.each do |r| %>
                 <!-- request_index_row 3 -->
-
-                  <article class="user_request_index_row">
-                    <ul class = "user_main-content">
-
-                        <li class="skinnyish center" style="font-size:16px;"><%= r.request.datetime.strftime("%m-%d-%Y") %></li>
-                        <li class="skinny center"><%= r.request.datetime.strftime("%H:%M") %></li>
-                        <li class="wide center user_small-indent"><%= r.request.user.name %></li>
-                        <li class="skinny center"><%= r.request.dogs.count %></li>
-                        <li class="skinnyish center"><%= r.request.distance %></li>
-                        <li class="skinnyish center"><%= r.request.status %></li>
-
-                      <li class="skinnyish center">
-
-                      </li>
-
-                    </ul>
-                    <ul class="user_more-content">
-                      <li>Pick Up Location: <%= r.request.pickup_location %></li>
-                      <li>Drop Off Location: <%= r.request.dropoff_location %></li>
-                    </ul>
-                  </article>
+                <article class="user_request_index_row">
+                  <ul class = "user_main-content">
+                    <li class="skinnyish center" style="font-size:16px;"><%= r.request.datetime.strftime("%m-%d-%Y") %></li>
+                    <li class="skinny center"><%= r.request.datetime.strftime("%H:%M") %></li>
+                    <li class="wide center user_small-indent"><%= r.request.user.name %></li>
+                    <li class="skinny center"><%= r.request.dogs.count %></li>
+                    <li class="skinnyish center"><%= r.request.distance %></li>
+                    <li class="skinnyish center"><%= r.request.status %></li>
+                    <li class="skinnyish center">
+                    </li>
+                  </ul>
+                  <ul class="user_more-content">
+                    <li>Pick Up Location: <%= r.request.pickup_location %></li>
+                    <li>Drop Off Location: <%= r.request.dropoff_location %></li>
+                  </ul>
+                </article>
               <% end %>
             </section>
           </div>
@@ -154,12 +147,12 @@
           </div>
         </div>
       <% end %>
-      <div class="center">
-        <% if @user == current_user %>
-          <%= link_to '<i class="fas fa-plus-circle"></i> Add OllieBuddy'.html_safe,new_dog_path(@user_id), {:class => "add-olliebuddy"}%>
-        <% end %>
-      </div>
     </div>
+  </div>
+  <div class="center">
+    <% if @user == current_user %>
+      <%= link_to '<i class="fas fa-plus-circle"></i> Add OllieBuddy'.html_safe,new_dog_path(@user_id), {:class => "add-olliebuddy"}%>
+    <% end %>
   </div>
 </div>
 </div>
