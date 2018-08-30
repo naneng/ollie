@@ -83,6 +83,7 @@
     align-items: center;
     justify-content: stretch;
     width: 50em;
+    border-radius: 6px;
 }
 .other-user {
 
@@ -93,7 +94,8 @@
     display: inline-table;
     align-items: center;
     justify-content: stretch;
-    width: 64em
+    width: 64em;
+    border-radius: 6px;
 }
 
 
@@ -280,7 +282,8 @@ a:hover{
   position: relative;
    width: auto;
   text-align :center;
-      padding: 10px;
+      padding: 5em;
+      border-radius: 6px;
 
 }
 .banner-show-other h1 {

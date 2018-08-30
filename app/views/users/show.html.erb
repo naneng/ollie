@@ -15,7 +15,7 @@
             <h1><%= @user.name %> </h1>
             <p><a href="mailto:<%= @user.email %>"><i class="fas fa-envelope-square fonticon"></i></a>
               <a href="tel:(<%= @user.phone.first(3) %>) <%= @user.phone[3..5] %>-<%= @user.phone[6..9] %>"><i class="fas fa-phone-square fonticon"></i></a></p>
-            <p><%= @user.phone.first(3) %>) <%= @user.phone[3..5] %>-<%= @user.phone[6..9] %></p>
+            <p>(<%= @user.phone.first(3) %>) <%= @user.phone[3..5] %>-<%= @user.phone[6..9] %></p>
             <p><%= @user.website %></p>
             <p><%= @user.location %></p>
             <% if @user.organization == true %>
@@ -37,7 +37,7 @@
             <h1><%= @user.name %> </h1>
             <p><a href="mailto:<%= @user.email %>"><i class="fas fa-envelope-square fonticon"></i></a>
               <a href="tel:(<%= @user.phone.first(3) %>) <%= @user.phone[3..5] %>-<%= @user.phone[6..9] %>"><i class="fas fa-phone-square fonticon"></i></a></p>
-            <p><%= @user.phone.first(3) %>) <%= @user.phone[3..5] %>-<%= @user.phone[6..9] %></p>
+            <p>(<%= @user.phone.first(3) %>) <%= @user.phone[3..5] %>-<%= @user.phone[6..9] %></p>
             <p><%= @user.website %></p>
             <p><%= @user.location %></p>
           </div>
