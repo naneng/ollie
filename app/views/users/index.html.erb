@@ -33,7 +33,7 @@
             <div class="user-picture">
               <% if user.organization == true %>
                 <% if user.photo.present? %>
-                  <%= cl_image_tag user.photo(), width: 70, height: 80 %>
+                  <%= cl_image_tag user.photo, width: 70, height: 80 %>
                 <% else %>
                 <% end %>
               <% elsif user.organization == false %>
