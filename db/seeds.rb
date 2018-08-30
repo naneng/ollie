@@ -393,6 +393,7 @@ early_req_array = (0...early_reqs.count).to_a
   num = early_req_array.sample
   early_req_array.delete(num)
   Booking.create!(user_id: drivers.sample.id, request_id: early_reqs[num].id)
+  Request.find(early_reqs[num].id).update!(status: 'Booked')
 end
 
 puts "Created #{Booking.count} bookings!"
