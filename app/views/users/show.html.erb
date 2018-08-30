@@ -8,42 +8,42 @@
       <% end %>
     </div>
     <div class="card-split center">
-      <div class="dog-request-card-show">
-        <% if @user.photo? %>
-          <div class="dog-request-card-show" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<% if @user.organization == true %><%= image_path @user.photo %><% else %><%= image_path'animalshelter.png' %><% end %>'); ">
-            <div class="banner-show center">
-              <h1><%= @user.name %> </h1>
-              <p><a href="mailto:<%= @user.email %>"><i class="fas fa-envelope-square fonticon"></i></a>
-                <a href="tel:(<%= @user.phone.first(3) %>) <%= @user.phone[3..5] %>-<%= @user.phone[6..9] %>"><i class="fas fa-phone-square fonticon"></i></a></p>
-              <p><%= @user.phone.first(3) %>) <%= @user.phone[3..5] %>-<%= @user.phone[6..9] %></p>
-              <p><%= @user.website %></p>
-              <p><%= @user.location %></p>
-              <% if @user.organization == true %>
-                <p> 501(c)(3) Status:
-                  <% if @user.nonprofit_status == 1 %>
-                    Qualified
-                  <% elsif @user.nonprofit_status == 2 %>
-                    Pending
-                  <% else @user.nonprofit_status == 3 %>
-                    Not Applicable
-                  <% end %>
-                </p>
-              <% end %>
-            </div>
+      <!--   <div class="dog-request-card-show"> -->
+      <% if @user.photo? %>
+        <div class="dog-request-card-show" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<% if @user.organization == true %><%= image_path @user.photo %><% else %><%= image_path'animalshelter.png' %><% end %>'); ">
+          <div class="banner-show center">
+            <h1><%= @user.name %> </h1>
+            <p><a href="mailto:<%= @user.email %>"><i class="fas fa-envelope-square fonticon"></i></a>
+              <a href="tel:(<%= @user.phone.first(3) %>) <%= @user.phone[3..5] %>-<%= @user.phone[6..9] %>"><i class="fas fa-phone-square fonticon"></i></a></p>
+            <p>(<%= @user.phone.first(3) %>) <%= @user.phone[3..5] %>-<%= @user.phone[6..9] %></p>
+            <p><%= @user.website %></p>
+            <p><%= @user.location %></p>
+            <% if @user.organization == true %>
+              <p> 501(c)(3) Status:
+                <% if @user.nonprofit_status == 1 %>
+                  Qualified
+                <% elsif @user.nonprofit_status == 2 %>
+                  Pending
+                <% else @user.nonprofit_status == 3 %>
+                  Not Applicable
+                <% end %>
+              </p>
+            <% end %>
           </div>
-        <% else %>
-          <div class="smal-dog-icon" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path 'small-dog-icondog.jpg' %>'); ">
-            <div class="banner-show center">
-              <h1><%= @user.name %> </h1>
-              <p><a href="mailto:<%= @user.email %>"><i class="fas fa-envelope-square fonticon"></i></a>
-                <a href="tel:(<%= @user.phone.first(3) %>) <%= @user.phone[3..5] %>-<%= @user.phone[6..9] %>"><i class="fas fa-phone-square fonticon"></i></a></p>
-              <p><%= @user.phone.first(3) %>) <%= @user.phone[3..5] %>-<%= @user.phone[6..9] %></p>
-              <p><%= @user.website %></p>
-              <p><%= @user.location %></p>
-            </div>
-          <% end %>
         </div>
+      <% else %>
+        <div class="other-user" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path 'small-dog-icondog.jpg' %>'); ">
+          <div class="banner-show-other center">
+            <h1><%= @user.name %> </h1>
+            <p><a href="mailto:<%= @user.email %>"><i class="fas fa-envelope-square fonticon"></i></a>
+              <a href="tel:(<%= @user.phone.first(3) %>) <%= @user.phone[3..5] %>-<%= @user.phone[6..9] %>"><i class="fas fa-phone-square fonticon"></i></a></p>
+            <p>(<%= @user.phone.first(3) %>) <%= @user.phone[3..5] %>-<%= @user.phone[6..9] %></p>
+            <p><%= @user.website %></p>
+            <p><%= @user.location %></p>
+          </div>
+        <% end %>
       </div>
+      <!-- </div> -->
       <div>
         <% if @user.requests.count > 0 %>
           <div class="requests">

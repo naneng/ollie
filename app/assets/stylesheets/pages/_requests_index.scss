@@ -315,12 +315,12 @@
 .request_index_row:hover {
   background-color:#D0CFEC;
   transition: all 0.2s;
-  height:130px;
+  height:170px;
   @media only screen and (max-width : 767px) {
-    height:150px;
+    height:210px;
   }
   @media only screen and (max-width : 359px) {
-    height:160px;
+    height:230px;
   }
 }
 .titles {
@@ -382,7 +382,7 @@ ul.more-content li {
   position:relative;
   top:8px;
   font-size:18px;
-  margin: 0 0 6px 0;
+  margin: 0 0 16px 0;
   display:block;
   height:20px;
   width:100%;

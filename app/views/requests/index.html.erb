@@ -50,8 +50,11 @@
               <% end %>
             </ul>
             <ul class="more-content">
-              <li>Pick Up Location: <%= r.pickup_location %></li>
-              <li>Drop Off Location: <%= r.dropoff_location %></li>
+              <% if r.notes %>
+                <li><strong>Notes: </strong><%= r.notes %></li>
+              <% end %>
+              <li><strong>Pick Up Location: </strong><%= r.pickup_location %></li>
+              <li><strong>Drop Off Location: </strong><%= r.dropoff_location %></li>
             </ul>
           </article>
         <% end %>
@@ -61,17 +64,19 @@
 
     <div id="current_location" class="middle"> <strong><p>Current location</p></strong> <p> <%= current_user.location %></p></div>
   </div>
-  <div
-      id="map"
-      class = "map relative"
-      data-markers="<%= @markers.to_json %>"
-      data-current="<%= @currentmarker.to_json %>"
-      data-extras="none"
-    >
+  <div>
+    <div
+        id="map"
+        class = "map"
+        data-markers="<%= @markers.to_json %>"
+        data-current="<%= @currentmarker.to_json %>"
+        data-extras="none"
+      >
+    </div>
     <div class="over-map">
-    <p>Legend!!</p>
+      <div style="margin-bottom:10px;"><img src="http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|138913" alt=""> Current Location</div>
+      <div><img src="http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|656CB9" alt=""> Shelter</div>
     </div>
   </div>
-
 
 </div>

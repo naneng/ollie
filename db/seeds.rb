@@ -218,7 +218,6 @@ Gucci Iris Jinx Holly April Luna Cadence Cajun Daisy Faith Ruby Eureka Gypsy Alp
 Phantom Darth Balboa Ajax Wrigley Titan Yoyo Zulu Jake Champion Loki Punch Hiro Attila Storm
 Bailey Max Charlie Buddy Rocky Jake Jack Toby Cody Buster Bella Lucy Molly Daisy Maggie Sophie Sadie Chloe)
 BREEDS = ["German Shepherd", "Labrador Retriever", "Bulldog", "Beagle", "Poodle", "Golden Retriever", "Corgi", "Shiba Inu", "Akita", "Chow Chow", "Rottwelier", "Boxer", "Siberian Husky", "Dobermann", "Great Dane", "Pug", "Border Collie", "Terrier", "Cocker Spaniel"]
-BREED_PHOTOS = ["germanshepherd.jpeg", "labradorretriever.jpeg", "bulldog.jpg", "beagle.jpg", "poodle.jpg", "goldenretriever.jpg", "corgi.jpg", "shibainu.jpg", "akita.jpg", "chowchow.jpg", "rottweiler.jpg", "boxer.jpg", "husky.jpg", "dobermann.jpg", "greatdane.PNG", "pug.jpeg", "bordercollie.jpg", "terrier.jpg", "cockerspaniel.jpg"]
 PERSONALITY = ["Quite energetic and playful. Does well with strangers and young children, however does get very anxious when traveling.",
                "A very confident animal and comfortable in various surroundings. Displays dominant behaviours and may be stubborn at times, but team player.",
                "Tends to be shy and nervous, but reacts very well to lots of praise, treats, and encouragement. Strangly loves car rides and will not hesitate to jump in for a ride.",
