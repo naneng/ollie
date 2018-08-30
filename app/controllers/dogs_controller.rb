@@ -24,7 +24,7 @@ class DogsController < ApplicationController
     @dog.user = current_user
     if @dog.save
       redirect_to user_path(current_user)
-      flash[:create] = "#{@dog.name} has been created!"
+      flash[:create] = "#{@dog.name} has been registered!"
     else
       render :new
     end
@@ -44,7 +44,7 @@ class DogsController < ApplicationController
     authorize @dog
     if @dog.destroy
       redirect_to user_path(current_user)
-      flash[:create] = "#{@dog.name} has been removed!"
+      flash[:create] = "#{@dog.name} has been removed from the shelter!"
     else
       render :index
     end
