@@ -74,12 +74,18 @@
 
 
 .dog-request-card-show {
-  padding: 10px;
-  border-radius: 3px;
-  height: 400px;
+
+    color: gray;
+    text-align: center;
+    height: 40em;
+    background-size: cover;
+    display: inline-table;
+    align-items: center;
+    justify-content: stretch;
+    width: 64em
 }
 .dog-request-card-show:hover {
-  opacity: .9;
+
 }
 
 
@@ -247,7 +253,32 @@ a:hover{
 }
 
 .fonticon{
+    padding: 5px;
+     width: 8vh;
+    font-size: 45px;
+}
+.banner-show{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+   width: auto;
+  text-align :center;
+      padding-top: 22vh;
+}
+.banner-show h1 {
+  color: white;
+  font-size: 50px;
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+}
+.banner-show p {
+  font-size: 35px;
+  font-weight: bolder;
+  color: white;
+  margin-bottom: 0;
+}
 
-     width: 5vh;
-    font-size: 25px;
+.small-dog-icondog {
+  width: 100px;
+  height: 100px;
 }
