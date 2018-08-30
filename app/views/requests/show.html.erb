@@ -10,7 +10,7 @@
       <% @request.dogs.each do |dog| %>
         <%= link_to dog_path(dog) do %>
           <% if dog.photo %>
-            <%= image_tag dog.photo, class: 'request-dog-image' %>
+            <%= cl_image_tag dog.photo, class: 'request-dog-image' %>
           <% end %>
           <div class="dog-name-link">
             <%= dog.name %>
@@ -84,7 +84,6 @@
       class = "map"
       data-current="<%= @currentmarker.to_json %>"
     ></div>
-
 </div>
 <div class="over-map">
   <div style="margin-bottom:10px;">( A ) Current Location</div>
@@ -92,4 +91,3 @@
   <div>( C ) Drop Off Location</div>
 </div>
 <%= console %>
-
