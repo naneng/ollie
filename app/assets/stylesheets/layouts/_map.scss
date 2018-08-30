@@ -15,15 +15,12 @@
 }
 
 .over-map {
-  position: absolute;
-  top: 60px;
-  left: 10px;
+  position: fixed;
+  bottom: 4%;
+  left: 54%;
   z-index: 99;
-  background-color: white;
-  padding: 20px;
+  background-color: #FCFFF8;
+  padding: 12px;
   border-radius: 4px;
 }
 
-.relative {
-  position: relative;
-}
