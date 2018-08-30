@@ -9,7 +9,7 @@
     </div>
     <div class="card-split center">
       <!--   <div class="dog-request-card-show"> -->
-      <% if @user.photo? %>
+      <% if @user.photo.present? %>
         <div class="dog-request-card-show" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<% if @user.organization == true %><%= cl_image_path @user.photo %><% else %><%= image_path'animalshelter.png' %><% end %>'); ">
           <div class="banner-show center">
             <h1><%= @user.name %> </h1>
@@ -131,7 +131,7 @@
               <figure class="snip1336 prettydogs">
                 <%= image_tag("dogbonebackground.png", :class => "dogbone") %>
                 <figcaption>
-                  <% if dog.photo %>
+                  <% if dog.present? %>
                     <%= cl_image_tag dog.photo, :class=>"profile" %>
                   <% end %>
                   <div class="flex-card-dog">
