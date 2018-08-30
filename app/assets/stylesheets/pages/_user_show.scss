@@ -75,17 +75,25 @@
 
 .dog-request-card-show {
 
+        color: gray;
+    text-align: center;
+    height: 31em;
+    background-size: cover;
+    display: inline-table;
+    align-items: center;
+    justify-content: stretch;
+    width: 50em;
+}
+.other-user {
+
     color: gray;
     text-align: center;
-    height: 40em;
+    // height: 40em;
     background-size: cover;
     display: inline-table;
     align-items: center;
     justify-content: stretch;
     width: 64em
-}
-.dog-request-card-show:hover {
-
 }
 
 
@@ -263,7 +271,29 @@ a:hover{
   position: relative;
    width: auto;
   text-align :center;
-      padding-top: 22vh;
+   padding: 5em;
+}
+
+.banner-show-other{
+    display: flex;
+  flex-direction: column;
+  position: relative;
+   width: auto;
+  text-align :center;
+      padding: 10px;
+
+}
+.banner-show-other h1 {
+  color: white;
+  font-size: 50px;
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+}
+.banner-show-other p {
+  font-size: 35px;
+  font-weight: bolder;
+  color: white;
+  margin-bottom: 0;
 }
 .banner-show h1 {
   color: white;
