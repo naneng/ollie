@@ -131,7 +131,7 @@
               <figure class="snip1336 prettydogs">
                 <%= image_tag("dogbonebackground.png", :class => "dogbone") %>
                 <figcaption>
-                  <% if dog.present? %>
+                  <% if dog.photo.present? %>
                     <%= cl_image_tag dog.photo, :class=>"profile" %>
                   <% end %>
                   <div class="flex-card-dog">
