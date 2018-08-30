@@ -38,7 +38,7 @@
         <%= link_to request_path(r), :class => "unstyled_links" do %>
           <article class="request_index_row">
             <ul class = "main-content">
-              <li class="skinnyish center" style="font-size:16px;"><%= r.datetime.strftime("%m-%d-%Y") %></li>
+              <li class="skinnyish center" style="font-size:14px;"><%= r.datetime.strftime("%m-%d-%Y") %></li>
               <li class="skinny center"><%= r.datetime.strftime("%H:%M") %></li>
               <li class="wide small-indent text-left"><%= r.user.name %></li>
               <li class="skinny center"><%= r.dogs.count %></li>

@@ -1,6 +1,6 @@
 class RequestsController < ApplicationController
   before_action :set_user, only: [ :show, :new, :create, :edit, :update, :destroy ]
-  before_action :set_request, only: [ :show, :edit, :update, :destroy ]
+  before_action :set_request, only: [ :show, :edit, :update, :destroy, :delivered ]
 
   def index
     policy_scope(Request)
@@ -60,14 +60,16 @@ class RequestsController < ApplicationController
   def create
     @request = Request.new(request_params)
     @request.user = @user
-    pickup_results = Geocoder.search(@request.pickup_location)
-    pickup_lat = pickup_results.first.geometry["location"]["lat"]
-    pickup_long = pickup_results.first.geometry["location"]["lng"]
-    dropoff_results = Geocoder.search(@request.dropoff_location)
-    dropoff_lat = dropoff_results.first.geometry["location"]["lat"]
-    dropoff_long = dropoff_results.first.geometry["location"]["lng"]
-    @request.distance = (distance [pickup_lat, pickup_long], [dropoff_lat, dropoff_long])*0.000621371
-    @request.status = "Open"
+    if @request.pickup_location != ""
+      pickup_results = Geocoder.search(@request.pickup_location)
+      pickup_lat = pickup_results.first.geometry["location"]["lat"]
+      pickup_long = pickup_results.first.geometry["location"]["lng"]
+      dropoff_results = Geocoder.search(@request.dropoff_location)
+      dropoff_lat = dropoff_results.first.geometry["location"]["lat"]
+      dropoff_long = dropoff_results.first.geometry["location"]["lng"]
+      @request.distance = (distance [pickup_lat, pickup_long], [dropoff_lat, dropoff_long])*0.000621371
+      @request.status = "Open"
+    end
     if @request.save
       flash[:create] = "Transportation request has been created!"
       redirect_to request_path(@request)
@@ -88,6 +90,18 @@ class RequestsController < ApplicationController
       redirect_to request_path(@request)
       flash[:create] = "#{@user.name} request has been updated!"
     else
+      render :show
+    end
+  end
+
+  def delivered
+    authorize @request
+    @request.status = "Delivered"
+    if @request.save
+      redirect_to user_path(current_user)
+      flash[:create] = "#{@request.dogs.count} dogs have been delivered!"
+    else
+      raise
       render :show
     end
   end

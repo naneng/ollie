@@ -263,7 +263,7 @@
   margin:0;
   padding-bottom:3px;
   .wide {
-    width: 39%;
+    width: 36%;
   }
   .skinnyish {
     width: 15%
@@ -315,12 +315,12 @@
 .request_index_row:hover {
   background-color:#D0CFEC;
   transition: all 0.2s;
-  height:170px;
+  height:200px;
   @media only screen and (max-width : 767px) {
-    height:210px;
+    height:220px;
   }
   @media only screen and (max-width : 359px) {
-    height:230px;
+    height:250px;
   }
 }
 .titles {
@@ -332,9 +332,20 @@
   transition:all 0.2s ease-out;
   border-top:1px solid darken($light-bg, 100%);
   ul {
+    .user_wide {
+      width: 38%;
+    }
+
+    .user_skinnyish {
+      width: 12%
+    }
+    .user_skinny {
+      width: 8%;
+    }
+
     padding-left: 0;
     .wide {
-      width: 37%;
+      width: 36%;
     }
     .skinnyish {
       width: 15%

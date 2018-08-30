@@ -28,9 +28,8 @@
       <% end %>
     </div>
     <div
-      id="map"
-      style="width: 100%;
-      height: calc(100vh - 70px);"
+      id="map",
+      class = "map"
       data-markers="<%= @markers.to_json %>"
       data-current="<%= @currentmarker.to_json %>"
     ></div>
