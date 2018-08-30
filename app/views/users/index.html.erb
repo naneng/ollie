@@ -32,13 +32,13 @@
           <div class="card" onclick="location.href='<%= "users/#{user.id}" %>';">
             <div class="user-picture">
               <% if user.organization == true %>
-                <% if user.photo? %>
-                  <%= image_tag user.photo(), width: 70, height: 80 %>
+                <% if user.photo.present? %>
+                  <%= cl_image_tag user.photo(), width: 70, height: 80 %>
                 <% else %>
                 <% end %>
               <% elsif user.organization == false %>
-                <% if user.photo? %>
-                  <%= image_tag user.photo(), width: 70, height: 80 %>
+                <% if user.photo.present? %>
+                  <%= cl_image_tag user.photo, width: 70, height: 80 %>
                 <%else %>
                   <%= image_tag 'userdog.png', height: 80, width: 70 %>
                 <% end %>
