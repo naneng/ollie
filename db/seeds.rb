@@ -235,7 +235,7 @@ BREED_PHOTOS = ["germanshepherd.jpg", "labradorretriever.jpg", "bulldog.jpg", "b
   breed = BREEDS.sample
   dog_name = DOG_NAME.sample
   DOG_NAME.delete(dog_name)
-  Dog.create!(remote_photo_url: "#{BREED_PHOTOS[BREEDS.index(breed)]}", name: dog_name, breed: breed, user_id: shelters.sample.id, size: ["small", "medium", "large"].sample, age: (1..13).to_a.sample, gender: ["male", "female"].sample, personality: personality)
+  Dog.create!(photo: File.new(File.join(Rails.root, "app/assets/images/#{BREED_PHOTOS[BREEDS.index(breed)]}")), name: dog_name, breed: breed, user_id: shelters.sample.id, size: ["small", "medium", "large"].sample, age: (1..13).to_a.sample, gender: ["male", "female"].sample, personality: personality)
 end
 
 puts "Created #{Dog.count} Dogs!"
