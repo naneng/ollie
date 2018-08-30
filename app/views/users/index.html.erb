@@ -28,39 +28,40 @@
   <div class="container">
     <% @users.sort_by{|u| u.name}.each do |user| %>
       <div class="col-sm-4">
-        <%= link_to user_path(user) do %>
-            <div class="card">
-            <div class="user-picture">
-              <% if user.organization == true %>
+
+          <figure class="snip1336 prettydogs">
+            <div class="follow">
+
+                <%= render user %>
+
+            </div>
+          <%= image_tag("dogbonebackground.png", :class => "dogbone") %>
+          <%= link_to user_path(user) do %>
+          <figcaption>
+            <% if user.organization == true %>
                 <% if user.photo.present? %>
-                  <%= cl_image_tag user.photo, width: 70, height: 80 %>
+                  <%= cl_image_tag user.photo, :class => "profile", width: 70, height: 80 %>
                 <% else %>
                 <% end %>
               <% elsif user.organization == false %>
                 <% if user.photo.present? %>
-                  <%= cl_image_tag user.photo, width: 70, height: 80 %>
+                  <%= cl_image_tag user.photo, :class => "profile", width: 70, height: 80 %>
                 <%else %>
-                  <%= image_tag 'userdog.png', height: 80, width: 70 %>
+                  <%= image_tag 'userdog.png', :class => "profile", height: 80, width: 70 %>
                 <% end %>
               <% end %>
-            </div>
-            <div class="card-description">
+            <div class="flex-card-dog">
               <div>
-                <h3><%= user.name %></h3>
+                <h5><%= user.name %></h5>
+                <h2><span> (<%= user.phone.first(3) %>) <%= user.phone[3..5] %>-<%= user.phone[6..9] %></span></h2>
               </div>
-              <div>
-                <p>(<%= user.phone.first(3) %>) <%= user.phone[3..5] %>-<%= user.phone[6..9] %></p>
-              </div>
+
             </div>
-            <% if user_signed_in? %>
-              <div class="follow">
-                <ul>
-                  <%= render user %>
-                </ul>
-              </div>
-            <% end %>
-          </div>
+          </figcaption>
           <% end %>
+          </figure>
+
+
         </div>
       <% end %>
     </div>
