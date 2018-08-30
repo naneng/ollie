@@ -52,30 +52,34 @@
               <!-- request_index_row title -->
               <main class="user_titles">
                 <ul class="user_main-content">
-                  <li class="skinny center">Date</li>
+                  <li class="skinnyish center">Date</li>
                   <li class="skinny center">Time</li>
                   <li class="wide center user_small-indent">OllieBuddies</li>
-                  <li class="skinny center">Trip Distance (miles)</li>
-                  <li class="skinny center">Status</li>
+                  <li class="skinnyish center">Trip Distance (miles)</li>
+                  <li class="skinnyish center">Status</li>
+                  <li class="skinnyish center">Confirm Delivery</li>
                 </ul>
               </main>
               <% @user.requests.sort_by{|req| req.datetime}.each do |r| %>
                 <!-- request_index_row 3 -->
-                <%= link_to request_path(r), :class => "unstyled_links" do %>
+
                   <article class="user_request_index_row">
                     <ul class = "user_main-content">
-                      <li class="skinny center"><%= r.datetime.strftime("%m-%d-%Y") %></li>
+                      <li class="skinnyish center"><%= r.datetime.strftime("%m-%d-%Y") %></li>
                       <li class="skinny center"><%= r.datetime.strftime("%H:%M") %></li>
                       <li class="wide center user_small-indent"><%= r.dog_list %></li>
-                      <li class="skinny center"><%= r.distance %></li>
-                      <li class="skinny center"><%= r.status %></li>
+                      <li class="skinnyish center"><%= r.distance %></li>
+                      <li class="skinnyish center"><%= r.status %></li>
+                      <li class="skinnyish center"> <% if r.status != "Delivered" %>
+                        <%= link_to "Delivered", request_delivered_path(r), method: :post %>
+                      <% end %></li>
                     </ul>
                     <ul class="user_more-content">
                       <li>Pick Up Location: <%= r.pickup_location %></li>
                       <li>Drop Off Location: <%= r.dropoff_location %></li>
                     </ul>
                   </article>
-                <% end %>
+
               <% end %>
             </section>
           </div>
@@ -87,34 +91,40 @@
             <h1 class="middle">Booked Transport Request For OllieFriends</h1>
             <section class="user_request_index_wrapper">
               <!-- request_index_row title -->
-              <main class="user_titles">
+              <main class="titles">
                 <ul class="user_main-content">
-                  <li class="skinny center">Date</li>
-                  <li class="skinny center">Time</li>
-                  <li class="wide center user_small-indent">OlliePartner/Member</li>
-                  <li class="skinny center ">OllieBuddies (#)</li>
-                  <li class="skinny center">Trip Distance (miles)</li>
-                  <li class="skinny center">Status</li>
+                  <li class="user_skinnyish center">Date</li>
+                  <li class="user_skinny center">Time</li>
+                  <li class="user_wide center">Shelter / OllieMember</li>
+                  <li class="user_skinny center ">OllieBuddies (#)</li>
+                  <li class="user_skinnyish center">Trip Distance (miles)</li>
+                  <li class="user_skinnyish center">Status</li>
+                  <li class="user_skinnyish center"></li>
                 </ul>
               </main>
               <% @user.bookings.sort_by{|req| req.request.datetime}.each do |r| %>
                 <!-- request_index_row 3 -->
-                <%= link_to request_path(r.request), :class => "unstyled_links" do %>
+
                   <article class="user_request_index_row">
                     <ul class = "user_main-content">
-                      <li class="skinny center"><%= r.request.datetime.strftime("%m-%d-%Y") %></li>
-                      <li class="skinny center"><%= r.request.datetime.strftime("%H:%M") %></li>
-                      <li class="wide center user_small-indent"><%= r.user.name %></li>
-                      <li class="skinny center"><%= r.request.dogs.count %></li>
-                      <li class="skinny center"><%= r.request.distance %></li>
-                      <li class="skinny center"><%= r.request.status %></li>
+
+                        <li class="skinnyish center" style="font-size:16px;"><%= r.request.datetime.strftime("%m-%d-%Y") %></li>
+                        <li class="skinny center"><%= r.request.datetime.strftime("%H:%M") %></li>
+                        <li class="wide center user_small-indent"><%= r.request.user.name %></li>
+                        <li class="skinny center"><%= r.request.dogs.count %></li>
+                        <li class="skinnyish center"><%= r.request.distance %></li>
+                        <li class="skinnyish center"><%= r.request.status %></li>
+
+                      <li class="skinnyish center">
+
+                      </li>
+
                     </ul>
                     <ul class="user_more-content">
                       <li>Pick Up Location: <%= r.request.pickup_location %></li>
                       <li>Drop Off Location: <%= r.request.dropoff_location %></li>
                     </ul>
                   </article>
-                <% end %>
               <% end %>
             </section>
           </div>

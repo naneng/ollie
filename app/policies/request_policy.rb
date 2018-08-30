@@ -27,6 +27,10 @@ class RequestPolicy < ApplicationPolicy
     current_user?
   end
 
+  def delivered?
+    current_user?
+  end
+
   def edit?
     current_user?
   end
