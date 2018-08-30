@@ -29,31 +29,19 @@
     justify-content: space-around;
     cursor: pointer;
 
-    height: 47vh;
+    height: 37vh;
     max-height: 100%;
 }
 
 
 .card-description {
-  // position: relative;
-  // bottom: 0px;
-  // color: rgb(63, 84, 54);
-  display: flex;
+
+  /* display: flex; */
   color: black;
   flex-direction: column;
-  // border: 1px green solid;
-  // left: 0px;
-  padding: 0px 3px 0px;
-  // background: rgb(171, 87, 219);
-  // background-color: #adc58c;
-  // background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23c6dea6' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
-  // width: 100%;
-  // border-bottom-left-radius: 10px;
-  // border-bottom-right-radius: 10px;
+  /* padding: 0px 3px 0px; */
   text-align: center;
-  // display: flex;
-  flex-wrap: wrap;
-  margin: 3px;
+  /* margin: 3px; */
   align-items: center;
   flex-grow: 1;
   h3{
@@ -62,8 +50,7 @@
 }
 
 .card p {
-  // position: absolute;
-  // color: white;
+
   font-size:  15px;
   margin: 0px;
 }
