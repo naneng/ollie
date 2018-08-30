@@ -6,7 +6,7 @@
 <div class="container">
   <div class="row">
     <div class="col col-xs-12">
-      <% @dogs.each do |dog| %>
+      <% @dogs.sort_by{|d| d.name}.each do |dog| %>
         <figure class="snip1336 prettydogs">
           <%= image_tag("dogbonebackground.png", :class => "dogbone") %>
           <figcaption>

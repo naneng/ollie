@@ -21,17 +21,17 @@
     <div class="request-container">
       <div id="locations">
         <div class="margins-top-bottom">
-          <p><strong>( A ) Current Location: </strong> 
+          <p><strong>( A ) Current Location: </strong>
             <div> <%= current_user.location %></div>
           </p>
         </div>
         <div class="margins-top-bottom">
-          <p><strong>( B ) Pick Up Location: </strong> 
+          <p><strong>( B ) Pick Up Location: </strong>
             <div id="start"> <%= @request.pickup_location %></div>
           </p>
         </div>
         <div class="margins-top-bottom">
-          <p><strong>( C ) Drop Off Location: </strong> 
+          <p><strong>( C ) Drop Off Location: </strong>
             <div id="end"> <%= @request.dropoff_location %></div>
           </p>
         </div>
@@ -84,5 +84,10 @@
       class = "map"
       data-current="<%= @currentmarker.to_json %>"
     ></div>
+</div>
+<div class="over-map">
+  <div style="margin-bottom:10px;">( A ) Current Location</div>
+  <div style="margin-bottom:10px;">( B ) Pick Up Location</div>
+  <div>( C ) Drop Off Location</div>
 </div>
 <%= console %>
