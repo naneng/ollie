@@ -28,8 +28,8 @@
   <div class="container">
     <% @users.sort_by{|u| u.name}.each do |user| %>
       <div class="col-sm-4">
-        <%#= link_to user_path(user) do %>
-          <div class="card" onclick="location.href='<%= "users/#{user.id}" %>';">
+        <%= link_to user_path(user) do %>
+            <div class="card">
             <div class="user-picture">
               <% if user.organization == true %>
                 <% if user.photo.present? %>
@@ -60,7 +60,7 @@
               </div>
             <% end %>
           </div>
-          <%# end %>
+          <% end %>
         </div>
       <% end %>
     </div>

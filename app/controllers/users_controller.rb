@@ -24,6 +24,7 @@ class UsersController < ApplicationController
   end
 
   def follow
+
     authorize @user
     if current_user.follow(@user.id)
       respond_to do |format|
@@ -34,6 +35,7 @@ class UsersController < ApplicationController
   end
 
   def unfollow
+
     authorize @user
     if current_user.unfollow(@user.id)
       respond_to do |format|
