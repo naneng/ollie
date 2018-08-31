@@ -28,6 +28,8 @@
                   Not Applicable
                 <% end %>
               </p>
+              <% end %>
+              <% if @user == current_user %>
               <p><%= link_to "Edit Profile", edit_user_registration_path(@user_id), class: 'edit-ollie' %></p>
             <% end %>
           </div>
@@ -41,6 +43,9 @@
             <p>(<%= @user.phone.first(3) %>) <%= @user.phone[3..5] %>-<%= @user.phone[6..9] %></p>
             <p><%= @user.website %></p>
             <p><%= @user.location %></p>
+            <% if @user == current_user %>
+              <p><%= link_to "Edit Profile", edit_user_registration_path(@user_id), class: 'edit-ollie' %></p>
+            <% end %>
           </div>
         <% end %>
       </div>
