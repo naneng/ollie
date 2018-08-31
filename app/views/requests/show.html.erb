@@ -64,17 +64,17 @@
         <strong>Booked by: <%= @request.bookings.first.user.name %></strong>
       </div>
     <% end %>
-    <div class = "center">
+    <div class = "center add-buddy-btn">
       <% if @request.user == current_user %>
         <% if policy(@request).edit? %>
-          <%= link_to "Edit Request", edit_request_path(@request.id), class: 'btn btn-warning btn request-btn-space' %>
+          <%= link_to "Edit Request", edit_request_path(@request.id), class: 'add-olliebuddy' %>
         <% end %>
         <% if policy(@request).destroy? %>
-          <%= link_to "Delete Request", request_path(@request), method: :delete, class: 'btn btn-warning btn request-btn-space' %>
+          <%= link_to "Delete Request", request_path(@request), method: :delete, class: 'add-olliebuddy' %>
         <% end %>
       <% else %>
         <% if @request.status != "Booked" %>
-          <%= link_to "Book Request", request_bookings_path(@request), method: :post, class: 'btn btn-warning btn request-btn-space' %>
+          <%= link_to "Book Request", request_bookings_path(@request), method: :post, class: 'add-olliebuddy' %>
         <% end %>
       <% end %>
     </div>
