@@ -32,7 +32,7 @@
 .snip1336 figcaption {
   width: 100%;
   background-color: #D7E7DE;
-  padding: 25px;
+  padding: 5px;
   position: relative;
   height: 15vh;
   box-shadow: 1px 1px 1px 1px rgba(218, 210, 210, 0.5);
@@ -65,14 +65,15 @@
 }
 .snip1336 .profile {
   border-radius: 50%;
-  height: 84%;
+  height: 100px;
+  width: 100px;
   position: absolute;
   bottom: 90%;
   left: 33px;
   z-index: 1;
   max-width: 37%;
   opacity: 1;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 .snip1336 .follow {
   margin-right: 4%;
@@ -95,6 +96,12 @@
   letter-spacing: 1px;
   opacity: 0.8;
 }
+
+.add-buddy-btn {
+  padding: 25px;
+}
+
+
 
 
 
