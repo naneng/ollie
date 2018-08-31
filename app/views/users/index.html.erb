@@ -28,46 +28,33 @@
   <div class="container">
     <% @users.sort_by{|u| u.name}.each do |user| %>
       <div class="col-sm-4">
-
-          <figure class="user-index-snip1336 prettydogs">
-            <div class="follow">
-
-                <%= render user %>
-
-            </div>
+        <figure class="snip1336 prettydogs">
+          <div class="follow">
+            <%= render user %>
+          </div>
           <%= image_tag("dogbonebackground.png", :class => "dogbone") %>
           <%= link_to user_path(user) do %>
-          <figcaption>
-
-
-
-            <% if user.photo.present? %>
-              <%= cl_image_tag user.photo, :class => "index-profile", width: 70, height: 80 %>
-            <% else %>
-              <% if user.organization %>
-                <%= image_tag 'animalshelter.png', :class => "index-profile", height: 80, width: 70 %>
-              <%else %>
-                <%= image_tag 'userdog.png', :class => "index-profile", height: 80, width: 70 %>
+            <figcaption>
+              <% if user.photo.present? %>
+                <%= cl_image_tag user.photo, :class => "profile", width: 70, height: 80 %>
+              <% else %>
+                <% if user.organization %>
+                  <%= image_tag 'animalshelter.png', :class => "profile", height: 80, width: 70 %>
+                <%else %>
+                  <%= image_tag 'userdog.png', :class => "profile", height: 80, width: 70 %>
+                <% end %>
               <% end %>
-            <% end %>
-
-
-
-
-            <div class="flex-card-dog">
-              <div>
-                <h5><%= user.name %></h5>
-                <h2><span> (<%= user.phone.first(3) %>) <%= user.phone[3..5] %>-<%= user.phone[6..9] %></span></h2>
+              <div class="flex-card-dog">
+                <div>
+                  <h5><%= user.name %></h5>
+                  <h2><span> (<%= user.phone.first(3) %>) <%= user.phone[3..5] %>-<%= user.phone[6..9] %></span></h2>
+                </div>
               </div>
-
-            </div>
-          </figcaption>
+            </figcaption>
           <% end %>
-          </figure>
-
-
-        </div>
-      <% end %>
-    </div>
+        </figure>
+      </div>
+    <% end %>
   </div>
+</div>
 </div>
