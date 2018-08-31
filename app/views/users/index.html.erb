@@ -29,7 +29,7 @@
     <% @users.sort_by{|u| u.name}.each do |user| %>
       <div class="col-sm-4">
 
-          <figure class="snip1336 prettydogs">
+          <figure class="user-index-snip1336 prettydogs">
             <div class="follow">
 
                 <%= render user %>
@@ -38,18 +38,22 @@
           <%= image_tag("dogbonebackground.png", :class => "dogbone") %>
           <%= link_to user_path(user) do %>
           <figcaption>
-            <% if user.organization == true %>
-                <% if user.photo.present? %>
-                  <%= cl_image_tag user.photo, :class => "profile", width: 70, height: 80 %>
-                <% else %>
-                <% end %>
-              <% elsif user.organization == false %>
-                <% if user.photo.present? %>
-                  <%= cl_image_tag user.photo, :class => "profile", width: 70, height: 80 %>
-                <%else %>
-                  <%= image_tag 'userdog.png', :class => "profile", height: 80, width: 70 %>
-                <% end %>
+
+
+
+            <% if user.photo.present? %>
+              <%= cl_image_tag user.photo, :class => "index-profile", width: 70, height: 80 %>
+            <% else %>
+              <% if user.organization %>
+                <%= image_tag 'animalshelter.png', :class => "index-profile", height: 80, width: 70 %>
+              <%else %>
+                <%= image_tag 'userdog.png', :class => "index-profile", height: 80, width: 70 %>
               <% end %>
+            <% end %>
+
+
+
+
             <div class="flex-card-dog">
               <div>
                 <h5><%= user.name %></h5>
