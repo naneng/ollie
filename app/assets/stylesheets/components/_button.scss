@@ -53,11 +53,52 @@
 .add-olliebuddy:hover {
   border-radius: 3px;
   color: #3b8c6c;
-  border: 2px solid #3b8c6c;
+  border: 2px solid #3EBB89;
   margin-bottom: 10px;
-  opacity: .7;
+  text-decoration: none;
+    color: white;
+    background: #36bc88;
 }
 
+.add-request-ollie {
+  padding: 4px;
+    border-radius: 3px;
+    border: 2px solid #3EBB89;
+    background-color: white;
+    color: #3EBB89;
+    /* margin-bottom: 10px; */
+    margin: 15px 0;
+}
+
+
+.add-request-ollie:hover {
+    border-radius: 3px;
+    color: #217553;
+    text-decoration: none;
+    color: white;
+    background: #36bc88;
+
+}
+
+.edit-ollie {
+  padding: 4px;
+    border-radius: 3px;
+    border: 2px solid #3EBB89;
+    color: #3EBB89;
+    /* margin-bottom: 10px; */
+    margin: 15px 0;
+    font-size: 20px;
+}
+
+
+.edit-ollie:hover {
+    border-radius: 3px;
+    color: #217553;
+    text-decoration: none;
+    color: white;
+    background: #36bc88;
+
+}
 
 .user-buttons {
   padding: 13px;
