@@ -24,7 +24,7 @@
         <div class="left check3"><input type="checkbox" id="myCheck3" > Immediately</div>
         <%= f.input :dog_ids, collection: current_user.dogs.sort_by{|dog| dog.name}, input_html: { multiple: true }, :label => "Dogs" %>
         <%= f.input :notes, as: :text, autofocus: true, :input_html => {:style => 'width: 100%', :rows => 2} %>
-        <%= f.submit "New request" %>
+        <%= f.submit "New request", class: 'add-request-ollie'  %>
       <% end %>
     </div>
     <div
